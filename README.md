@@ -18,8 +18,8 @@ El proyecto configurado es `psicosaas-3c819`.
 
 El formulario registra leads en Firestore, colección `leads`.
 
-La configuración del SDK web se lee desde variables de entorno de Vite. Copia
-`.env.example` a `.env.local` y completa:
+La configuración del SDK web se lee desde variables de entorno de Vite. Crea
+un archivo local `.env.local` con:
 
 ```bash
 VITE_FIREBASE_API_KEY=
