@@ -3,6 +3,7 @@ import Home from "./pages/Home.vue";
 import SimplePage from "./pages/SimplePage.vue";
 import NotFound from "./pages/NotFound.vue";
 import { pages } from "./data/site.js";
+import { trackEvent } from "./services/analytics.js";
 
 const routes = [
   { path: "/", component: Home },
@@ -22,6 +23,13 @@ const router = createRouter({
     if (to.hash) return { el: to.hash, behavior: "smooth" };
     return { top: 0 };
   },
+});
+
+router.afterEach((to) => {
+  trackEvent("page_view", {
+    page_path: to.fullPath,
+    page_title: document.title,
+  });
 });
 
 export default router;

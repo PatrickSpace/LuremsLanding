@@ -2,6 +2,7 @@
 import { reactive, ref, watch } from "vue";
 import { ArrowRight, CheckCircle, Loader2, Stethoscope, User } from "lucide-vue-next";
 import { z } from "zod";
+import { trackEvent } from "../services/analytics.js";
 import { submitLead } from "../services/leads.js";
 
 const props = defineProps({
@@ -87,6 +88,18 @@ function clearErrors() {
   Object.keys(fieldErrors).forEach((key) => delete fieldErrors[key]);
 }
 
+function selectUserType(type) {
+  form.tipoUsuario = type;
+  if (type !== "Psicólogo") {
+    form.perfilPsicologo = "";
+  }
+
+  trackEvent("select_user_type", {
+    tipo_usuario: type,
+    origen_formulario: props.origin,
+  });
+}
+
 async function onSubmit() {
   clearErrors();
   const parsed = schema.safeParse(form);
@@ -95,12 +108,24 @@ async function onSubmit() {
     parsed.error.issues.forEach((issue) => {
       fieldErrors[issue.path[0]] = issue.message;
     });
+    trackEvent("lead_form_error", {
+      error_type: "validation",
+      error_fields: parsed.error.issues.map((issue) => issue.path[0]).join(","),
+      tipo_usuario: form.tipoUsuario,
+      origen_formulario: props.origin,
+    });
     return;
   }
 
   loading.value = true;
   try {
     await submitLead({ ...parsed.data, origenFormulario: props.origin });
+    trackEvent("generate_lead", {
+      method: props.origin,
+      origen_formulario: props.origin,
+      tipo_usuario: parsed.data.tipoUsuario,
+      perfil_psicologo: parsed.data.tipoUsuario === "Psicólogo" ? parsed.data.perfilPsicologo : undefined,
+    });
     submitted.value = true;
     emit("submitted");
   } catch {
@@ -132,10 +157,10 @@ async function onSubmit() {
       :class="form.tipoUsuario === option.value
         ? isDark ? 'bg-white text-primary shadow-lg' : 'bg-primary text-white border border-primary shadow-md shadow-primary/20'
           : isDark ? 'bg-white/15 text-white border border-white/25 hover:bg-white/25' : 'bg-background text-muted-foreground border border-border hover:border-primary/40 hover:text-foreground'"
-        @click="form.tipoUsuario = option.value; if (option.value !== 'Psicólogo') form.perfilPsicologo = ''"
+        @click="selectUserType(option.value)"
       >
         <component :is="option.icon" :size="16" />
-        Soy {{ option.value }}
+        <span><span class="hidden sm:inline">Soy </span>{{ option.value }}</span>
       </button>
     </div>
 
