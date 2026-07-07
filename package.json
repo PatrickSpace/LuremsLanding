@@ -6,11 +6,7 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
-    "preview": "vite preview --host 0.0.0.0",
-    "functions:install": "npm --prefix functions install",
-    "functions:lint": "npm --prefix functions run lint",
-    "functions:test": "npm --prefix functions test",
-    "deploy:functions": "firebase deploy --only functions"
+    "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {
     "firebase": "^12.15.0",

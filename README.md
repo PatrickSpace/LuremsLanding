@@ -9,10 +9,7 @@ npm install
 npm run dev
 npm run build
 npm run preview
-npm run functions:lint
-npm run functions:test
-firebase deploy --only hosting,firestore:rules
-npm run deploy:functions
+firebase deploy --only hosting
 ```
 
 ## Firebase
@@ -21,4 +18,6 @@ El proyecto configurado es `psicosaas-3c819`.
 
 El formulario registra leads en Firestore, colección `leads`.
 
-Las Cloud Functions migradas viven en `functions/` y se despliegan al mismo proyecto Firebase.
+Si este proyecto comparte Firestore con la app principal, no despliegues reglas
+desde esta landing. La regla de `leads` debe fusionarse en el archivo canónico de
+reglas de Firestore de la app principal.
