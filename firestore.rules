@@ -1,0 +1,43 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /leads/{leadId} {
+      allow create: if
+        request.resource.data.keys().hasOnly([
+          "nombre",
+          "email",
+          "tipoUsuario",
+          "perfilPsicologo",
+          "ciudad",
+          "telefono",
+          "origenFormulario",
+          "pagePath",
+          "createdAt"
+        ])
+        && request.resource.data.nombre is string
+        && request.resource.data.email is string
+        && request.resource.data.tipoUsuario in ["Paciente", "Psicólogo"]
+        && request.resource.data.perfilPsicologo is string
+        && (
+          (request.resource.data.tipoUsuario == "Paciente" && request.resource.data.perfilPsicologo == "")
+          || (
+            request.resource.data.tipoUsuario == "Psicólogo"
+            && request.resource.data.perfilPsicologo in [
+              "Psicólogo clínico independiente",
+              "Psicólogo clínico dependiente",
+              "Psicólogo con otra especialidad",
+              "No soy psicólogo pero me interesa el proyecto"
+            ]
+          )
+        )
+        && request.resource.data.origenFormulario is string
+        && request.resource.data.pagePath is string
+        && request.resource.data.createdAt == request.time
+        && (!("ciudad" in request.resource.data) || request.resource.data.ciudad is string)
+        && (!("telefono" in request.resource.data) || request.resource.data.telefono is string);
+
+      allow read, update, delete: if false;
+    }
+  }
+}
