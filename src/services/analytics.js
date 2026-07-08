@@ -17,3 +17,14 @@ export async function trackEvent(name, params = {}) {
     // Analytics should never block the landing experience.
   }
 }
+
+export function trackPageView(route) {
+  const pagePath = route?.fullPath || window.location.pathname + window.location.hash;
+  const pageLocation = new URL(pagePath, window.location.origin).href;
+
+  trackEvent("page_view", {
+    page_location: pageLocation,
+    page_path: pagePath,
+    page_title: document.title,
+  });
+}

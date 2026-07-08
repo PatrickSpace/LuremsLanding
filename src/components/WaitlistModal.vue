@@ -39,7 +39,7 @@ function handleSubmitted() {
           </div>
 
           <div class="px-6 py-5">
-            <WaitlistForm :default-type="defaultType" origin="modal" :show-extra-fields="true" @submitted="handleSubmitted" />
+            <WaitlistForm :default-type="defaultType" origin="modal" @submitted="handleSubmitted" />
           </div>
         </div>
       </div>

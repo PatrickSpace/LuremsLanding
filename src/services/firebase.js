@@ -12,7 +12,14 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
-const analyticsAllowedHosts = ["lurems.lat", "www.lurems.lat"];
+const analyticsAllowedHosts = [
+  "lurems.com",
+  "www.lurems.com",
+  "lurems.lat",
+  "www.lurems.lat",
+  "lurems-120100.web.app",
+  "lurems-120100.firebaseapp.com",
+];
 
 export const firebaseApp = initializeApp(firebaseConfig);
 export const db = getFirestore(firebaseApp);

@@ -1,6 +1,6 @@
 <script setup>
-import { reactive, ref, watch } from "vue";
-import { ArrowRight, CheckCircle, Loader2, Stethoscope, User } from "lucide-vue-next";
+import { computed, reactive, ref, watch } from "vue";
+import { ArrowRight, CheckCircle, Loader2, User } from "lucide-vue-next";
 import { z } from "zod";
 import { trackEvent } from "../services/analytics.js";
 import { submitLead } from "../services/leads.js";
@@ -18,10 +18,6 @@ const props = defineProps({
     type: String,
     default: "waitlist",
   },
-  showExtraFields: {
-    type: Boolean,
-    default: false,
-  },
 });
 
 const emit = defineEmits(["submitted"]);
@@ -31,8 +27,6 @@ const form = reactive({
   email: "",
   tipoUsuario: props.defaultType,
   perfilPsicologo: "",
-  ciudad: "",
-  telefono: "",
 });
 
 const submitted = ref(false);
@@ -53,8 +47,6 @@ const schema = z
     email: z.string().email("Email inválido"),
     tipoUsuario: z.enum(["Paciente", "Psicólogo"]),
     perfilPsicologo: z.string().optional(),
-    ciudad: z.string().optional(),
-    telefono: z.string().optional(),
   })
   .superRefine((data, ctx) => {
     if (data.tipoUsuario === "Psicólogo" && !psychologistProfileOptions.includes(data.perfilPsicologo || "")) {
@@ -68,10 +60,42 @@ const schema = z
 
 const typeOptions = [
   { value: "Paciente", icon: User },
-  { value: "Psicólogo", icon: Stethoscope },
+  { value: "Psicólogo", icon: null },
 ];
 
 const isDark = props.variant === "dark";
+const isPsychologist = computed(() => form.tipoUsuario === "Psicólogo");
+const submitLabel = computed(() => (form.tipoUsuario === "Psicólogo" ? "Unirme como psicólogo" : "Quiero acceso temprano"));
+const successIconClass = computed(() => {
+  if (isDark) return "text-white";
+  return isPsychologist.value ? "text-secondary" : "text-primary";
+});
+const successIconWrapperClass = computed(() => {
+  if (isDark) return "bg-white/10 border border-white/20";
+  return isPsychologist.value ? "bg-secondary/10 border border-secondary/20" : "bg-primary/10 border border-primary/20";
+});
+const inputClass = computed(() => {
+  if (isDark) {
+    return isPsychologist.value
+      ? "bg-white/90 text-foreground placeholder:text-muted-foreground border border-transparent focus:bg-white focus:ring-2 focus:ring-secondary/25"
+      : "bg-white/90 text-foreground placeholder:text-muted-foreground border border-transparent focus:bg-white focus:ring-2 focus:ring-primary/20";
+  }
+
+  return isPsychologist.value
+    ? "bg-background border border-border/70 focus:border-secondary focus:ring-2 focus:ring-secondary/15"
+    : "bg-background border border-border/70 focus:border-primary focus:ring-2 focus:ring-primary/15";
+});
+const submitButtonClass = computed(() => {
+  if (isDark) {
+    return isPsychologist.value
+      ? "bg-secondary text-white hover:bg-secondary/90 shadow-xl shadow-secondary/20"
+      : "bg-white text-primary hover:bg-white/95 shadow-xl shadow-black/10";
+  }
+
+  return isPsychologist.value
+    ? "bg-secondary text-white hover:bg-secondary/90 shadow-lg shadow-secondary/20"
+    : "bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20";
+});
 
 watch(
   () => props.defaultType,
@@ -98,6 +122,28 @@ function selectUserType(type) {
     tipo_usuario: type,
     origen_formulario: props.origin,
   });
+}
+
+function typeButtonClass(type) {
+  const selected = form.tipoUsuario === type;
+  const psychologistOption = type === "Psicólogo";
+
+  if (selected) {
+    if (isDark && !psychologistOption) return "bg-white text-primary shadow-lg";
+    return psychologistOption
+      ? "bg-secondary text-white border border-secondary shadow-md shadow-secondary/20"
+      : "bg-primary text-white border border-primary shadow-md shadow-primary/20";
+  }
+
+  if (isDark) {
+    return psychologistOption
+      ? "bg-white/15 text-white border border-white/25 hover:bg-secondary/25 hover:border-secondary/50"
+      : "bg-white/15 text-white border border-white/25 hover:bg-white/25";
+  }
+
+  return psychologistOption
+    ? "bg-background text-muted-foreground border border-border hover:border-secondary/45 hover:text-foreground"
+    : "bg-background text-muted-foreground border border-border hover:border-primary/40 hover:text-foreground";
 }
 
 async function onSubmit() {
@@ -138,8 +184,8 @@ async function onSubmit() {
 
 <template>
   <div v-if="submitted" class="flex flex-col items-center gap-3 py-6 text-center" :class="isDark ? 'text-white' : 'text-foreground'">
-    <div class="w-16 h-16 rounded-2xl flex items-center justify-center" :class="isDark ? 'bg-white/10 border border-white/20' : 'bg-primary/10 border border-primary/20'">
-      <CheckCircle :size="32" :class="isDark ? 'text-white' : 'text-primary'" />
+    <div class="w-16 h-16 rounded-2xl flex items-center justify-center" :class="successIconWrapperClass">
+      <CheckCircle :size="32" :class="successIconClass" />
     </div>
     <p class="text-2xl font-bold">¡Registrado!</p>
     <p class="max-w-sm" :class="isDark ? 'text-white/70' : 'text-muted-foreground'">
@@ -154,22 +200,35 @@ async function onSubmit() {
         :key="option.value"
         type="button"
         class="flex items-center justify-center gap-2 py-3 px-5 rounded-full text-sm font-semibold transition-all"
-      :class="form.tipoUsuario === option.value
-        ? isDark ? 'bg-white text-primary shadow-lg' : 'bg-primary text-white border border-primary shadow-md shadow-primary/20'
-          : isDark ? 'bg-white/15 text-white border border-white/25 hover:bg-white/25' : 'bg-background text-muted-foreground border border-border hover:border-primary/40 hover:text-foreground'"
+        :class="typeButtonClass(option.value)"
         @click="selectUserType(option.value)"
       >
-        <component :is="option.icon" :size="16" />
+        <svg
+          v-if="option.value === 'Psicólogo'"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          class="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M12 3v15" />
+          <path d="M5 3v7a7 7 0 0 0 14 0V3" />
+          <path d="M9 21h6" />
+          <path d="M10 18h4" />
+        </svg>
+        <component v-else :is="option.icon" :size="16" />
         <span><span class="hidden sm:inline">Soy </span>{{ option.value }}</span>
       </button>
     </div>
 
     <label v-if="form.tipoUsuario === 'Psicólogo'" class="block space-y-1.5">
-      <span v-if="showExtraFields" class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Perfil profesional *</span>
       <select
         v-model="form.perfilPsicologo"
         class="w-full h-12 px-4 rounded-full transition-all appearance-none"
-        :class="isDark ? 'bg-white/90 text-foreground border border-transparent focus:bg-white focus:ring-2 focus:ring-primary/20' : 'bg-background border border-border/70 focus:border-primary text-foreground'"
+        :class="inputClass"
       >
         <option value="" disabled>Selecciona tu perfil</option>
         <option v-for="profile in psychologistProfileOptions" :key="profile" :value="profile">{{ profile }}</option>
@@ -179,37 +238,24 @@ async function onSubmit() {
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
       <label class="space-y-1.5">
-        <span v-if="showExtraFields" class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Nombre completo *</span>
         <input
           v-model="form.nombre"
           class="w-full h-12 px-4 rounded-full transition-all"
-          :class="isDark ? 'bg-white/90 text-foreground placeholder:text-muted-foreground border border-transparent focus:bg-white focus:ring-2 focus:ring-primary/20' : 'bg-background border border-border/70 focus:border-primary'"
+          :class="inputClass"
           placeholder="Tu nombre"
         />
         <span v-if="fieldErrors.nombre" class="block text-xs" :class="isDark ? 'text-white/80' : 'text-destructive'">{{ fieldErrors.nombre }}</span>
       </label>
 
       <label class="space-y-1.5">
-        <span v-if="showExtraFields" class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Email *</span>
         <input
           v-model="form.email"
           type="email"
           class="w-full h-12 px-4 rounded-full transition-all"
-          :class="isDark ? 'bg-white/90 text-foreground placeholder:text-muted-foreground border border-transparent focus:bg-white focus:ring-2 focus:ring-primary/20' : 'bg-background border border-border/70 focus:border-primary'"
+          :class="inputClass"
           placeholder="tu@email.com"
         />
         <span v-if="fieldErrors.email" class="block text-xs" :class="isDark ? 'text-white/80' : 'text-destructive'">{{ fieldErrors.email }}</span>
-      </label>
-    </div>
-
-    <div v-if="showExtraFields" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-      <label class="space-y-1.5">
-        <span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Ciudad</span>
-        <input v-model="form.ciudad" class="w-full h-11 px-4 rounded-full bg-background border border-border/70 focus:border-primary" placeholder="Buenos Aires" />
-      </label>
-      <label class="space-y-1.5">
-        <span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Teléfono</span>
-        <input v-model="form.telefono" type="tel" class="w-full h-11 px-4 rounded-full bg-background border border-border/70 focus:border-primary" placeholder="+54 11..." />
       </label>
     </div>
 
@@ -221,10 +267,10 @@ async function onSubmit() {
       type="submit"
       :disabled="loading"
       class="w-full h-12 rounded-full font-bold text-base transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-      :class="isDark ? 'bg-white text-primary hover:bg-white/95 shadow-xl shadow-black/10' : 'bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20'"
+      :class="submitButtonClass"
     >
       <Loader2 v-if="loading" :size="18" class="animate-spin" />
-      <span>{{ loading ? "Registrando..." : "Comenzar mi camino" }}</span>
+      <span>{{ loading ? "Registrando..." : submitLabel }}</span>
       <ArrowRight v-if="!loading" :size="18" />
     </button>
     <p class="text-xs text-center" :class="isDark ? 'text-white/50' : 'text-muted-foreground/70'">Sin spam. Cancela cuando quieras.</p>

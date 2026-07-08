@@ -4,21 +4,14 @@ import { ArrowUpRight } from "lucide-vue-next";
 const emit = defineEmits(["open-waitlist"]);
 
 const productLinks = [
-  { href: "/como-funciona", label: "Cómo funciona" },
-  { href: "/pacientes", label: "Para pacientes" },
-  { href: "/psicologos", label: "Para psicólogos" },
-  { href: "/blog", label: "Blog" },
+  { href: "/#como-funciona", label: "Cómo funciona" },
+  { href: "/#para-psicologos", label: "Para psicólogos" },
+  { href: "/#preguntas", label: "Preguntas frecuentes" },
 ];
 
 const companyLinks = [
-  { href: "/sobre-nosotros", label: "Sobre nosotros" },
-  { href: "/contacto", label: "Contacto" },
-  { href: "/faq", label: "Preguntas frecuentes" },
-];
-
-const legalLinks = [
-  { href: "/privacidad", label: "Privacidad" },
-  { href: "/terminos", label: "Términos" },
+  { href: "/#waitlist-section", label: "Acceso temprano" },
+  { href: "/#para-psicologos", label: "Unirme como psicólogo" },
 ];
 </script>
 
@@ -36,7 +29,7 @@ const legalLinks = [
             </div>
             <div class="flex flex-col sm:flex-row gap-3">
               <button class="px-7 py-3.5 rounded-full bg-white text-primary font-semibold hover:bg-white/90 transition-all shadow-lg shadow-black/20" @click="emit('open-waitlist', 'Paciente')">
-                Comenzar mi camino
+                Quiero acceso temprano
               </button>
               <button class="px-7 py-3.5 rounded-full bg-white/10 text-white font-semibold border border-white/20 hover:bg-white/20 transition-all" @click="emit('open-waitlist', 'Psicólogo')">
                 Quiero unirme como psicólogo
@@ -82,17 +75,6 @@ const legalLinks = [
             </ul>
           </div>
 
-          <div class="lg:col-span-2">
-            <h4 class="font-semibold text-white text-xs uppercase tracking-[0.15em] mb-5">Legal</h4>
-            <ul class="space-y-3.5">
-              <li v-for="link in legalLinks" :key="link.href">
-                <RouterLink :to="link.href" class="text-sm text-white/50 hover:text-primary transition-colors cursor-pointer inline-flex items-center gap-1 group">
-                  {{ link.label }}
-                  <ArrowUpRight :size="12" class="opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
-                </RouterLink>
-              </li>
-            </ul>
-          </div>
         </div>
 
         <div class="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">

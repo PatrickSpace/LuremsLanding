@@ -7,8 +7,6 @@ export async function submitLead(data) {
     email: data.email.trim().toLowerCase(),
     tipoUsuario: data.tipoUsuario,
     perfilPsicologo: data.perfilPsicologo?.trim() || "",
-    ciudad: data.ciudad?.trim() || "",
-    telefono: data.telefono?.trim() || "",
     origenFormulario: data.origenFormulario || "waitlist",
     pagePath: window.location.pathname,
     createdAt: serverTimestamp(),

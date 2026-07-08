@@ -10,9 +10,14 @@ const scrolled = ref(false);
 const menuOpen = ref(false);
 
 const currentPath = computed(() => route.path);
+const currentFullPath = computed(() => route.fullPath);
 
 function updateScrolled() {
   scrolled.value = window.scrollY > 10;
+}
+
+function isNavLinkActive(href) {
+  return href.includes("#") ? currentFullPath.value === href : currentPath.value === href;
 }
 
 onMounted(() => {
@@ -24,7 +29,7 @@ onUnmounted(() => {
   window.removeEventListener("scroll", updateScrolled);
 });
 
-watch(currentPath, () => {
+watch(currentFullPath, () => {
   menuOpen.value = false;
 });
 </script>
@@ -38,10 +43,11 @@ watch(currentPath, () => {
       <div class="flex items-center justify-between h-[68px]">
         <RouterLink to="/" class="flex items-center cursor-pointer group" data-testid="nav-logo">
           <img
-            src="/brand/lurems-logo-principal-transparent.png"
+            src="/brand/lurems-isotipo-transparent.png"
             alt="Lurems"
-            class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+            class="h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
           />
+          <span class="ml-2 text-[1.7rem] font-medium leading-none tracking-normal text-foreground">lurems</span>
         </RouterLink>
 
         <div class="hidden md:flex items-center gap-0.5">
@@ -50,19 +56,16 @@ watch(currentPath, () => {
             :key="link.href"
             :to="link.href"
             class="relative px-3.5 py-2 rounded-lg text-sm font-medium transition-all"
-            :class="currentPath === link.href ? 'text-primary bg-primary/8' : 'text-muted-foreground hover:text-foreground hover:bg-accent'"
+            :class="isNavLinkActive(link.href) ? 'text-primary bg-primary/8' : 'text-muted-foreground hover:text-foreground hover:bg-accent'"
           >
             {{ link.label }}
-            <span v-if="currentPath === link.href" class="absolute bottom-1 left-3.5 right-3.5 h-0.5 rounded-full bg-primary" />
+            <span v-if="isNavLinkActive(link.href)" class="absolute bottom-1 left-3.5 right-3.5 h-0.5 rounded-full bg-primary" />
           </RouterLink>
         </div>
 
         <div class="hidden md:flex items-center gap-2.5">
-          <button class="text-sm font-medium text-muted-foreground hover:text-foreground px-3.5 py-2 rounded-full hover:bg-accent/60 transition-all" @click="emit('open-waitlist', 'Paciente')">
-            Iniciar sesión
-          </button>
           <button class="bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm shadow-primary/20 hover:shadow-primary/25 hover:-translate-y-px transition-all" @click="emit('open-waitlist', 'Paciente')">
-            Registrarme
+            Solicitar acceso
           </button>
         </div>
 
@@ -82,16 +85,13 @@ watch(currentPath, () => {
           :key="link.href"
           :to="link.href"
           class="block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors"
-          :class="currentPath === link.href ? 'text-primary bg-primary/8' : 'text-muted-foreground hover:text-foreground hover:bg-accent'"
+          :class="isNavLinkActive(link.href) ? 'text-primary bg-primary/8' : 'text-muted-foreground hover:text-foreground hover:bg-accent'"
         >
           {{ link.label }}
         </RouterLink>
         <div class="flex flex-col gap-2 px-4 pt-3 mt-2 border-t border-border/30">
-          <button class="w-full py-2.5 px-4 rounded-full border border-border text-sm font-medium text-foreground hover:bg-accent transition-all" @click="emit('open-waitlist', 'Paciente')">
-            Iniciar sesión
-          </button>
           <button class="w-full py-2.5 px-4 rounded-full bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-all" @click="emit('open-waitlist', 'Paciente')">
-            Registrarme
+            Solicitar acceso
           </button>
         </div>
       </div>
