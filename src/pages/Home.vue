@@ -48,7 +48,7 @@ const heroPaths = [
     icon: UserRound,
     title: "Para pacientes",
     description:
-      "Enceuntra al mejor profesional para tí, organiza tus citas, registra tus emociones y conserva lo aprendido para dar continuidad a tu terapia.",
+      "Encuentra al mejor profesional para tí, organiza tus citas, registra tus emociones y conserva lo aprendido para dar continuidad a tu terapia.",
     href: "/#waitlist-section",
     tone: "patient",
   },
@@ -327,7 +327,9 @@ const platformFeatureCards = [
               Cuando pedir ayuda ya cuesta, elegir no debería sentirse imposible
             </h2>
           </div>
-          <p class="mx-auto max-w-3xl text-lg text-muted-foreground leading-relaxed">
+          <p
+            class="mx-auto max-w-3xl text-lg text-muted-foreground leading-relaxed"
+          >
             Lurems acompaña el tramo más frágil del proceso: entender qué
             necesitas, reconocer buenas señales y dar un primer paso con más
             confianza.
@@ -361,7 +363,10 @@ const platformFeatureCards = [
       </div>
     </section>
 
-    <section id="como-funciona" class="relative z-0 scroll-mt-24 py-24 bg-white">
+    <section
+      id="como-funciona"
+      class="relative z-0 scroll-mt-24 py-24 bg-white"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <span
@@ -392,7 +397,11 @@ const platformFeatureCards = [
           >
             <div
               class="relative z-10 w-24 h-24 rounded-[8px] bg-background border border-border flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:shadow-md transition-all duration-300 group-hover:-translate-y-1"
-              :class="index < 2 ? 'group-hover:border-primary/30' : 'group-hover:border-secondary/30'"
+              :class="
+                index < 2
+                  ? 'group-hover:border-primary/30'
+                  : 'group-hover:border-secondary/30'
+              "
             >
               <component
                 :is="step.icon"
@@ -461,7 +470,10 @@ const platformFeatureCards = [
       </div>
     </section>
 
-    <section id="para-psicologos" class="scroll-mt-24 py-24 lg:py-28 bg-background">
+    <section
+      id="para-psicologos"
+      class="scroll-mt-24 py-24 lg:py-28 bg-background"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -658,7 +670,9 @@ const platformFeatureCards = [
     </section>
 
     <section class="bg-background py-16 lg:py-20">
-      <div class="mx-auto flex max-w-4xl flex-col items-center px-4 text-center sm:px-6 lg:px-8">
+      <div
+        class="mx-auto flex max-w-4xl flex-col items-center px-4 text-center sm:px-6 lg:px-8"
+      >
         <img
           src="/brand/lurems-logo-principal-transparent.png"
           alt="Lurems, claridad en tu camino terapéutico"
