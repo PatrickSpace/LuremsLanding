@@ -1,6 +1,9 @@
 {
+  "firestore": {
+    "rules": "firestore.rules"
+  },
   "hosting": {
-    "site": "lurems-120100",
+    "site": "luremslanding",
     "public": "dist",
     "ignore": [
       "firebase.json",

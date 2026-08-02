@@ -13,12 +13,10 @@ const firebaseConfig = {
 };
 
 const analyticsAllowedHosts = [
-  "lurems.com",
-  "www.lurems.com",
   "lurems.lat",
   "www.lurems.lat",
-  "lurems-120100.web.app",
-  "lurems-120100.firebaseapp.com",
+  "luremslanding.web.app",
+  "luremslanding.firebaseapp.com",
 ];
 
 export const firebaseApp = initializeApp(firebaseConfig);

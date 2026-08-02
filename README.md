@@ -10,11 +10,13 @@ npm run dev
 npm run build
 npm run preview
 firebase deploy --only hosting
+firebase deploy --only hosting,firestore:rules
 ```
 
 ## Firebase
 
-El proyecto configurado es `psicosaas-3c819`.
+El proyecto configurado es `luremslanding` y el sitio de Firebase Hosting es
+`luremslanding`.
 
 El formulario registra leads en Firestore, colección `leads`.
 
@@ -31,9 +33,9 @@ VITE_FIREBASE_APP_ID=
 VITE_FIREBASE_MEASUREMENT_ID=
 ```
 
-Firebase Analytics solo se inicializa en builds de producción cuando el hostname
-es `lurems.lat` o `www.lurems.lat`.
+Firebase Analytics solo se inicializa en builds de producción para `lurems.lat`,
+`www.lurems.lat` y los dominios predeterminados del sitio de Firebase Hosting.
 
-Si este proyecto comparte Firestore con la app principal, no despliegues reglas
-desde esta landing. La regla de `leads` debe fusionarse en el archivo canónico de
-reglas de Firestore de la app principal.
+Las reglas de `firestore.rules` permiten únicamente crear documentos válidos en
+la colección `leads`. Las lecturas, modificaciones, eliminaciones y el acceso a
+otras colecciones están bloqueados para clientes web.
