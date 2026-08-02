@@ -254,12 +254,36 @@ const platformFeatureCards = [
             <div
               class="relative overflow-hidden rounded-[8px] border border-white/80 bg-white shadow-2xl shadow-primary/10"
             >
-              <img
-                src="/brand/lurems-hero-illustration.png"
-                alt="Camino terapéutico guiado por un faro"
-                class="h-[280px] w-full object-cover object-center sm:h-[360px] lg:h-[510px]"
-                loading="eager"
-              />
+              <picture>
+                <source
+                  type="image/avif"
+                  srcset="
+                    /brand/lurems-hero-480.avif   480w,
+                    /brand/lurems-hero-768.avif   768w,
+                    /brand/lurems-hero-1200.avif 1200w
+                  "
+                  sizes="(min-width: 1280px) 704px, (min-width: 1024px) 55vw, 100vw"
+                />
+                <source
+                  type="image/webp"
+                  srcset="
+                    /brand/lurems-hero-480.webp   480w,
+                    /brand/lurems-hero-768.webp   768w,
+                    /brand/lurems-hero-1200.webp 1200w
+                  "
+                  sizes="(min-width: 1280px) 704px, (min-width: 1024px) 55vw, 100vw"
+                />
+                <img
+                  src="/brand/lurems-hero-1200.jpg"
+                  alt="Camino terapéutico guiado por un faro"
+                  width="1200"
+                  height="800"
+                  class="h-[280px] w-full object-cover object-center sm:h-[360px] lg:h-[510px]"
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
+                />
+              </picture>
             </div>
             <div
               class="absolute -right-5 -top-5 hidden rounded-[8px] border border-secondary/15 bg-white px-4 py-3 text-sm font-semibold text-foreground shadow-lg lg:flex lg:items-center lg:gap-2"
