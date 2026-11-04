@@ -12,7 +12,6 @@ import {
   Heart,
   HeartHandshake,
   LibraryBig,
-  Lightbulb,
   Search,
   Shield,
   UserRoundPlus,
@@ -20,11 +19,12 @@ import {
   Users,
 } from "lucide-vue-next";
 import WaitlistForm from "../components/WaitlistForm.vue";
+import HeroVideo from "../components/HeroVideo.vue";
 import {
   benefits,
   faqs,
   psychologistBenefits,
-  testimonials,
+  validationGoals,
 } from "../data/site.js";
 
 const emit = defineEmits(["open-waitlist"]);
@@ -36,19 +36,12 @@ function scrollToWaitlist() {
     ?.scrollIntoView({ behavior: "smooth" });
 }
 
-function initials(name) {
-  return name
-    .split(" ")
-    .map((part) => part[0])
-    .join("");
-}
-
 const heroPaths = [
   {
     icon: UserRound,
     title: "Para pacientes",
     description:
-      "Encuentra al mejor profesional para tí, organiza tus citas, registra tus emociones y conserva lo aprendido para dar continuidad a tu terapia.",
+      "Encuentra al profesional adecuado para ti, organiza tus citas, registra tus emociones y conserva lo aprendido para dar continuidad a tu terapia.",
     href: "/#waitlist-section",
     tone: "patient",
   },
@@ -56,16 +49,10 @@ const heroPaths = [
     icon: Users,
     title: "Para psicólogos",
     description:
-      "Recibe pacientes acorde a tu especialidad, gestiona tu agenda, despreocupate de la cobranza y accede a herramientas que reducen tareas administrativas.",
+      "Recibe pacientes acordes con tu especialidad, gestiona tu agenda, despreocúpate de la cobranza y accede a herramientas que reducen tareas administrativas.",
     href: "/#para-psicologos",
     tone: "psychologist",
   },
-];
-
-const heroSignals = [
-  { icon: Shield, text: "Mantenemos la privacidad de tus datos" },
-  { icon: Users, text: "Profesionales verificados" },
-  { icon: HeartHandshake, text: "    Acompañamiento entre sesiones" },
 ];
 
 const solutionCards = [
@@ -128,19 +115,19 @@ const reassuranceItems = [
 const platformFeatureCards = [
   {
     icon: UserRoundPlus,
-    title: "Nuevos pacientes ",
+    title: "Nuevos pacientes",
     description:
-      "No dependas del boca a boca, registraté en Lurems y recibe nuevos pacientes alineadas con tu práctica.",
+      "Amplía tu alcance más allá del boca a boca y conecta con pacientes cuyas necesidades se alineen con tu práctica.",
   },
   {
     icon: CalendarCheck,
     title: "Agenda y próximos pasos",
     description:
-      "Centraliza citas, recordatorios y acciones para organizar tus sesiones de tereapia",
+      "Centraliza citas, recordatorios y acciones para organizar tus sesiones de terapia.",
   },
   {
     icon: LibraryBig,
-    title: "Herramientas psicologicas",
+    title: "Herramientas psicológicas",
     description:
       "Convierte las herramientas que le brindas a tus pacientes en un recurso al que pueden acceder cuando lo necesiten.",
   },
@@ -148,158 +135,29 @@ const platformFeatureCards = [
     icon: CreditCard,
     title: "Cobranzas automáticas",
     description:
-      "Olvidate de las cobranzas, deja que Lurems lo haga. Accede a resumen de ingresos y reportes financieros",
+      "Simplifica la cobranza y consulta resúmenes de ingresos y reportes financieros.",
   },
   {
     icon: BrainCircuit,
-    title: "Historia clinica inteligente",
+    title: "Historia clínica inteligente",
     description:
-      "Accede a resumenes, detecta patrones conductuales y organiza la información de tus pacientes para dar continuidad a tu trabajo.",
+      "Accede a resúmenes, detecta patrones conductuales y organiza la información de tus pacientes para dar continuidad a tu trabajo.",
   },
   {
     icon: ClipboardCheck,
     title: "Contexto previo a la sesión",
     description:
-      "Antes de cada sesión, recibe información organizada, resumida antes del encuentro.",
+      "Recibe un resumen de la información relevante para preparar cada sesión.",
   },
 ];
 </script>
 
 <template>
   <div class="overflow-x-hidden">
-    <section
-      class="relative z-10 hero-gradient pt-24 pb-16 lg:pt-28 lg:pb-24 overflow-hidden"
-    >
-      <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          class="absolute left-[8%] top-[18%] h-56 w-56 rounded-full bg-hope/12 blur-3xl"
-        />
-        <div
-          class="absolute right-[10%] top-[8%] h-72 w-72 rounded-full bg-secondary/10 blur-3xl"
-        />
-      </div>
-
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          class="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:min-h-[640px]"
-        >
-          <div class="max-w-xl text-center lg:text-left animate-reveal-up">
-            <div
-              class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/80 border border-primary/15 text-primary text-sm font-semibold mb-7 shadow-sm"
-            >
-              <span class="relative flex h-2 w-2">
-                <span
-                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-60"
-                />
-                <span
-                  class="relative inline-flex h-2 w-2 rounded-full bg-primary"
-                />
-              </span>
-              Tu espacio personal y privado para buscar apoyo
-            </div>
-
-            <h1
-              class="text-4xl sm:text-5xl xl:text-[3.45rem] font-bold text-foreground leading-[1.06] tracking-tight mb-6 [overflow-wrap:break-word]"
-            >
-              Te sientes 
-              <span class="gradient-text"> solo</span> ?
-            </h1>
-
-
-            <h1
-              class="text-3xl sm:text-2xl xl:text-[2.45rem] font-bold text-foreground leading-[1.06] tracking-tight mb-6 [overflow-wrap:break-word]"
-            >
-              Pedir ayuda no tiene nada de malo
-                      </h1>
-
-            <p
-              class="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-9 max-w-xl mx-auto lg:mx-0"
-            >
-              Encuentra al psicólogo adecuado, organiza tu terapia y reconoce tus avances. Un espacio para acompañarte dentro y fuera de cada sesión.
-            </p>
-
-            <div
-              class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8"
-            >
-              <button
-                class="group inline-flex min-h-14 items-center justify-center gap-2.5 whitespace-nowrap bg-primary hover:bg-primary/90 text-white font-semibold px-7 py-4 rounded-full transition-all duration-300 text-base shadow-xl shadow-primary/20 hover:shadow-primary/35 hover:-translate-y-0.5"
-                @click="scrollToWaitlist"
-              >
-                Solicitar acceso temprano
-                <ArrowRight
-                  :size="18"
-                  class="group-hover:translate-x-0.5 transition-transform"
-                />
-              </button>
-              <RouterLink
-                to="/#como-funciona"
-                class="group inline-flex min-h-14 items-center justify-center gap-2 whitespace-nowrap bg-white/75 hover:bg-white backdrop-blur-sm text-foreground font-semibold px-7 py-4 rounded-full border border-border hover:border-primary/30 transition-all duration-300 text-base hover:-translate-y-0.5"
-              >
-                Ver cómo funciona
-              </RouterLink>
-            </div>
-
-            <div class="grid gap-2.5 sm:grid-cols-3 lg:max-w-2xl">
-              <div
-                v-for="signal in heroSignals"
-                :key="signal.text"
-                class="flex items-center justify-center lg:justify-start gap-2 rounded-full border border-border/70 bg-white/65 px-3.5 py-2.5 text-xs font-medium text-muted-foreground shadow-sm"
-              >
-                <component
-                  :is="signal.icon"
-                  :size="24"
-                  class="h-[18px] w-[18px] text-primary sm:h-[20px] sm:w-[20px] lg:h-[24px] lg:w-[24px]"
-                />
-                <span>{{ signal.text }}</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="relative animate-reveal-up animate-reveal-delay">
-            <div
-              class="relative overflow-hidden rounded-[8px] border border-white/80 bg-white shadow-2xl shadow-primary/10"
-            >
-              <picture>
-                <source
-                  type="image/avif"
-                  srcset="
-                    /brand/lurems-hero-480.avif   480w,
-                    /brand/lurems-hero-768.avif   768w,
-                    /brand/lurems-hero-1200.avif 1200w
-                  "
-                  sizes="(min-width: 1280px) 704px, (min-width: 1024px) 55vw, 100vw"
-                />
-                <source
-                  type="image/webp"
-                  srcset="
-                    /brand/lurems-hero-480.webp   480w,
-                    /brand/lurems-hero-768.webp   768w,
-                    /brand/lurems-hero-1200.webp 1200w
-                  "
-                  sizes="(min-width: 1280px) 704px, (min-width: 1024px) 55vw, 100vw"
-                />
-                <img
-                  src="/brand/lurems-hero-1200.jpg"
-                  alt="Camino terapéutico guiado por un faro"
-                  width="1200"
-                  height="800"
-                  class="h-[280px] w-full object-cover object-center sm:h-[360px] lg:h-[510px]"
-                  loading="eager"
-                  fetchpriority="high"
-                  decoding="async"
-                />
-              </picture>
-            </div>
-            <div
-              class="absolute -right-5 -top-5 hidden rounded-[8px] border border-secondary/15 bg-white px-4 py-3 text-sm font-semibold text-foreground shadow-lg lg:flex lg:items-center lg:gap-2"
-            >
-              <Lightbulb :size="17" class="text-secondary" />
-              Claridad en tu camino terapéutico
-            </div>
-          </div>
-        </div>
-
-        <div class="relative z-30 mt-10">
+    <HeroVideo @request-access="scrollToWaitlist" />
+    <section class="relative z-10 bg-background py-10 lg:py-14">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative z-30">
           <div
             class="grid grid-cols-1 md:grid-cols-2 bg-white/92 backdrop-blur-xl rounded-[8px] border border-border shadow-lg overflow-hidden"
           >
@@ -467,7 +325,7 @@ const platformFeatureCards = [
           <h2
             class="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-2 mb-5 tracking-tight"
           >
-            No es otro directorio de Psicólogos
+            Más claridad para elegir y continuar tu terapia
           </h2>
           <p
             class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
@@ -513,14 +371,14 @@ const platformFeatureCards = [
             <h2
               class="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-foreground mt-2 mb-7 leading-tight tracking-tight"
             >
-              La herramienta clave para los psicologos independientes
+              La herramienta clave para los psicólogos independientes
             </h2>
             <p
               class="text-lg text-muted-foreground mb-10 leading-relaxed max-w-lg"
             >
-              Lurems ayuda a los psicólogos a captar pacientes, gestionar su
+              Estamos desarrollando Lurems para ayudar a los psicólogos a captar pacientes, gestionar su
               agenda y organizar el seguimiento, reduciendo tareas operativas
-              con IA para que puedan centrarse en lo importante: Sus pacientes.
+              con IA para que puedan centrarse en lo importante: sus pacientes.
             </p>
             <ul class="space-y-5 mb-10">
               <li
@@ -562,14 +420,14 @@ const platformFeatureCards = [
                 <p
                   class="text-xs font-semibold uppercase tracking-[0.16em] text-secondary"
                 >
-                  Funcionalidades clave
+                  Funcionalidades previstas
                 </p>
                 <h3 class="mt-2 text-2xl font-bold text-foreground">
                   Una app para orientar, conectar y sostener el proceso
                 </h3>
                 <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  Lurems reúne herramientas pensadas para que pacientes y
-                  psicólogos avancen con más claridad desde el primer paso.
+                  Estas herramientas forman parte de la propuesta en desarrollo.
+                  Te avisaremos cuando puedas probarlas.
                 </p>
               </div>
 
@@ -618,39 +476,21 @@ const platformFeatureCards = [
           <p
             class="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
-            Primeras señales de personas y profesionales que reconocen el mismo
-            problema: empezar terapia debería sentirse menos confuso.
+            Queremos aprender qué necesitan pacientes y psicólogos antes de
+            lanzar. Estos son los objetivos que guían el desarrollo de Lurems.
           </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div
-            v-for="testimonial in testimonials"
-            :key="testimonial.name + testimonial.text"
-            class="group relative bg-card rounded-[8px] p-7 border border-card-border shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-1"
+            v-for="goal in validationGoals"
+            :key="goal.title"
+            class="bg-card rounded-[8px] p-7 border border-card-border shadow-sm"
           >
-            <div
-              class="inline-flex items-center rounded-full bg-primary/8 px-3 py-1 text-xs font-semibold text-primary mb-5"
-            >
-              Feedback de validación
-            </div>
-            <p class="text-foreground leading-relaxed mb-7 text-[0.95rem]">
-              “{{ testimonial.text }}”
-            </p>
-            <div class="flex items-center gap-3">
-              <div
-                class="w-10 h-10 rounded-full bg-gradient-to-br from-primary/15 to-primary/5 flex items-center justify-center text-primary font-bold text-sm border border-primary/10"
-              >
-                {{ initials(testimonial.name) }}
-              </div>
-              <div>
-                <div class="font-semibold text-sm text-foreground">
-                  {{ testimonial.name }}
-                </div>
-                <div class="text-xs text-muted-foreground">
-                  {{ testimonial.role }} · {{ testimonial.location }}
-                </div>
-              </div>
-            </div>
+            <span class="inline-flex items-center rounded-full bg-primary/8 px-3 py-1 text-xs font-semibold text-primary mb-5">
+              {{ goal.audience }}
+            </span>
+            <h3 class="text-lg font-semibold text-foreground mb-3">{{ goal.title }}</h3>
+            <p class="text-muted-foreground leading-relaxed text-[0.95rem]">{{ goal.description }}</p>
           </div>
         </div>
       </div>

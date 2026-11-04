@@ -37,13 +37,13 @@ watch(currentFullPath, () => {
 <template>
   <header
     class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
-    :class="scrolled ? 'bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-[0_1px_3px_rgba(0,0,0,0.04)]' : 'bg-transparent'"
+    :class="scrolled ? 'bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-[0_1px_3px_rgba(0,0,0,0.04)]' : 'bg-transparent navbar-over-video'"
   >
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-[68px]">
         <RouterLink to="/" class="flex items-center cursor-pointer group" data-testid="nav-logo">
           <img
-            src="/brand/lurems-isotipo-transparent.png"
+            :src="scrolled ? '/brand/lurems-isotipo-transparent.png' : '/brand/lurems-isotipo-negativo.png'"
             alt="Lurems"
             class="h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
           />
@@ -98,3 +98,10 @@ watch(currentFullPath, () => {
     </nav>
   </header>
 </template>
+
+<style scoped>
+.navbar-over-video :deep(a), .navbar-over-video [data-testid="nav-logo"] span { color: #fff; }
+.navbar-over-video nav > div > button { color: #fff; }
+.navbar-over-video a:hover { background-color: #ffffff12; }
+.navbar-over-video nav > div:nth-child(2) a { color: var(--foreground); }
+</style>

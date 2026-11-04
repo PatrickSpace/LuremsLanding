@@ -46,7 +46,7 @@ export const benefits = [
     icon: Shield,
     title: "Profesionales verificados",
     description:
-      "Los perfiles publicados pasan por un proceso de validación antes de estar disponibles.",
+      "La propuesta contempla validar los perfiles profesionales antes de publicarlos.",
   },
   {
     icon: Clock,
@@ -65,7 +65,7 @@ export const benefits = [
 export const psychologistBenefits = [
   {
     icon: Users,
-    text: "Conecta con nuevos pacientes alineadas a tu perfil clínico",
+    text: "Conecta con nuevos pacientes alineados a tu perfil clínico",
   },
   { icon: CalendarCheck, text: "Gestiona tu agenda desde un solo lugar" },
   { icon: Shield, text: "Construye presencia en una plataforma verificada" },
@@ -75,34 +75,34 @@ export const psychologistBenefits = [
   },
 ];
 
-export const testimonials = [
+export const validationGoals = [
   {
-    name: "Usuario en validación",
-    location: "Latinoamérica",
-    role: "Paciente",
-    text: "Me ayudó a ordenar lo que estaba buscando antes de contactar a un profesional.",
+    audience: "Para pacientes",
+    title: "Una búsqueda más clara",
+    description: "Entender qué información ayuda a elegir un profesional de acuerdo con las necesidades, preferencias y posibilidades de cada persona.",
   },
   {
-    name: "Usuario en validación",
-    location: "Latinoamérica",
-    role: "Paciente",
-    text: "La experiencia se sintió clara, tranquila y menos abrumadora que buscar por mi cuenta.",
+    audience: "Para pacientes",
+    title: "Continuidad entre sesiones",
+    description: "Explorar cómo los registros emocionales y los recursos terapéuticos pueden ayudar a conservar lo trabajado en terapia.",
   },
   {
-    name: "Profesional en validación",
-    location: "Latinoamérica",
-    role: "Psicóloga",
-    text: "La propuesta cuida el inicio del vínculo terapéutico y ayuda a que la persona llegue con más contexto.",
+    audience: "Para psicólogos",
+    title: "Menos carga administrativa",
+    description: "Identificar qué tareas de agenda, recordatorios y cobranza conviene simplificar para dedicar más tiempo a la atención.",
   },
   {
-    name: "Usuario en validación",
-    location: "Latinoamérica",
-    role: "Paciente",
-    text: "Sentí que había un siguiente paso concreto, no solo una lista interminable de perfiles.",
+    audience: "Para psicólogos",
+    title: "Más contexto para cada encuentro",
+    description: "Comprender cómo organizar la información relevante de cada paciente para preparar las sesiones y dar seguimiento al proceso.",
   },
 ];
 
 export const faqs = [
+  {
+    question: "¿Ya puedo usar Lurems?",
+    answer: "Todavía estamos desarrollando la plataforma. Hoy puedes unirte a la lista de acceso temprano para recibir un aviso cuando abramos cupos. La agenda, las cobranzas y las herramientas de seguimiento aún no están disponibles.",
+  },
   {
     question: "¿Lurems reemplaza a un psicólogo?",
     answer:
@@ -111,16 +111,16 @@ export const faqs = [
   {
     question: "¿Los psicólogos están verificados?",
     answer:
-      "Sí. Cada psicólogo pasa por verificación de título universitario, cédula profesional, experiencia clínica y referencias.",
+      "La plataforma está en desarrollo y aún no ofrece un directorio disponible. Antes de publicar perfiles, contemplamos verificar la formación y la habilitación profesional correspondiente a cada país.",
   },
   {
     question: "¿Cuánto cuesta el servicio?",
     answer:
-      "Actualmente estamos en fase de acceso temprano. Al lanzar, cada profesional mostrará sus condiciones de forma transparente.",
+      "Unirte a la lista de acceso temprano es gratuito. La plataforma aún está en desarrollo; comunicaremos las condiciones y los precios antes de habilitar los servicios.",
   },
   {
     question: "¿Cómo usan mi información?",
     answer:
-      "Tu información se utiliza para ofrecer una experiencia más relevante y segura, siempre con foco en privacidad y claridad.",
+      "El formulario solicita tu nombre, correo y tipo de usuario; si eliges psicólogo, también tu perfil profesional. Usaremos estos datos para contactarte sobre el acceso temprano y conocer los perfiles interesados.",
   },
 ];

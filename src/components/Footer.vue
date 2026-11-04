@@ -42,7 +42,7 @@ const companyLinks = [
           <div class="lg:col-span-4">
             <img src="/brand/lurems-logo-negativo.png" alt="Lurems" class="h-20 w-auto object-contain mb-5" />
             <p class="text-sm text-white/50 leading-relaxed max-w-xs mb-6">
-              Claridad en tu camino terapéutico. Orientamos, conectamos y acompañamos procesos con una experiencia segura y humana.
+              Claridad en tu camino terapéutico. Estamos creando una plataforma para orientar, conectar y acompañar a pacientes y psicólogos.
             </p>
             <div class="flex gap-2.5">
               <a href="https://linkedin.com/company/lurems" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-10 h-10 rounded-full bg-white/5 hover:bg-primary/30 flex items-center justify-center transition-all duration-300 border border-white/10 hover:border-primary/30">in</a>
