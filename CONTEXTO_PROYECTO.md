@@ -1,6 +1,6 @@
 # Lurems: contexto de producto, tecnología y comunicación
 
-Última revisión: 3 de noviembre de 2026.
+Última revisión: 4 de noviembre de 2026.
 
 Este documento se basa en el código y los textos de este repositorio. Describe la landing de presentación; no es una auditoría de la app principal ni del entorno publicado. Las interpretaciones de marketing y las propuestas futuras se identifican expresamente. Si el código cambia, revisar este contexto.
 
@@ -159,9 +159,10 @@ Los números indican las versiones mayores declaradas en `package.json`; `packag
 | `src/components/Footer.vue` | Cierre comercial, enlaces y avisos |
 | `src/components/WaitlistForm.vue` | Público, perfil, validación, envío y confirmación |
 | `src/components/WaitlistModal.vue` | Modal mediante Teleport y transición |
-| `src/services/firebase.js` | Configuración SDK, Firestore y Analytics condicionado |
-| `src/services/leads.js` | Normalización y creación del lead |
-| `src/services/analytics.js` | Eventos con manejo de errores para no bloquear la web |
+| `src/services/firebase.js` | Configuración e inicialización de la app base, sin Firestore |
+| `src/services/leads.js` | Carga diferida tras validación, inicialización de Firestore completo, normalización y creación del lead |
+| `src/services/lead-validation.js` | Esquema Zod original, cargado al enviar |
+| `src/services/analytics.js` | Analytics condicionado al host, con inicialización compartida y eventos que no bloquean la web |
 | `src/index.css` | Tokens, fuentes, utilidades, animaciones y reducción de movimiento |
 | `public/brand/` | Logos, isotipos e imágenes del hero |
 | `index.html` | Punto de entrada, metadatos, fuentes externas y datos estructurados |
@@ -171,7 +172,7 @@ El copy no está completamente centralizado: parte vive en `site.js` y parte en 
 
 ### Flujo de datos del lead
 
-`WaitlistForm.vue` → validación Zod → `submitLead()` → documento nuevo en colección `leads` → evento `generate_lead` → estado visual de éxito.
+`WaitlistForm.vue` (UI disponible desde el arranque) → importación de validación Zod al enviar → importación del servicio de escritura solo si es válido → `submitLead()` → documento nuevo en colección `leads` → evento `generate_lead` → estado visual de éxito.
 
 | Campo persistido | Valor / tratamiento |
 | --- | --- |
@@ -195,7 +196,7 @@ La escritura usa `addDoc`; no se observa deduplicación de correos, CAPTCHA ni l
 
 El SDK recibe variables `VITE_FIREBASE_API_KEY`, `VITE_FIREBASE_AUTH_DOMAIN`, `VITE_FIREBASE_PROJECT_ID`, `VITE_FIREBASE_STORAGE_BUCKET`, `VITE_FIREBASE_MESSAGING_SENDER_ID`, `VITE_FIREBASE_APP_ID` y `VITE_FIREBASE_MEASUREMENT_ID`. Los nombres y la preparación se documentan en `README.md`; no copiar valores de `.env.local`.
 
-Analytics solo se inicializa en producción, cuando el navegador lo soporta y el host es `lurems.lat`, `www.lurems.lat`, `luremslanding.web.app` o `luremslanding.firebaseapp.com`. En desarrollo retorna `null`. Sus errores se absorben para no bloquear la experiencia.
+Analytics solo se inicializa en producción, cuando el navegador lo soporta y el host es `lurems.lat`, `www.lurems.lat`, `luremslanding.web.app` o `luremslanding.firebaseapp.com`. En desarrollo retorna `null`. Sus errores se absorben para no bloquear la experiencia. Analytics ya no inicializa Firestore. Cada llamada espera una única promesa compartida de inicialización; Vue Router emite `page_view` y el SDK se configura con `send_page_view: false` para evitar su evento automático adicional. La validación y Firestore completo se descargan al enviar; el bloqueo de duplicados comienza antes de esas importaciones. Se conserva Firestore completo por su cola/reintento de escrituras en memoria al perder conexión; no se habilita persistencia en disco. La primera descarga de los módulos diferidos requiere conexión; si falla, se muestra el estado de error antes de poder encolar una escritura. Detalles y mediciones locales: [optimización de carga inicial](./docs/performance/INITIAL_LOADING_OPTIMIZATION.md).
 
 ## 6. Diseño y experiencia
 
@@ -207,7 +208,8 @@ La referencia obligatoria para implementar y revisar diseño es [SISTEMA_DISENO.
 - Estilo: fondos claros, gradientes suaves, tarjetas, sombras y CTA redondeados.
 - Existen variables `.dark`, pero no se observa un selector de tema en la UI.
 - La portada utiliza `src/components/HeroVideo.vue`: siete videos locales 720p de personas en escenas cotidianas de introspección, cansancio, tensión y distancia interpersonal a pantalla completa (`min-height: 100svh`, `object-fit: cover`), filtro con degradado de verde a morado a 110°, afín al de «solo», y sombreado adicional detrás del texto blanco estático. La ilustración del faro se conserva como recurso, pero ya no se muestra en el hero.
-- Los videos se reproducen sin audio, en bucle y con `playsinline`; solo se montan dos capas de video: la actual y la siguiente, ambas con precarga completa y se funden durante 600 ms al cambiar de escena. El control de pausa detiene videos y palabras. Con movimiento reducido se muestra un poster sin cargar videos automáticamente. La secuencia también se pausa al salir de pantalla o al ocultar la pestaña. Fuente y licencia documentadas en `public/media/README.md`; es stock ilustrativo, sin testimonios ni atribuciones clínicas.
+- Los videos se reproducen sin audio, en bucle y con `playsinline`; solo se montan dos capas de video: la actual y la siguiente, con un fundido de 600 ms al cambiar de escena. La primera recibe su URL al reproducir; la siguiente se solicita 3 s después de confirmar el primer fotograma, con 2 s nominales de margen. Después de cada fundido se reutiliza la capa saliente para preparar la próxima escena. `preload="auto"` solo actúa en las capas a las que ya se asignó URL. El control de pausa detiene videos y palabras. Con movimiento reducido se muestra un poster sin cargar videos automáticamente. La secuencia también se pausa al salir de pantalla o al ocultar la pestaña. Fuente y licencia documentadas en `public/media/README.md`; es stock ilustrativo, sin testimonios ni atribuciones clínicas.
+- Los siete MP4 activos usan nombres `lurems-<escena>-v2.mp4`, H.264 High 3.1, 1280 × 720 y metadatos al inicio. La optimización local del 4 de noviembre de 2026 redujo su suma de 29.843.395 a 8.695.987 bytes (70,86 %), conservando todos los fotogramas, la cadencia y las duraciones completas para no añadir cortes al esperar en bucle. En aquella optimización de archivos no cambiaron la precarga ni Firebase; la optimización posterior de carga inicial se documenta por separado. Parámetros, respaldo, hashes y comprobaciones: [optimización de videos](./docs/media/HERO_VIDEO_OPTIMIZATION.md). Estas cifras describen los archivos locales, no una medición del despliegue.
 - La palabra dinámica (inicialmente «solo») conserva el gradiente de verde a morado, con tonos claros para mantener legibilidad sobre el video.
 - La navegación se muestra en blanco sobre el video y recupera su fondo claro al hacer scroll. Los accesos por público aparecen después de la primera pantalla. Se conservan los CTA a la lista de espera y a cómo funciona.
 - Hay estilos `:focus-visible` y `prefers-reduced-motion`. Esto no constituye una verificación completa de accesibilidad.

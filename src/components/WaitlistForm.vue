@@ -1,9 +1,7 @@
 <script setup>
 import { computed, reactive, ref, watch } from "vue";
 import { ArrowRight, CheckCircle, Loader2, User } from "lucide-vue-next";
-import { z } from "zod";
 import { trackEvent } from "../services/analytics.js";
-import { submitLead } from "../services/leads.js";
 
 const props = defineProps({
   variant: {
@@ -40,23 +38,6 @@ const psychologistProfileOptions = [
   "Psicólogo con otra especialidad",
   "No soy psicólogo pero me interesa el proyecto",
 ];
-
-const schema = z
-  .object({
-    nombre: z.string().min(2, "Nombre requerido"),
-    email: z.string().email("Email inválido"),
-    tipoUsuario: z.enum(["Paciente", "Psicólogo"]),
-    perfilPsicologo: z.string().optional(),
-  })
-  .superRefine((data, ctx) => {
-    if (data.tipoUsuario === "Psicólogo" && !psychologistProfileOptions.includes(data.perfilPsicologo || "")) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        path: ["perfilPsicologo"],
-        message: "Selecciona una opción",
-      });
-    }
-  });
 
 const typeOptions = [
   { value: "Paciente", icon: User },
@@ -147,24 +128,28 @@ function typeButtonClass(type) {
 }
 
 async function onSubmit() {
+  if (loading.value || submitted.value) return;
   clearErrors();
-  const parsed = schema.safeParse(form);
-
-  if (!parsed.success) {
-    parsed.error.issues.forEach((issue) => {
-      fieldErrors[issue.path[0]] = issue.message;
-    });
-    trackEvent("lead_form_error", {
-      error_type: "validation",
-      error_fields: parsed.error.issues.map((issue) => issue.path[0]).join(","),
-      tipo_usuario: form.tipoUsuario,
-      origen_formulario: props.origin,
-    });
-    return;
-  }
-
+  // El bloqueo incluye las importaciones: dos submit durante la descarga no escriben dos leads.
   loading.value = true;
+  const data = { ...form };
   try {
+    const { validateLead } = await import("../services/lead-validation.js");
+    const parsed = validateLead(data, psychologistProfileOptions);
+    if (!parsed.success) {
+      parsed.error.issues.forEach((issue) => {
+        fieldErrors[issue.path[0]] = issue.message;
+      });
+      trackEvent("lead_form_error", {
+        error_type: "validation",
+        error_fields: parsed.error.issues.map((issue) => issue.path[0]).join(","),
+        tipo_usuario: data.tipoUsuario,
+        origen_formulario: props.origin,
+      });
+      return;
+    }
+
+    const { submitLead } = await import("../services/leads.js");
     await submitLead({ ...parsed.data, origenFormulario: props.origin });
     trackEvent("generate_lead", {
       method: props.origin,

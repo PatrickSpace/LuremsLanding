@@ -1,0 +1,2528 @@
+{
+  "date": "2026-11-04",
+  "browser": "Chromium 156.0.8078.73",
+  "viewport": {
+    "width": 1440,
+    "height": 900,
+    "deviceScaleFactor": 1
+  },
+  "cacheDisabled": true,
+  "cpuThrottlingRate": 1,
+  "repetitionsPerBuildAndProfile": 3,
+  "externalRequests": "blocked symmetrically for measurements; fonts normal for separate hero visual checks",
+  "slowNetwork": {
+    "downloadBytesPerSecond": 131072,
+    "uploadBytesPerSecond": 65536,
+    "latencyMs": 300
+  },
+  "build": {
+    "before": {
+      "initialMinifiedBytes": 665570,
+      "viteGzipEstimateKB": 208.78
+    },
+    "after": {
+      "initialMinifiedBytes": 198239,
+      "initialGzipBytes": 71655,
+      "validationMinifiedBytes": 60605,
+      "validationGzipBytes": 16547,
+      "leadsMinifiedBytes": 406829,
+      "leadsGzipBytes": 120636
+    }
+  },
+  "summary": [
+    {
+      "label": "before",
+      "slow": false,
+      "firstFrameMs": {
+        "median": 261.2000000011176,
+        "min": 237.69999999925494,
+        "max": 954.4000000003725
+      },
+      "points": [
+        {
+          "sec": 3,
+          "jsBody": {
+            "median": 665570,
+            "min": 665570,
+            "max": 665570
+          },
+          "jsTransfer": {
+            "median": 209307,
+            "min": 209307,
+            "max": 209307
+          },
+          "videoBody": {
+            "median": 1345475,
+            "min": 1345475,
+            "max": 1345475
+          },
+          "videoTransfer": {
+            "median": 1346159,
+            "min": 1346159,
+            "max": 1346159
+          },
+          "elapsedMs": {
+            "median": 3003,
+            "min": 3002,
+            "max": 3023
+          }
+        },
+        {
+          "sec": 10,
+          "jsBody": {
+            "median": 665570,
+            "min": 665570,
+            "max": 665570
+          },
+          "jsTransfer": {
+            "median": 209307,
+            "min": 209307,
+            "max": 209307
+          },
+          "videoBody": {
+            "median": 2462070,
+            "min": 2462070,
+            "max": 2462070
+          },
+          "videoTransfer": {
+            "median": 2463100,
+            "min": 2463100,
+            "max": 2463100
+          },
+          "elapsedMs": {
+            "median": 10003,
+            "min": 10002,
+            "max": 10006
+          }
+        },
+        {
+          "sec": 20,
+          "jsBody": {
+            "median": 665570,
+            "min": 665570,
+            "max": 665570
+          },
+          "jsTransfer": {
+            "median": 209307,
+            "min": 209307,
+            "max": 209307
+          },
+          "videoBody": {
+            "median": 4533355,
+            "min": 4533355,
+            "max": 4533355
+          },
+          "videoTransfer": {
+            "median": 4535073,
+            "min": 4535073,
+            "max": 4535073
+          },
+          "elapsedMs": {
+            "median": 20002,
+            "min": 20001,
+            "max": 20004
+          }
+        }
+      ]
+    },
+    {
+      "label": "after",
+      "slow": false,
+      "firstFrameMs": {
+        "median": 197.59999999962747,
+        "min": 149.5,
+        "max": 398.59999999962747
+      },
+      "points": [
+        {
+          "sec": 3,
+          "jsBody": {
+            "median": 198239,
+            "min": 198239,
+            "max": 198239
+          },
+          "jsTransfer": {
+            "median": 72078,
+            "min": 72078,
+            "max": 72078
+          },
+          "videoBody": {
+            "median": 494123,
+            "min": 494123,
+            "max": 494123
+          },
+          "videoTransfer": {
+            "median": 494465,
+            "min": 494465,
+            "max": 494465
+          },
+          "elapsedMs": {
+            "median": 3002,
+            "min": 3002,
+            "max": 3083
+          }
+        },
+        {
+          "sec": 10,
+          "jsBody": {
+            "median": 198239,
+            "min": 198239,
+            "max": 198239
+          },
+          "jsTransfer": {
+            "median": 72078,
+            "min": 72078,
+            "max": 72078
+          },
+          "videoBody": {
+            "median": 2462070,
+            "min": 2462070,
+            "max": 2462070
+          },
+          "videoTransfer": {
+            "median": 2463100,
+            "min": 2463100,
+            "max": 2463100
+          },
+          "elapsedMs": {
+            "median": 10004,
+            "min": 10002,
+            "max": 10028
+          }
+        },
+        {
+          "sec": 20,
+          "jsBody": {
+            "median": 198239,
+            "min": 198239,
+            "max": 198239
+          },
+          "jsTransfer": {
+            "median": 72078,
+            "min": 72078,
+            "max": 72078
+          },
+          "videoBody": {
+            "median": 4533355,
+            "min": 4533355,
+            "max": 4533355
+          },
+          "videoTransfer": {
+            "median": 4535073,
+            "min": 4535073,
+            "max": 4535073
+          },
+          "elapsedMs": {
+            "median": 20006,
+            "min": 20002,
+            "max": 20027
+          }
+        }
+      ]
+    },
+    {
+      "label": "before",
+      "slow": true,
+      "firstFrameMs": {
+        "median": 5575.199999999255,
+        "min": 5345.699999999255,
+        "max": 5784.699999999255
+      },
+      "points": [
+        {
+          "sec": 3,
+          "jsBody": {
+            "median": 665570,
+            "min": 665570,
+            "max": 665570
+          },
+          "jsTransfer": {
+            "median": 209307,
+            "min": 209307,
+            "max": 209307
+          },
+          "videoBody": {
+            "median": 0,
+            "min": 0,
+            "max": 10508
+          },
+          "videoTransfer": {
+            "median": 0,
+            "min": 0,
+            "max": 7508
+          },
+          "elapsedMs": {
+            "median": 3002,
+            "min": 3001,
+            "max": 3002
+          }
+        },
+        {
+          "sec": 10,
+          "jsBody": {
+            "median": 665570,
+            "min": 665570,
+            "max": 665570
+          },
+          "jsTransfer": {
+            "median": 209307,
+            "min": 209307,
+            "max": 209307
+          },
+          "videoBody": {
+            "median": 531008,
+            "min": 525008,
+            "max": 625377
+          },
+          "videoTransfer": {
+            "median": 454508,
+            "min": 424508,
+            "max": 624219
+          },
+          "elapsedMs": {
+            "median": 10007,
+            "min": 10002,
+            "max": 10009
+          }
+        },
+        {
+          "sec": 20,
+          "jsBody": {
+            "median": 665570,
+            "min": 665570,
+            "max": 665570
+          },
+          "jsTransfer": {
+            "median": 209307,
+            "min": 209307,
+            "max": 209307
+          },
+          "videoBody": {
+            "median": 1699376,
+            "min": 1663381,
+            "max": 1727876
+          },
+          "videoTransfer": {
+            "median": 1549507,
+            "min": 1492507,
+            "max": 1656223
+          },
+          "elapsedMs": {
+            "median": 20007,
+            "min": 20001,
+            "max": 20007
+          }
+        }
+      ]
+    },
+    {
+      "label": "after",
+      "slow": true,
+      "firstFrameMs": {
+        "median": 3801.800000000745,
+        "min": 3793,
+        "max": 3876.199999999255
+      },
+      "points": [
+        {
+          "sec": 3,
+          "jsBody": {
+            "median": 198239,
+            "min": 198239,
+            "max": 198239
+          },
+          "jsTransfer": {
+            "median": 72078,
+            "min": 72078,
+            "max": 72078
+          },
+          "videoBody": {
+            "median": 35254,
+            "min": 8254,
+            "max": 35254
+          },
+          "videoTransfer": {
+            "median": 33754,
+            "min": 6754,
+            "max": 33754
+          },
+          "elapsedMs": {
+            "median": 3001,
+            "min": 3000,
+            "max": 3001
+          }
+        },
+        {
+          "sec": 10,
+          "jsBody": {
+            "median": 198239,
+            "min": 198239,
+            "max": 198239
+          },
+          "jsTransfer": {
+            "median": 72078,
+            "min": 72078,
+            "max": 72078
+          },
+          "videoBody": {
+            "median": 730376,
+            "min": 725876,
+            "max": 733376
+          },
+          "videoTransfer": {
+            "median": 529507,
+            "min": 526507,
+            "max": 721718
+          },
+          "elapsedMs": {
+            "median": 10002,
+            "min": 10001,
+            "max": 10002
+          }
+        },
+        {
+          "sec": 20,
+          "jsBody": {
+            "median": 198239,
+            "min": 198239,
+            "max": 198239
+          },
+          "jsTransfer": {
+            "median": 72078,
+            "min": 72078,
+            "max": 72078
+          },
+          "videoBody": {
+            "median": 1927376,
+            "min": 1920626,
+            "max": 1930376
+          },
+          "videoTransfer": {
+            "median": 1720507,
+            "min": 1716757,
+            "max": 1910468
+          },
+          "elapsedMs": {
+            "median": 20001,
+            "min": 20001,
+            "max": 20003
+          }
+        }
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "label": "before",
+      "repeat": 1,
+      "slow": false,
+      "browser": "156.0.8078.73",
+      "points": [
+        {
+          "sec": 3,
+          "elapsedMs": 3023,
+          "jsBody": 665570,
+          "jsTransfer": 209307,
+          "videoBody": 1345475,
+          "videoTransfer": 1346159,
+          "requests": [
+            {
+              "path": "/assets/index-Bri2RrS8.js",
+              "type": "Script",
+              "body": 665570,
+              "encoded": 208947,
+              "start": 8797.771348,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 209307
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 8798.117783,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 851352,
+              "encoded": 851352,
+              "start": 8798.120539,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 851694
+            }
+          ]
+        },
+        {
+          "sec": 10,
+          "elapsedMs": 10006,
+          "jsBody": 665570,
+          "jsTransfer": 209307,
+          "videoBody": 2462070,
+          "videoTransfer": 2463100,
+          "requests": [
+            {
+              "path": "/assets/index-Bri2RrS8.js",
+              "type": "Script",
+              "body": 665570,
+              "encoded": 208947,
+              "start": 8797.771348,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 209307
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 8798.117783,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 851352,
+              "encoded": 851352,
+              "start": 8798.120539,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 851694
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 1116595,
+              "encoded": 1116595,
+              "start": 8804.246275,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 1116941
+            }
+          ]
+        },
+        {
+          "sec": 20,
+          "elapsedMs": 20004,
+          "jsBody": 665570,
+          "jsTransfer": 209307,
+          "videoBody": 4533355,
+          "videoTransfer": 4535073,
+          "requests": [
+            {
+              "path": "/assets/index-Bri2RrS8.js",
+              "type": "Script",
+              "body": 665570,
+              "encoded": 208947,
+              "start": 8797.771348,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 209307
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 8798.117783,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 851352,
+              "encoded": 851352,
+              "start": 8798.120539,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 851694
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 1116595,
+              "encoded": 1116595,
+              "start": 8804.246275,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 1116941
+            },
+            {
+              "path": "/media/lurems-abrumado-v2.mp4",
+              "type": "Media",
+              "body": 869108,
+              "encoded": 869108,
+              "start": 8809.236162,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 869450
+            },
+            {
+              "path": "/media/lurems-estresado-v2.mp4",
+              "type": "Media",
+              "body": 1202177,
+              "encoded": 1202177,
+              "start": 8814.237265,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 1202523
+            }
+          ]
+        }
+      ],
+      "firstFrameMs": 954.4000000003725
+    },
+    {
+      "label": "after",
+      "repeat": 1,
+      "slow": false,
+      "browser": "156.0.8078.73",
+      "points": [
+        {
+          "sec": 3,
+          "elapsedMs": 3083,
+          "jsBody": 198239,
+          "jsTransfer": 72078,
+          "videoBody": 494123,
+          "videoTransfer": 494465,
+          "requests": [
+            {
+              "path": "/assets/index-C-5b_t_k.js",
+              "type": "Script",
+              "body": 198239,
+              "encoded": 71723,
+              "start": 8819.021484,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 72078
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 8819.176508,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            }
+          ]
+        },
+        {
+          "sec": 10,
+          "elapsedMs": 10028,
+          "jsBody": 198239,
+          "jsTransfer": 72078,
+          "videoBody": 2462070,
+          "videoTransfer": 2463100,
+          "requests": [
+            {
+              "path": "/assets/index-C-5b_t_k.js",
+              "type": "Script",
+              "body": 198239,
+              "encoded": 71723,
+              "start": 8819.021484,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 72078
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 8819.176508,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 851352,
+              "encoded": 851352,
+              "start": 8822.547831,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 851694
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 1116595,
+              "encoded": 1116595,
+              "start": 8825.022242,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 1116941
+            }
+          ]
+        },
+        {
+          "sec": 20,
+          "elapsedMs": 20006,
+          "jsBody": 198239,
+          "jsTransfer": 72078,
+          "videoBody": 4533355,
+          "videoTransfer": 4535073,
+          "requests": [
+            {
+              "path": "/assets/index-C-5b_t_k.js",
+              "type": "Script",
+              "body": 198239,
+              "encoded": 71723,
+              "start": 8819.021484,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 72078
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 8819.176508,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 851352,
+              "encoded": 851352,
+              "start": 8822.547831,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 851694
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 1116595,
+              "encoded": 1116595,
+              "start": 8825.022242,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 1116941
+            },
+            {
+              "path": "/media/lurems-abrumado-v2.mp4",
+              "type": "Media",
+              "body": 869108,
+              "encoded": 869108,
+              "start": 8830.095518,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 869450
+            },
+            {
+              "path": "/media/lurems-estresado-v2.mp4",
+              "type": "Media",
+              "body": 1202177,
+              "encoded": 1202177,
+              "start": 8835.135987,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 1202523
+            }
+          ]
+        }
+      ],
+      "firstFrameMs": 398.59999999962747
+    },
+    {
+      "label": "before",
+      "repeat": 1,
+      "slow": true,
+      "browser": "156.0.8078.73",
+      "points": [
+        {
+          "sec": 3,
+          "elapsedMs": 3001,
+          "jsBody": 665570,
+          "jsTransfer": 209307,
+          "videoBody": 0,
+          "videoTransfer": 0,
+          "requests": [
+            {
+              "path": "/assets/index-Bri2RrS8.js",
+              "type": "Script",
+              "body": 665570,
+              "encoded": 208952,
+              "start": 8841.330849,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 209307
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 0,
+              "encoded": 0,
+              "start": 8843.612723
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 0,
+              "encoded": 0,
+              "start": 8843.61307
+            }
+          ]
+        },
+        {
+          "sec": 10,
+          "elapsedMs": 10002,
+          "jsBody": 665570,
+          "jsTransfer": 209307,
+          "videoBody": 531008,
+          "videoTransfer": 424508,
+          "requests": [
+            {
+              "path": "/assets/index-Bri2RrS8.js",
+              "type": "Script",
+              "body": 665570,
+              "encoded": 208952,
+              "start": 8841.330849,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 209307
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 399754,
+              "encoded": 294754,
+              "start": 8843.612723,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 131254,
+              "encoded": 129754,
+              "start": 8843.61307,
+              "status": 206,
+              "encoding": "identity"
+            }
+          ]
+        },
+        {
+          "sec": 20,
+          "elapsedMs": 20001,
+          "jsBody": 665570,
+          "jsTransfer": 209307,
+          "videoBody": 1699376,
+          "videoTransfer": 1492507,
+          "requests": [
+            {
+              "path": "/assets/index-Bri2RrS8.js",
+              "type": "Script",
+              "body": 665570,
+              "encoded": 208952,
+              "start": 8841.330849,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 209307
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 294754,
+              "start": 8843.612723,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 131254,
+              "encoded": 129754,
+              "start": 8843.61307,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 471749,
+              "encoded": 470249,
+              "start": 8851.531077,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 131250,
+              "encoded": 129750,
+              "start": 8852.181439,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 371246,
+              "encoded": 369746,
+              "start": 8856.572415,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-abrumado-v2.mp4",
+              "type": "Media",
+              "body": 99754,
+              "encoded": 98254,
+              "start": 8857.224422,
+              "status": 206,
+              "encoding": "identity"
+            }
+          ]
+        }
+      ],
+      "firstFrameMs": 5575.199999999255
+    },
+    {
+      "label": "after",
+      "repeat": 1,
+      "slow": true,
+      "browser": "156.0.8078.73",
+      "points": [
+        {
+          "sec": 3,
+          "elapsedMs": 3001,
+          "jsBody": 198239,
+          "jsTransfer": 72078,
+          "videoBody": 35254,
+          "videoTransfer": 33754,
+          "requests": [
+            {
+              "path": "/assets/index-C-5b_t_k.js",
+              "type": "Script",
+              "body": 198239,
+              "encoded": 71723,
+              "start": 8862.534348,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 72078
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 35254,
+              "encoded": 33754,
+              "start": 8863.583051,
+              "status": 206,
+              "encoding": "identity"
+            }
+          ]
+        },
+        {
+          "sec": 10,
+          "elapsedMs": 10001,
+          "jsBody": 198239,
+          "jsTransfer": 72078,
+          "videoBody": 730376,
+          "videoTransfer": 526507,
+          "requests": [
+            {
+              "path": "/assets/index-C-5b_t_k.js",
+              "type": "Script",
+              "body": 198239,
+              "encoded": 71723,
+              "start": 8862.534348,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 72078
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 294754,
+              "start": 8863.583051,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 131254,
+              "encoded": 129754,
+              "start": 8868.995019,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 93749,
+              "encoded": 92249,
+              "start": 8870.993939,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 11250,
+              "encoded": 9750,
+              "start": 8871.629798,
+              "status": 206,
+              "encoding": "identity"
+            }
+          ]
+        },
+        {
+          "sec": 20,
+          "elapsedMs": 20001,
+          "jsBody": 198239,
+          "jsTransfer": 72078,
+          "videoBody": 1927376,
+          "videoTransfer": 1716757,
+          "requests": [
+            {
+              "path": "/assets/index-C-5b_t_k.js",
+              "type": "Script",
+              "body": 198239,
+              "encoded": 71723,
+              "start": 8862.534348,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 72078
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 294754,
+              "start": 8863.583051,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 131254,
+              "encoded": 129754,
+              "start": 8868.995019,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 473249,
+              "encoded": 471749,
+              "start": 8870.993939,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 131250,
+              "encoded": 129750,
+              "start": 8871.629798,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 524246,
+              "encoded": 522746,
+              "start": 8876.02856,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-abrumado-v2.mp4",
+              "type": "Media",
+              "body": 99754,
+              "encoded": 98254,
+              "start": 8876.711319,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-abrumado-v2.mp4",
+              "type": "Media",
+              "body": 69750,
+              "encoded": 68250,
+              "start": 8881.109211,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-estresado-v2.mp4",
+              "type": "Media",
+              "body": 3750,
+              "encoded": 1500,
+              "start": 8881.776379,
+              "status": 206,
+              "encoding": "identity"
+            }
+          ]
+        }
+      ],
+      "firstFrameMs": 3801.800000000745
+    },
+    {
+      "label": "before",
+      "repeat": 2,
+      "slow": false,
+      "browser": "156.0.8078.73",
+      "points": [
+        {
+          "sec": 3,
+          "elapsedMs": 3003,
+          "jsBody": 665570,
+          "jsTransfer": 209307,
+          "videoBody": 1345475,
+          "videoTransfer": 1346159,
+          "requests": [
+            {
+              "path": "/assets/index-Bri2RrS8.js",
+              "type": "Script",
+              "body": 665570,
+              "encoded": 208952,
+              "start": 8882.465629,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 209307
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 8882.607697,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 851352,
+              "encoded": 851352,
+              "start": 8882.607878,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 851694
+            }
+          ]
+        },
+        {
+          "sec": 10,
+          "elapsedMs": 10003,
+          "jsBody": 665570,
+          "jsTransfer": 209307,
+          "videoBody": 2462070,
+          "videoTransfer": 2463100,
+          "requests": [
+            {
+              "path": "/assets/index-Bri2RrS8.js",
+              "type": "Script",
+              "body": 665570,
+              "encoded": 208952,
+              "start": 8882.465629,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 209307
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 8882.607697,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 851352,
+              "encoded": 851352,
+              "start": 8882.607878,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 851694
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 1116595,
+              "encoded": 1116595,
+              "start": 8888.321777,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 1116941
+            }
+          ]
+        },
+        {
+          "sec": 20,
+          "elapsedMs": 20001,
+          "jsBody": 665570,
+          "jsTransfer": 209307,
+          "videoBody": 4533355,
+          "videoTransfer": 4535073,
+          "requests": [
+            {
+              "path": "/assets/index-Bri2RrS8.js",
+              "type": "Script",
+              "body": 665570,
+              "encoded": 208952,
+              "start": 8882.465629,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 209307
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 8882.607697,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 851352,
+              "encoded": 851352,
+              "start": 8882.607878,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 851694
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 1116595,
+              "encoded": 1116595,
+              "start": 8888.321777,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 1116941
+            },
+            {
+              "path": "/media/lurems-abrumado-v2.mp4",
+              "type": "Media",
+              "body": 869108,
+              "encoded": 869108,
+              "start": 8893.335786,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 869450
+            },
+            {
+              "path": "/media/lurems-estresado-v2.mp4",
+              "type": "Media",
+              "body": 1202177,
+              "encoded": 1202177,
+              "start": 8898.369758,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 1202523
+            }
+          ]
+        }
+      ],
+      "firstFrameMs": 261.2000000011176
+    },
+    {
+      "label": "after",
+      "repeat": 2,
+      "slow": false,
+      "browser": "156.0.8078.73",
+      "points": [
+        {
+          "sec": 3,
+          "elapsedMs": 3002,
+          "jsBody": 198239,
+          "jsTransfer": 72078,
+          "videoBody": 494123,
+          "videoTransfer": 494465,
+          "requests": [
+            {
+              "path": "/assets/index-C-5b_t_k.js",
+              "type": "Script",
+              "body": 198239,
+              "encoded": 71718,
+              "start": 8902.639045,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 72078
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 8902.707035,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            }
+          ]
+        },
+        {
+          "sec": 10,
+          "elapsedMs": 10002,
+          "jsBody": 198239,
+          "jsTransfer": 72078,
+          "videoBody": 2462070,
+          "videoTransfer": 2463100,
+          "requests": [
+            {
+              "path": "/assets/index-C-5b_t_k.js",
+              "type": "Script",
+              "body": 198239,
+              "encoded": 71718,
+              "start": 8902.639045,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 72078
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 8902.707035,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 851352,
+              "encoded": 851352,
+              "start": 8905.776369,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 851694
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 1116595,
+              "encoded": 1116595,
+              "start": 8908.410021,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 1116941
+            }
+          ]
+        },
+        {
+          "sec": 20,
+          "elapsedMs": 20002,
+          "jsBody": 198239,
+          "jsTransfer": 72078,
+          "videoBody": 4533355,
+          "videoTransfer": 4535073,
+          "requests": [
+            {
+              "path": "/assets/index-C-5b_t_k.js",
+              "type": "Script",
+              "body": 198239,
+              "encoded": 71718,
+              "start": 8902.639045,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 72078
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 8902.707035,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 851352,
+              "encoded": 851352,
+              "start": 8905.776369,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 851694
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 1116595,
+              "encoded": 1116595,
+              "start": 8908.410021,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 1116941
+            },
+            {
+              "path": "/media/lurems-abrumado-v2.mp4",
+              "type": "Media",
+              "body": 869108,
+              "encoded": 869108,
+              "start": 8913.426188,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 869450
+            },
+            {
+              "path": "/media/lurems-estresado-v2.mp4",
+              "type": "Media",
+              "body": 1202177,
+              "encoded": 1202177,
+              "start": 8918.459658,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 1202523
+            }
+          ]
+        }
+      ],
+      "firstFrameMs": 149.5
+    },
+    {
+      "label": "before",
+      "repeat": 2,
+      "slow": true,
+      "browser": "156.0.8078.73",
+      "points": [
+        {
+          "sec": 3,
+          "elapsedMs": 3002,
+          "jsBody": 665570,
+          "jsTransfer": 209307,
+          "videoBody": 10508,
+          "videoTransfer": 7508,
+          "requests": [
+            {
+              "path": "/assets/index-Bri2RrS8.js",
+              "type": "Script",
+              "body": 665570,
+              "encoded": 208952,
+              "start": 8923.135823,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 209307
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 5254,
+              "encoded": 3754,
+              "start": 8925.223135,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 5254,
+              "encoded": 3754,
+              "start": 8925.223322,
+              "status": 206,
+              "encoding": "identity"
+            }
+          ]
+        },
+        {
+          "sec": 10,
+          "elapsedMs": 10007,
+          "jsBody": 665570,
+          "jsTransfer": 209307,
+          "videoBody": 525008,
+          "videoTransfer": 454508,
+          "requests": [
+            {
+              "path": "/assets/index-Bri2RrS8.js",
+              "type": "Script",
+              "body": 665570,
+              "encoded": 208952,
+              "start": 8923.135823,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 209307
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 393754,
+              "encoded": 324754,
+              "start": 8925.223135,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 131254,
+              "encoded": 129754,
+              "start": 8925.223322,
+              "status": 206,
+              "encoding": "identity"
+            }
+          ]
+        },
+        {
+          "sec": 20,
+          "elapsedMs": 20007,
+          "jsBody": 665570,
+          "jsTransfer": 209307,
+          "videoBody": 1727876,
+          "videoTransfer": 1549507,
+          "requests": [
+            {
+              "path": "/assets/index-Bri2RrS8.js",
+              "type": "Script",
+              "body": 665570,
+              "encoded": 208952,
+              "start": 8923.135823,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 209307
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 324754,
+              "start": 8925.223135,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 131254,
+              "encoded": 129754,
+              "start": 8925.223322,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 486749,
+              "encoded": 483749,
+              "start": 8933.145153,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 131250,
+              "encoded": 129750,
+              "start": 8933.825371,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 384746,
+              "encoded": 383246,
+              "start": 8938.247418,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-abrumado-v2.mp4",
+              "type": "Media",
+              "body": 99754,
+              "encoded": 98254,
+              "start": 8939.001238,
+              "status": 206,
+              "encoding": "identity"
+            }
+          ]
+        }
+      ],
+      "firstFrameMs": 5345.699999999255
+    },
+    {
+      "label": "after",
+      "repeat": 2,
+      "slow": true,
+      "browser": "156.0.8078.73",
+      "points": [
+        {
+          "sec": 3,
+          "elapsedMs": 3001,
+          "jsBody": 198239,
+          "jsTransfer": 72078,
+          "videoBody": 35254,
+          "videoTransfer": 33754,
+          "requests": [
+            {
+              "path": "/assets/index-C-5b_t_k.js",
+              "type": "Script",
+              "body": 198239,
+              "encoded": 71723,
+              "start": 8943.909384,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 72078
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 35254,
+              "encoded": 33754,
+              "start": 8944.953578,
+              "status": 206,
+              "encoding": "identity"
+            }
+          ]
+        },
+        {
+          "sec": 10,
+          "elapsedMs": 10002,
+          "jsBody": 198239,
+          "jsTransfer": 72078,
+          "videoBody": 733376,
+          "videoTransfer": 529507,
+          "requests": [
+            {
+              "path": "/assets/index-C-5b_t_k.js",
+              "type": "Script",
+              "body": 198239,
+              "encoded": 71723,
+              "start": 8943.909384,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 72078
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 294754,
+              "start": 8944.953578,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 131254,
+              "encoded": 129754,
+              "start": 8950.337672,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 96749,
+              "encoded": 95249,
+              "start": 8952.338272,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 11250,
+              "encoded": 9750,
+              "start": 8952.986739,
+              "status": 206,
+              "encoding": "identity"
+            }
+          ]
+        },
+        {
+          "sec": 20,
+          "elapsedMs": 20001,
+          "jsBody": 198239,
+          "jsTransfer": 72078,
+          "videoBody": 1930376,
+          "videoTransfer": 1720507,
+          "requests": [
+            {
+              "path": "/assets/index-C-5b_t_k.js",
+              "type": "Script",
+              "body": 198239,
+              "encoded": 71723,
+              "start": 8943.909384,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 72078
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 294754,
+              "start": 8944.953578,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 131254,
+              "encoded": 129754,
+              "start": 8950.337672,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 476249,
+              "encoded": 474749,
+              "start": 8952.338272,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 131250,
+              "encoded": 129750,
+              "start": 8952.986739,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 524246,
+              "encoded": 522746,
+              "start": 8957.386578,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-abrumado-v2.mp4",
+              "type": "Media",
+              "body": 99754,
+              "encoded": 98254,
+              "start": 8958.068892,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-abrumado-v2.mp4",
+              "type": "Media",
+              "body": 68250,
+              "encoded": 66750,
+              "start": 8962.468474,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-estresado-v2.mp4",
+              "type": "Media",
+              "body": 5250,
+              "encoded": 3750,
+              "start": 8963.136748,
+              "status": 206,
+              "encoding": "identity"
+            }
+          ]
+        }
+      ],
+      "firstFrameMs": 3793
+    },
+    {
+      "label": "before",
+      "repeat": 3,
+      "slow": false,
+      "browser": "156.0.8078.73",
+      "points": [
+        {
+          "sec": 3,
+          "elapsedMs": 3002,
+          "jsBody": 665570,
+          "jsTransfer": 209307,
+          "videoBody": 1345475,
+          "videoTransfer": 1346159,
+          "requests": [
+            {
+              "path": "/assets/index-Bri2RrS8.js",
+              "type": "Script",
+              "body": 665570,
+              "encoded": 208952,
+              "start": 8964.275896,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 209307
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 8964.400375,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 851352,
+              "encoded": 851352,
+              "start": 8964.40055,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 851694
+            }
+          ]
+        },
+        {
+          "sec": 10,
+          "elapsedMs": 10002,
+          "jsBody": 665570,
+          "jsTransfer": 209307,
+          "videoBody": 2462070,
+          "videoTransfer": 2463100,
+          "requests": [
+            {
+              "path": "/assets/index-Bri2RrS8.js",
+              "type": "Script",
+              "body": 665570,
+              "encoded": 208952,
+              "start": 8964.275896,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 209307
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 8964.400375,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 851352,
+              "encoded": 851352,
+              "start": 8964.40055,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 851694
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 1116595,
+              "encoded": 1116595,
+              "start": 8970.107239,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 1116941
+            }
+          ]
+        },
+        {
+          "sec": 20,
+          "elapsedMs": 20002,
+          "jsBody": 665570,
+          "jsTransfer": 209307,
+          "videoBody": 4533355,
+          "videoTransfer": 4535073,
+          "requests": [
+            {
+              "path": "/assets/index-Bri2RrS8.js",
+              "type": "Script",
+              "body": 665570,
+              "encoded": 208952,
+              "start": 8964.275896,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 209307
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 8964.400375,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 851352,
+              "encoded": 851352,
+              "start": 8964.40055,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 851694
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 1116595,
+              "encoded": 1116595,
+              "start": 8970.107239,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 1116941
+            },
+            {
+              "path": "/media/lurems-abrumado-v2.mp4",
+              "type": "Media",
+              "body": 869108,
+              "encoded": 869108,
+              "start": 8975.121984,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 869450
+            },
+            {
+              "path": "/media/lurems-estresado-v2.mp4",
+              "type": "Media",
+              "body": 1202177,
+              "encoded": 1202177,
+              "start": 8980.154871,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 1202523
+            }
+          ]
+        }
+      ],
+      "firstFrameMs": 237.69999999925494
+    },
+    {
+      "label": "after",
+      "repeat": 3,
+      "slow": false,
+      "browser": "156.0.8078.73",
+      "points": [
+        {
+          "sec": 3,
+          "elapsedMs": 3002,
+          "jsBody": 198239,
+          "jsTransfer": 72078,
+          "videoBody": 494123,
+          "videoTransfer": 494465,
+          "requests": [
+            {
+              "path": "/assets/index-C-5b_t_k.js",
+              "type": "Script",
+              "body": 198239,
+              "encoded": 71723,
+              "start": 8984.931133,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 72078
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 8985.040025,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            }
+          ]
+        },
+        {
+          "sec": 10,
+          "elapsedMs": 10004,
+          "jsBody": 198239,
+          "jsTransfer": 72078,
+          "videoBody": 2462070,
+          "videoTransfer": 2463100,
+          "requests": [
+            {
+              "path": "/assets/index-C-5b_t_k.js",
+              "type": "Script",
+              "body": 198239,
+              "encoded": 71723,
+              "start": 8984.931133,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 72078
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 8985.040025,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 851352,
+              "encoded": 851352,
+              "start": 8988.103519,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 851694
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 1116595,
+              "encoded": 1116595,
+              "start": 8990.721913,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 1116941
+            }
+          ]
+        },
+        {
+          "sec": 20,
+          "elapsedMs": 20027,
+          "jsBody": 198239,
+          "jsTransfer": 72078,
+          "videoBody": 4533355,
+          "videoTransfer": 4535073,
+          "requests": [
+            {
+              "path": "/assets/index-C-5b_t_k.js",
+              "type": "Script",
+              "body": 198239,
+              "encoded": 71723,
+              "start": 8984.931133,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 72078
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 8985.040025,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 851352,
+              "encoded": 851352,
+              "start": 8988.103519,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 851694
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 1116595,
+              "encoded": 1116595,
+              "start": 8990.721913,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 1116941
+            },
+            {
+              "path": "/media/lurems-abrumado-v2.mp4",
+              "type": "Media",
+              "body": 869108,
+              "encoded": 869108,
+              "start": 8995.753268,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 869450
+            },
+            {
+              "path": "/media/lurems-estresado-v2.mp4",
+              "type": "Media",
+              "body": 1202177,
+              "encoded": 1202177,
+              "start": 9000.784312,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 1202523
+            }
+          ]
+        }
+      ],
+      "firstFrameMs": 197.59999999962747
+    },
+    {
+      "label": "before",
+      "repeat": 3,
+      "slow": true,
+      "browser": "156.0.8078.73",
+      "points": [
+        {
+          "sec": 3,
+          "elapsedMs": 3002,
+          "jsBody": 665570,
+          "jsTransfer": 209307,
+          "videoBody": 0,
+          "videoTransfer": 0,
+          "requests": [
+            {
+              "path": "/assets/index-Bri2RrS8.js",
+              "type": "Script",
+              "body": 665570,
+              "encoded": 208952,
+              "start": 9008.167486,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 209307
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 0,
+              "encoded": 0,
+              "start": 9010.702248
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 0,
+              "encoded": 0,
+              "start": 9010.702682
+            }
+          ]
+        },
+        {
+          "sec": 10,
+          "elapsedMs": 10009,
+          "jsBody": 665570,
+          "jsTransfer": 209307,
+          "videoBody": 625377,
+          "videoTransfer": 624219,
+          "requests": [
+            {
+              "path": "/assets/index-Bri2RrS8.js",
+              "type": "Script",
+              "body": 665570,
+              "encoded": 208952,
+              "start": 9008.167486,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 209307
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 9010.702248,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 131254,
+              "encoded": 129754,
+              "start": 9010.702682,
+              "status": 206,
+              "encoding": "identity"
+            }
+          ]
+        },
+        {
+          "sec": 20,
+          "elapsedMs": 20007,
+          "jsBody": 665570,
+          "jsTransfer": 209307,
+          "videoBody": 1663381,
+          "videoTransfer": 1656223,
+          "requests": [
+            {
+              "path": "/assets/index-Bri2RrS8.js",
+              "type": "Script",
+              "body": 665570,
+              "encoded": 208952,
+              "start": 9008.167486,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 209307
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 9010.702248,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 131254,
+              "encoded": 129754,
+              "start": 9010.702682,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 585754,
+              "encoded": 584254,
+              "start": 9018.677292,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 131250,
+              "encoded": 129750,
+              "start": 9020.170888,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 221246,
+              "encoded": 219746,
+              "start": 9024.565388,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-abrumado-v2.mp4",
+              "type": "Media",
+              "body": 99754,
+              "encoded": 98254,
+              "start": 9025.237684,
+              "status": 206,
+              "encoding": "identity"
+            }
+          ]
+        }
+      ],
+      "firstFrameMs": 5784.699999999255
+    },
+    {
+      "label": "after",
+      "repeat": 3,
+      "slow": true,
+      "browser": "156.0.8078.73",
+      "points": [
+        {
+          "sec": 3,
+          "elapsedMs": 3000,
+          "jsBody": 198239,
+          "jsTransfer": 72078,
+          "videoBody": 8254,
+          "videoTransfer": 6754,
+          "requests": [
+            {
+              "path": "/assets/index-C-5b_t_k.js",
+              "type": "Script",
+              "body": 198239,
+              "encoded": 71723,
+              "start": 9029.276756,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 72078
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 8254,
+              "encoded": 6754,
+              "start": 9030.331192,
+              "status": 206,
+              "encoding": "identity"
+            }
+          ]
+        },
+        {
+          "sec": 10,
+          "elapsedMs": 10002,
+          "jsBody": 198239,
+          "jsTransfer": 72078,
+          "videoBody": 725876,
+          "videoTransfer": 721718,
+          "requests": [
+            {
+              "path": "/assets/index-C-5b_t_k.js",
+              "type": "Script",
+              "body": 198239,
+              "encoded": 71723,
+              "start": 9029.276756,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 72078
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 9030.331192,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 131254,
+              "encoded": 129754,
+              "start": 9035.798985,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 92249,
+              "encoded": 90749,
+              "start": 9037.7939,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 8250,
+              "encoded": 6750,
+              "start": 9038.42947,
+              "status": 206,
+              "encoding": "identity"
+            }
+          ]
+        },
+        {
+          "sec": 20,
+          "elapsedMs": 20003,
+          "jsBody": 198239,
+          "jsTransfer": 72078,
+          "videoBody": 1920626,
+          "videoTransfer": 1910468,
+          "requests": [
+            {
+              "path": "/assets/index-C-5b_t_k.js",
+              "type": "Script",
+              "body": 198239,
+              "encoded": 71723,
+              "start": 9029.276756,
+              "status": 200,
+              "encoding": "gzip",
+              "finished": true,
+              "transfer": 72078
+            },
+            {
+              "path": "/media/lurems-solo-v2.mp4",
+              "type": "Media",
+              "body": 494123,
+              "encoded": 494123,
+              "start": 9030.331192,
+              "status": 206,
+              "encoding": "identity",
+              "finished": true,
+              "transfer": 494465
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 131254,
+              "encoded": 129754,
+              "start": 9035.798985,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-triste-v2.mp4",
+              "type": "Media",
+              "body": 471749,
+              "encoded": 470249,
+              "start": 9037.7939,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 131250,
+              "encoded": 129750,
+              "start": 9038.42947,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-agotado-v2.mp4",
+              "type": "Media",
+              "body": 524246,
+              "encoded": 522746,
+              "start": 9042.826985,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-abrumado-v2.mp4",
+              "type": "Media",
+              "body": 99754,
+              "encoded": 98254,
+              "start": 9043.494692,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-abrumado-v2.mp4",
+              "type": "Media",
+              "body": 66750,
+              "encoded": 65250,
+              "start": 9047.894115,
+              "status": 206,
+              "encoding": "identity"
+            },
+            {
+              "path": "/media/lurems-estresado-v2.mp4",
+              "type": "Media",
+              "body": 1500,
+              "encoded": 0,
+              "start": 9048.565665,
+              "status": 206,
+              "encoding": "identity"
+            }
+          ]
+        }
+      ],
+      "firstFrameMs": 3876.199999999255
+    }
+  ]
+}

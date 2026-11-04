@@ -14,6 +14,8 @@ const scenes = [
 ];
 const emotions = scenes.map((scene, index) => ({ word: scene.id, scene: index }));
 const SCENE_DURATION_MS = 5000;
+const INITIAL_PRELOAD_DELAY_MS = 3000;
+const VIDEO_VERSION = "v2";
 const emotionIndex = ref(0);
 const activeSlot = ref(0);
 const slots = ref([0, 1]);
@@ -21,7 +23,9 @@ const hero = ref(null);
 const videos = [];
 const playing = ref(false);
 const canLoadVideo = ref(false);
+const loadedSlots = ref([false, false]);
 let emotionTimer;
+let preloadTimer;
 let fadeTimer;
 let playbackController;
 let motionPreference;
@@ -73,12 +77,15 @@ function pauseSequence() {
   playing.value = false;
   playbackController?.abort();
   window.clearTimeout(emotionTimer);
+  window.clearTimeout(preloadTimer);
   window.clearTimeout(fadeTimer);
   videos.forEach(video => video?.pause());
 }
 
 function prepareNextScene() {
-  slots.value[1 - activeSlot.value] = (emotionIndex.value + 1) % scenes.length;
+  const nextSlot = 1 - activeSlot.value;
+  slots.value[nextSlot] = (emotionIndex.value + 1) % scenes.length;
+  loadedSlots.value[nextSlot] = true;
 }
 
 function scheduleNextScene(delay = SCENE_DURATION_MS) {
@@ -121,13 +128,20 @@ async function resumeSequence() {
   playbackController = controller;
   canLoadVideo.value = true;
   playing.value = true;
-  prepareNextScene();
+  loadedSlots.value[activeSlot.value] = true;
   await nextTick();
   try {
     const current = videos[activeSlot.value];
     if (current.error) current.load();
     await playFirstFrame(current, controller.signal);
-    if (!controller.signal.aborted) scheduleNextScene();
+    if (!controller.signal.aborted) {
+      // Primero se presenta el fondo actual. El siguiente recibe URL después,
+      // con dos segundos de margen nominal; si no llega, el actual sigue en bucle.
+      preloadTimer = window.setTimeout(() => {
+        if (!controller.signal.aborted) prepareNextScene();
+      }, INITIAL_PRELOAD_DELAY_MS);
+      scheduleNextScene();
+    }
   } catch {
     if (!controller.signal.aborted) pauseSequence();
   }
@@ -137,6 +151,7 @@ function syncMotionPreference() {
   motionOptIn = false;
   pauseSequence();
   canLoadVideo.value = !motionPreference.matches;
+  if (motionPreference.matches) loadedSlots.value = [false, false];
   resumeSequence();
 }
 
@@ -186,7 +201,7 @@ onUnmounted(() => {
       class="video-hero__film"
       :class="{ 'video-hero__film--active': index === activeSlot }"
       :style="{ objectPosition: scenes[sceneIndex].position }"
-      :src="canLoadVideo ? `/media/lurems-${scenes[sceneIndex].id}.mp4` : undefined"
+      :src="canLoadVideo && loadedSlots[index] ? `/media/lurems-${scenes[sceneIndex].id}-${VIDEO_VERSION}.mp4` : undefined"
       :poster="`/media/lurems-${scenes[sceneIndex].id}-poster.jpg`"
       :data-scene="scenes[sceneIndex].id"
       preload="auto"
