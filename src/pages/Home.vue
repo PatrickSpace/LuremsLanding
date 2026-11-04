@@ -195,22 +195,27 @@ const platformFeatureCards = [
                   class="relative inline-flex h-2 w-2 rounded-full bg-primary"
                 />
               </span>
-              Lurems: La plataforma que te acompaña cuando necesitas ayuda
+              Tu espacio personal y privado para buscar apoyo
             </div>
 
             <h1
               class="text-4xl sm:text-5xl xl:text-[3.45rem] font-bold text-foreground leading-[1.06] tracking-tight mb-6 [overflow-wrap:break-word]"
             >
-              Tu proceso terapéutico,
-              <span class="gradient-text">más claro y conectado</span>
+              Te sientes 
+              <span class="gradient-text"> solo</span> ?
             </h1>
+
+
+            <h1
+              class="text-3xl sm:text-2xl xl:text-[2.45rem] font-bold text-foreground leading-[1.06] tracking-tight mb-6 [overflow-wrap:break-word]"
+            >
+              Pedir ayuda no tiene nada de malo
+                      </h1>
 
             <p
               class="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-9 max-w-xl mx-auto lg:mx-0"
             >
-              Lurems te ayuda a organizar tu terapia psicológica, registrar lo
-              que sientes, conservar tus aprendizajes y mantener continuidad con
-              tu psicólogo dentro y fuera de cada sesión.
+              Encuentra al psicólogo adecuado, organiza tu terapia y reconoce tus avances. Un espacio para acompañarte dentro y fuera de cada sesión.
             </p>
 
             <div
