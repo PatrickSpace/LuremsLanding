@@ -294,3 +294,8 @@ Publicación posterior autorizada: versión Hosting `e90e8093f4316e48`, con diez
 ## 12. Mantenimiento
 
 Al adoptar un cambio oficial del sistema, actualizar este documento, su fecha de consulta y los mapeos afectados. Mantener el enlace desde `AGENTS.md` y la referencia desde `CONTEXTO_PROYECTO.md`. No transformar decisiones puntuales de la landing en reglas oficiales sin evidencia en el Brand System o instrucción explícita del usuario.
+
+
+### Publicación completa — comprobación del 5 de noviembre de 2026
+
+Por autorización posterior del fundador se publicó el estado local completo de la landing en Hosting `1ecad8cb45e8392d`, junto con reglas y callable de registro. Cuatro recorridos de Chromium sobre el dominio publicado (375/390/1280/1440 px): siete FAQ literales, apertura/cierre, teclado, ausencia de desbordamiento, modal real y selección profesional aprobados. Se conservan los componentes y estilos revisados en los cierres anteriores. Build y ocho pruebas unitarias aprobados; veinte pruebas de integración aprobadas al repetir la ejecución tras un primer intento con un fallo. No se enviaron leads ni correos de prueba. `sendEarlyAccessEmail` pendiente por secreto real ausente; la callable se publicó con un entry point temporal sin ese export, conservando su handler. No se verificó persistencia real ni recepción de correo; el fundador realizará la prueba del formulario.
