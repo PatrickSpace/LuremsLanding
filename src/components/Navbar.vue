@@ -65,7 +65,7 @@ watch(currentFullPath, () => {
 
         <div class="hidden md:flex items-center gap-2.5">
           <button class="bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm shadow-primary/20 hover:shadow-primary/25 hover:-translate-y-px transition-all" @click="emit('open-waitlist', 'Paciente')">
-            Solicitar acceso
+            Acceso temprano
           </button>
         </div>
 
@@ -91,7 +91,7 @@ watch(currentFullPath, () => {
         </RouterLink>
         <div class="flex flex-col gap-2 px-4 pt-3 mt-2 border-t border-border/30">
           <button class="w-full py-2.5 px-4 rounded-full bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-all" @click="emit('open-waitlist', 'Paciente')">
-            Solicitar acceso
+            Acceso temprano
           </button>
         </div>
       </div>

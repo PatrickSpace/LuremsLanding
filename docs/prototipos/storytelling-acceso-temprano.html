@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Lurems · Propuesta de copy y storytelling</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: #F5FAFA;
+      --surface: #FFFFFF;
+      --text: #1A3A38;
+      --muted: #426460;
+      --border: #C8EDE8;
+      --brand-subtle: #EFF9F7;
+      --patient: #1F5442;
+      --psychologist: #383188;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 24px; }
+    body { margin: 0; background: var(--background); color: var(--text); font: 400 16px/1.65 'Poppins', system-ui, sans-serif; }
+    main, .review { max-width: 768px; margin-inline: auto; padding-inline: 32px; }
+    .review { padding-block: 32px; border-bottom: 1px solid var(--border); }
+    .review p { margin: 8px 0 0; font-size: 14px; color: var(--muted); }
+    .review strong { font-size: 14px; font-weight: 600; }
+    section { padding-block: 48px; border-bottom: 1px solid var(--border); }
+    .eyebrow { display: block; margin: 0 0 12px; color: var(--muted); font-size: 12px; font-weight: 600; line-height: 1.4; }
+    .patient .eyebrow { color: var(--patient); }
+    .psychologist .eyebrow { color: var(--psychologist); }
+    h1 { font-size: 28px; line-height: 1.25; font-weight: 700; }
+    h2 { font-size: 22px; line-height: 1.3; font-weight: 600; }
+    h3 { font-size: 18px; line-height: 1.35; font-weight: 600; }
+    h1, h2, h3 { margin: 0 0 16px; text-wrap: pretty; }
+    p { margin: 0 0 16px; }
+    p:last-child { margin-bottom: 0; }
+    .lead { font-size: 18px; line-height: 1.7; }
+    .note { font-size: 14px; line-height: 1.6; color: var(--muted); }
+    .callout { margin-top: 24px; padding: 24px; background: var(--brand-subtle); border: 1px solid var(--border); border-radius: var(--radius); }
+    ol { margin: 24px 0; padding-left: 24px; }
+    li { padding-left: 8px; margin-bottom: 24px; }
+    li h3 { margin-bottom: 8px; }
+    article { margin-top: 24px; }
+    article h3 { margin-bottom: 8px; }
+    a { color: var(--patient); text-underline-offset: 4px; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible, summary:focus-visible { outline: 2px solid var(--text); outline-offset: 4px; border-radius: 4px; }
+    .psychologist a { color: var(--psychologist); }
+    .cta { display: inline-block; margin-top: 8px; font-size: 14px; font-weight: 600; }
+    .cta + .note { margin-top: 12px; }
+    .faq article { margin-top: 32px; }
+    .copy-sheet { background: var(--surface); padding: 24px; border: 1px solid var(--border); border-radius: var(--radius); margin-top: 24px; }
+    .copy-sheet p { margin-bottom: 12px; }
+    dl { margin: 16px 0 24px; }
+    dt { margin-top: 16px; font-weight: 600; font-size: 14px; }
+    dd { margin: 4px 0 0; font-size: 14px; color: var(--muted); }
+    .submit-copy { font-weight: 600; color: var(--patient); }
+    details { margin-top: 24px; }
+    summary { font-size: 14px; cursor: pointer; color: var(--muted); }
+    details .copy-sheet { margin-top: 16px; }
+    footer { padding-block: 32px 48px; }
+    footer p { font-size: 14px; }
+    @media (max-width: 767px) {
+      main, .review { padding-inline: 16px; }
+      section { padding-block: 32px; }
+      .review { padding-block: 24px; }
+      .callout, .copy-sheet { padding: 20px; }
+    }
+    @media print {
+      body { background: white; }
+      main, .review { max-width: none; }
+      article, .copy-sheet { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="review">
+    <strong>Propuesta de texto · Lurems</strong>
+    <p>Lectura desde el bloque posterior al hero. El hero actual queda fuera de esta propuesta. Los textos son un borrador para revisión; las acciones y los mensajes del formulario se muestran como referencia, sin enviar datos.</p>
+  </header>
+
+  <main>
+    <section class="patient" aria-labelledby="pacientes">
+      <span class="eyebrow">Para quienes buscan apoyo psicológico</span>
+      <h1 id="pacientes">Elegir por dónde empezar también forma parte del camino.</h1>
+      <p class="lead">Entre especialidades, enfoques y horarios, buscar un psicólogo puede traer más preguntas de las que esperabas.</p>
+      <p>Estamos desarrollando Lurems para ayudarte a ordenar lo que buscas, conocer opciones de atención y conservar lo trabajado a lo largo de tu terapia.</p>
+      <p>Un espacio pensado para acompañar tu búsqueda y la continuidad de tu proceso, a tu ritmo.</p>
+      <a class="cta" href="#acceso">Quiero recibir un aviso cuando abra el acceso</a>
+      <p class="note">La plataforma está en desarrollo. Hoy puedes apuntarte a la lista de acceso temprano.</p>
+    </section>
+
+    <section class="patient" aria-labelledby="recorrido">
+      <span class="eyebrow">El recorrido que estamos diseñando</span>
+      <h2 id="recorrido">De lo que necesitas a un siguiente paso con más información.</h2>
+      <p>Esta es la experiencia que buscamos construir para cuando Lurems esté disponible.</p>
+      <ol>
+        <li>
+          <h3>Dar espacio a lo que buscas</h3>
+          <p>Una guía de preguntas para ordenar tus necesidades, preferencias y posibilidades antes de explorar profesionales.</p>
+        </li>
+        <li>
+          <h3>Conocer tus opciones</h3>
+          <p>Información sobre especialidades, enfoques y disponibilidad para ayudarte a comparar y decidir con más contexto.</p>
+        </li>
+        <li>
+          <h3>Organizar tus encuentros</h3>
+          <p>Citas y próximos pasos reunidos en un lugar para facilitar la organización de tu terapia.</p>
+        </li>
+        <li>
+          <h3>Conservar lo trabajado</h3>
+          <p>Registros personales y recursos compartidos por tu psicólogo para retomar lo que quieras conversar en tus próximas sesiones.</p>
+        </li>
+      </ol>
+      <div class="callout">
+        <h3>Cada proceso tiene su propio ritmo.</h3>
+        <p>Puede haber pausas, cambios y nuevas preguntas. Queremos que puedas conservar lo trabajado y retomarlo cuando lo necesites.</p>
+      </div>
+    </section>
+
+    <section class="psychologist" aria-labelledby="profesionales">
+      <span class="eyebrow">Para psicólogos</span>
+      <h2 id="profesionales">Acompañar un proceso también necesita espacio para organizar tu práctica.</h2>
+      <p class="lead">Entre preparar sesiones, coordinar horarios y hacer seguimiento a los pagos, hay mucho trabajo alrededor de cada encuentro.</p>
+      <p>Estamos desarrollando Lurems para reunir herramientas de conexión, gestión y seguimiento, con especial atención a las necesidades de los psicólogos independientes.</p>
+      <article>
+        <h3>Hacer visible tu práctica</h3>
+        <p>Un perfil profesional con información sobre tu especialidad y forma de trabajo, pensado para que las personas puedan conocer tu propuesta de atención.</p>
+      </article>
+      <article>
+        <h3>Reunir las tareas del día a día</h3>
+        <p>Agenda, recordatorios y gestión de cobros para reducir la dispersión entre herramientas y facilitar la organización de tu consulta.</p>
+      </article>
+      <article>
+        <h3>Llegar a cada sesión con el contexto a mano</h3>
+        <p>Información de seguimiento y recursos terapéuticos organizados para preparar los encuentros y dar continuidad a tu trabajo.</p>
+      </article>
+      <p class="note" style="margin-top:24px">Estas herramientas forman parte de la propuesta en desarrollo y todavía no están disponibles.</p>
+      <a class="cta" href="#acceso">Quiero recibir novedades como psicólogo</a>
+    </section>
+
+    <section aria-labelledby="desarrollo">
+      <span class="eyebrow">Dónde estamos hoy</span>
+      <h2 id="desarrollo">Estamos construyendo Lurems alrededor de las necesidades de pacientes y psicólogos.</h2>
+      <p>Nos enfocamos en facilitar la búsqueda de atención, organizar la práctica profesional y dar continuidad al proceso entre sesiones.</p>
+      <p>La plataforma sigue en desarrollo. Hoy puedes sumarte a la lista de acceso temprano para recibir un aviso cuando abramos el acceso.</p>
+      <p class="note">Aún no hay una fecha de lanzamiento ni precios definidos para los servicios. Apuntarte a la lista es gratuito.</p>
+    </section>
+
+    <section class="faq" aria-labelledby="preguntas">
+      <span class="eyebrow">Antes de sumarte</span>
+      <h2 id="preguntas">Lo que puedes esperar de Lurems.</h2>
+      <article>
+        <h3>¿Puedo encontrar un psicólogo o agendar una sesión ahora?</h3>
+        <p>Todavía no. La plataforma está en desarrollo y el directorio, la agenda y las herramientas de seguimiento aún no están disponibles. Por ahora puedes apuntarte para recibir un aviso cuando abramos el acceso.</p>
+      </article>
+      <article>
+        <h3>¿Qué pasa cuando me apunto?</h3>
+        <p>Guardamos tu nombre, correo y tipo de usuario para contactarte sobre el acceso temprano. Si eres psicólogo, también te pedimos tu perfil profesional para conocer los perfiles interesados.</p>
+        <p>Apuntarte no crea una cuenta, reserva una sesión ni garantiza un cupo de acceso.</p>
+      </article>
+      <article>
+        <h3>¿Tiene algún costo?</h3>
+        <p>Apuntarte a la lista es gratuito. Los precios y las condiciones de los futuros servicios se comunicarán antes de habilitarlos.</p>
+      </article>
+      <article>
+        <h3>¿Cómo se revisarán los perfiles profesionales?</h3>
+        <p>La propuesta contempla revisar la formación y la habilitación profesional antes de publicar perfiles. Los criterios de verificación aún están por definir y no hay un directorio disponible.</p>
+      </article>
+      <article>
+        <h3>¿Lurems reemplaza la atención psicológica?</h3>
+        <p>No. La propuesta de Lurems se centra en orientar la búsqueda y organizar el proceso terapéutico. No sustituye la atención de un psicólogo, el diagnóstico clínico ni los servicios de emergencia.</p>
+      </article>
+      <article>
+        <h3>¿Qué papel tendrá la inteligencia artificial?</h3>
+        <p>Estamos explorando herramientas de apoyo para organizar información y preparar resúmenes que el profesional pueda revisar. Su alcance todavía está por definir. El criterio clínico y las decisiones sobre la atención corresponden al psicólogo.</p>
+      </article>
+    </section>
+
+    <section id="acceso" aria-labelledby="lista">
+      <span class="eyebrow">Acceso temprano</span>
+      <h2 id="lista">Recibe un aviso cuando puedas conocer Lurems.</h2>
+      <p>Déjanos tu nombre y correo, y cuéntanos si te interesa como paciente o como psicólogo. Te contactaremos cuando abramos el acceso.</p>
+      <p>Apuntarte es gratuito y no te compromete a contratar ningún servicio.</p>
+
+      <div class="copy-sheet" aria-label="Textos propuestos para el formulario">
+        <h3>Únete a la lista de acceso temprano</h3>
+        <dl>
+          <dt>¿Cómo te interesa conocer Lurems?</dt>
+          <dd>Como paciente · Como psicólogo</dd>
+          <dt>Tu perfil profesional</dt>
+          <dd>Solo si eliges psicólogo: selecciona la opción que mejor describe tu práctica.</dd>
+          <dt>Tu nombre</dt>
+          <dd>¿Cómo te llamas?</dd>
+          <dt>Correo electrónico</dt>
+          <dd>El correo donde quieres recibir el aviso.</dd>
+        </dl>
+        <p class="submit-copy">Quiero recibir el aviso</p>
+        <p class="note">Usaremos estos datos para contactarte sobre el acceso temprano y conocer los perfiles interesados.</p>
+      </div>
+
+      <details>
+        <summary>Revisar los mensajes de confirmación y error</summary>
+        <div class="copy-sheet">
+          <h3>Ya estás en la lista.</h3>
+          <p>Te avisaremos por correo cuando abramos el acceso a Lurems. Gracias por tu interés.</p>
+          <p class="note">Este registro no crea una cuenta ni reserva una sesión.</p>
+        </div>
+        <div class="copy-sheet">
+          <h3>Si no se puede guardar el registro</h3>
+          <p>No pudimos guardar tus datos. Inténtalo de nuevo.</p>
+          <p class="note">Durante el envío: «Guardando tus datos…»</p>
+          <p class="note">Nombre: «Escribe tu nombre para continuar.»</p>
+          <p class="note">Correo: «Revisa que tu correo esté completo y bien escrito.»</p>
+          <p class="note">Perfil profesional: «Selecciona la opción que mejor describe tu perfil.»</p>
+        </div>
+      </details>
+    </section>
+
+    <footer>
+      <p><strong>Claridad en tu camino terapéutico.</strong></p>
+      <p>Estamos creando Lurems para acompañar la búsqueda de atención y la organización del proceso, junto a pacientes y psicólogos.</p>
+      <p class="note">Lurems no sustituye la atención profesional ni los servicios de emergencia.</p>
+    </footer>
+  </main>
+</body>
+</html>

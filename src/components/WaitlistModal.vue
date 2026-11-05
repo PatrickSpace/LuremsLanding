@@ -34,8 +34,8 @@ function handleSubmitted() {
             <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
               <Sparkles :size="20" class="text-primary" />
             </div>
-            <h2 class="text-xl font-bold text-foreground">Comienza con más claridad</h2>
-            <p class="text-muted-foreground text-sm mt-1">Déjanos tus datos para recibir acceso temprano a Lurems.</p>
+            <h2 class="text-xl font-bold text-foreground">Recibe un aviso cuando puedas conocer Lurems.</h2>
+            <p class="text-muted-foreground text-sm mt-1">Déjanos tu nombre y correo, y cuéntanos si te interesa como paciente o como psicólogo. Te contactaremos cuando abramos el acceso.</p>
           </div>
 
           <div class="px-6 py-5">

@@ -2,60 +2,9 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    function isValidLead() {
-      let lead = request.resource.data;
-
-      return lead.keys().hasAll([
-          'nombre',
-          'email',
-          'tipoUsuario',
-          'perfilPsicologo',
-          'origenFormulario',
-          'pagePath',
-          'createdAt'
-        ])
-        && lead.keys().hasOnly([
-          'nombre',
-          'email',
-          'tipoUsuario',
-          'perfilPsicologo',
-          'origenFormulario',
-          'pagePath',
-          'createdAt'
-        ])
-        && lead.nombre is string
-        && lead.nombre.size() >= 2
-        && lead.nombre.size() <= 100
-        && lead.email is string
-        && lead.email.size() >= 5
-        && lead.email.size() <= 254
-        && lead.email.matches('^[^@ ]+@[^@ ]+[.][^@ ]+$')
-        && lead.tipoUsuario in ['Paciente', 'Psicólogo']
-        && lead.perfilPsicologo is string
-        && (
-          (lead.tipoUsuario == 'Paciente' && lead.perfilPsicologo == '')
-          || (
-            lead.tipoUsuario == 'Psicólogo'
-            && lead.perfilPsicologo in [
-              'Psicólogo clínico independiente',
-              'Psicólogo clínico dependiente',
-              'Psicólogo con otra especialidad',
-              'No soy psicólogo pero me interesa el proyecto'
-            ]
-          )
-        )
-        && lead.origenFormulario in ['modal', 'home-inline']
-        && lead.pagePath is string
-        && lead.pagePath.size() >= 1
-        && lead.pagePath.size() <= 200
-        && lead.createdAt == request.time;
-    }
-
-    match /leads/{leadId} {
-      allow create: if isValidLead();
-      allow read, update, delete: if false;
-    }
-
+    // Only submitLead (Admin SDK / IAM) can access leads and the private index.
+    // Deploy these rules BEFORE enabling the function/new client to close the
+    // legacy addDoc route. No client may read or write registration documents.
     match /{document=**} {
       allow read, write: if false;
     }

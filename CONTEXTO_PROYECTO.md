@@ -1,6 +1,6 @@
 # Lurems: contexto de producto, tecnología y comunicación
 
-Última revisión: 4 de noviembre de 2026.
+Última revisión: 5 de noviembre de 2026.
 
 Este documento se basa en el código y los textos de este repositorio. Describe la landing de presentación; no es una auditoría de la app principal ni del entorno publicado. Las interpretaciones de marketing y las propuestas futuras se identifican expresamente. Si el código cambia, revisar este contexto.
 
@@ -18,7 +18,7 @@ El propósito inmediato de esta web es explicar la propuesta, validar necesidade
 | --- | --- |
 | Landing responsive, navegación por secciones y FAQ | Búsqueda y compatibilidad con profesionales |
 | Formulario inline y modal de acceso temprano | Directorio de psicólogos verificados |
-| Validación y almacenamiento de leads en Firestore | Agenda, recordatorios y gestión de sesiones |
+| Validación y registro de leads mediante Cloud Function y Firestore (implementación local; sin desplegar) | Agenda, recordatorios y gestión de sesiones |
 | Segmentación paciente/psicólogo y perfil profesional | Cobranza automática y reportes financieros |
 | Instrumentación de Analytics condicionada al entorno | Registros emocionales y recursos terapéuticos |
 | Metadatos y recursos de marca | Historia clínica inteligente, resúmenes e IA de apoyo |
@@ -41,7 +41,7 @@ La landing se dirige a personas que necesitan ayuda pero encuentran dispersión 
 El mensaje profesional destaca a los psicólogos independientes, aunque el formulario también acepta otros perfiles.
 
 - Necesidad: captar pacientes alineados con su práctica y reducir la carga operativa de agenda, cobranza y seguimiento.
-- Propuesta: reunir captación, organización y contexto del paciente en una experiencia apoyada por IA.
+- Propuesta en desarrollo: conseguir nuevos pacientes, automatizar citas y recordatorios, gestionar cobros y compartir recursos personalizados. Estas funcionalidades todavía no están disponibles; no se presentan como capacidades operativas de la landing.
 - Beneficio profesional: dedicar más atención a sus pacientes y preparar mejor los encuentros.
 - Acción disponible: sumarse a la lista como psicólogo y seleccionar su perfil.
 
@@ -51,13 +51,21 @@ El mensaje profesional destaca a los psicólogos independientes, aunque el formu
 
 ### Relato que ya aparece en la landing
 
+**Sección profesional aprobada (5 de noviembre de 2026):** `PsychologistsSection.vue` sustituye únicamente `#para-psicologos`, conforme a [la propuesta aprobada](./docs/prototipos/para-psicologos.html). Presenta «Más pacientes. Menos pendientes.», un párrafo de resumen y «Quiero sumarme como psicólogo», que abre el modal existente con «Psicólogo» preseleccionado. El panel derecho muestra «Tu consulta, organizada de principio a fin.», cuatro tarjetas literales y la aclaración de desarrollo. Se elimina la lista de beneficios y las seis tarjetas anteriores. En escritorio hay dos columnas y en móvil el resumen precede al panel; acción morada `#6358B8` con texto blanco, Poppins y Lucide de trazo 1,5. Publicada de forma aislada el 5 de noviembre de 2026 en `lurems.lat`, versión Hosting `614b097a459f9717`, conservando el resto de la versión publicada anterior. Los otros cambios locales descritos en este documento no entraron en ese despliegue. Evidencia: [entrega de la sección profesional](./docs/VERIFICACION_PARA_PSICOLOGOS.md).
+
+**Copy aprobado de continuidad (5 de noviembre de 2026):** las cuatro tarjetas comunican «Registra lo importante», «Consulta tus recursos», «Avanza a tu ritmo» y «Lleva tu diario emocional», con descripciones breves aprobadas por el fundador. Se conserva la composición compacta, los iconos y el CTA existentes. Son parte de la propuesta en desarrollo, no herramientas disponibles en esta landing.
+
+**Ajuste visual posterior autorizado:** la sección de continuidad (`#continuidad`) se compactó manteniendo sus textos y cuatro iconos: título de 28/36 px, tarjetas con icono lateral en cuadrícula 2 × 2 desde tablet, y texto/CTA junto a las tarjetas desde escritorio. Incluye «Solicitar acceso temprano», enlace a `#waitlist-section`, de 64 px de alto y ancho completo en móvil. No modifica el formulario ni sus eventos. Este ajuste sustituye la restricción de solo texto únicamente para esa sección, conforme al nuevo encargo del fundador.
+
+**Actualización de copy (4 de noviembre de 2026):** se aplicaron los mensajes de [la propuesta de acceso temprano](./docs/prototipos/storytelling-acceso-temprano.html) dentro de los bloques gráficos existentes, por indicación del fundador de cambiar solo textos. Se conservan hero, iconos, colores, tipografía, clases, tarjetas, orden y comportamiento. El bloque de beneficios comunica continuidad con pausas y cambios; las tarjetas de validación comunicaban el estado del desarrollo y las condiciones de apuntarse; se sustituyeron localmente por el bloque compacto aprobado de «Dónde estamos hoy» el 5 de noviembre. En esa actualización se conservaron seis tarjetas profesionales; la sección fue sustituida después por la propuesta específica aprobada del 5 de noviembre, descrita a continuación. En esa etapa se mantuvieron cinco filas de FAQ; el 5 de noviembre se sustituyeron localmente por las siete preguntas aprobadas por el fundador.
+
 1. **Reconocimiento emocional:** «¿Te sientes solo?».
 2. **Permiso para actuar:** «Pedir ayuda no tiene nada de malo».
 3. **Problema concreto:** buscar atención puede resultar confuso por la información dispersa.
 4. **Guía:** Lurems organiza necesidades y preferencias para facilitar el siguiente paso.
-5. **Camino:** compartir la situación → entender una ruta → conectar con opciones compatibles → sostener el proceso.
+5. **Camino previsto:** dar espacio a lo que buscas → conocer tus opciones → organizar tus encuentros → conservar lo trabajado.
 6. **Horizonte:** más claridad para la persona y más contexto para el profesional.
-7. **Invitación actual:** registrarse para recibir aviso cuando se abran cupos.
+7. **Invitación actual:** apuntarse para recibir un aviso cuando abra el acceso, sin crear cuenta, reservar sesión ni garantizar un cupo.
 
 **Lectura narrativa:** la persona y el profesional protagonizan el cambio; Lurems desempeña el papel de guía. La metáfora del camino y el faro de los recursos de marca refuerzan orientación, esperanza y continuidad. La portada actual prueba una secuencia de videos ilustrativos de introspección, cansancio y tensión cotidiana. Esta lectura deriva del texto y de la descripción del recurso visual; no implica una historia fundacional confirmada.
 
@@ -71,6 +79,10 @@ El mensaje profesional destaca a los psicólogos independientes, aunque el formu
 - No inventar testimonios, cantidades de usuarios, resultados, certificaciones o profesionales ya verificados.
 - La web declara que Lurems no reemplaza atención profesional, diagnóstico clínico ni servicios de emergencia.
 
+**FAQ aprobadas — cambio local (5 de noviembre de 2026):** siete preguntas literales en `src/data/site.js`, en este orden: orientación para encontrar un psicólogo, elección del profesional, IA como apoyo, tarifa de sesiones, gratuidad del registro, datos solicitados y pasos posteriores. Se conservan `#preguntas`, el diseño y el funcionamiento del acordeón. Herramientas futuras, sin presentarlas como disponibles hoy. No se publicó ni desplegó esta actualización.
+
+**Decisión del fundador sobre tarifas:** cada terapeuta tendrá una tarifa diferenciada y el precio de las sesiones variará según el profesional elegido. Es independiente de la gratuidad de apuntarse a la lista; los precios de la plataforma se comunicarán antes de habilitarla. No se deducen importes, comisiones, suscripciones ni quién determina las tarifas. La referencia previa a precios sin definir no establecía tarifas uniformes ni importes y sigue siendo válida para los valores concretos pendientes.
+
 ### Mensajes centrales para mantener consistencia
 
 | Contexto | Mensaje de referencia |
@@ -79,7 +91,7 @@ El mensaje profesional destaca a los psicólogos independientes, aunque el formu
 | Pacientes | Encontrar orientación para elegir y continuar tu terapia |
 | Psicólogos | Captar pacientes y organizar la práctica para concentrarse en la atención |
 | Etapa actual | Estamos desarrollando la plataforma; puedes solicitar acceso temprano |
-| Conversión | Solicitar acceso temprano / Quiero sumarme como psicólogo |
+| Conversión | Quiero recibir el aviso / Quiero recibir novedades como psicólogo |
 
 Las formulaciones de esta tabla sintetizan el contenido; no son todas citas literales.
 
@@ -87,18 +99,20 @@ Las formulaciones de esta tabla sintetizan el contenido; no son todas citas lite
 
 ### Embudo implementado
 
+**«Dónde estamos hoy» — implementado y publicado (5 de noviembre de 2026):** `DevelopmentStatusSection.vue` sustituye las cuatro tarjetas por el bloque compacto aprobado en `docs/prototipos/donde-estamos-hoy.html`: «Estamos desarrollando Lurems.», explicación de la lista gratuita, aviso de apertura y nota sin fecha de lanzamiento. El CTA «Quiero recibir el aviso» abre el modal general mediante el evento existente sin imponer un tipo; `App.vue` conserva su selección predeterminada de paciente y permite cambiar de público. La fila inferior incorpora correo y WhatsApp visibles con enlaces `mailto:` y `wa.me`, sin envío automático de mensajes. Texto/CTA en dos columnas desde 1280 px y contactos debajo; en móvil se apilan con CTA de ancho completo. Se retiraron `validationGoals` y su import porque solo alimentaban las tarjetas eliminadas. El fundador autorizó después su publicación en GitHub y Firebase. Publicada únicamente esta sección sobre la base profesional existente: Hosting `e90e8093f4316e48` (06:04:40 UTC), sin Functions, reglas ni trabajo local ajeno. Diez recorridos aprobados sobre el dominio publicado; sin leads ni mensajes enviados.
+
 Visita → identificación con el problema → comprensión de la propuesta → elección de público → registro → confirmación de que se notificará la disponibilidad.
 
-La adquisición de tráfico y el envío posterior de comunicaciones no están implementados en este repositorio. Guardar un lead no envía por sí mismo un correo, no crea una cuenta y no reserva una sesión.
+La adquisición de tráfico y la campaña futura de apertura no están implementadas. Se añadió la confirmación automática del registro anticipado mediante una cola privada y Gmail SMTP en Functions: está implementada y probada localmente, pero falta el secreto real y no se desplegó. Registrar un interesado no crea una cuenta ni reserva una sesión. Plantillas nuevas y operación: [correos de acceso temprano](./docs/email/README.md).
 
-La página desarrolla el embudo mediante hero, accesos por público, problema/solución, explicación del recorrido, beneficios, sección profesional, objetivos de validación, FAQ, lista de espera y cierre en el footer.
+La página desarrolla el embudo mediante hero, accesos por público, problema/solución, explicación del recorrido, beneficios, sección profesional, estado actual del desarrollo, FAQ, lista de espera y cierre en el footer.
 
 - CTA principal del hero: desplaza al formulario `#waitlist-section`.
 - CTA secundario: lleva a `#como-funciona`.
 - CTA profesional: abre el modal con «Psicólogo» preseleccionado.
 - Navbar y footer: ofrecen entradas adicionales al modal.
 - Formulario inline: origen `home-inline`; modal: origen `modal`.
-- Confirmación: muestra «¡Registrado!»; en el modal, se solicita el cierre tras 1,4 segundos.
+- Confirmación: muestra «Ya estás en la lista», aviso por correo y aclaración de que no crea cuenta ni reserva sesión. Por el alcance de solo texto, se conserva el cierre automático existente del modal a los 1,4 segundos y la disposición existente del formulario en móvil; no se aplicó la reorganización del intento descartado.
 
 ### Medición existente
 
@@ -124,7 +138,7 @@ La web es una SPA renderizada en cliente; no se observa SSR ni prerender. Micros
 
 - El hero aborda primero a pacientes; la sección profesional plantea una propuesta operativa distinta. Los cambios deben indicar a qué público sirven.
 - La portada con video muestra «En desarrollo · Acceso temprano» y no presenta señales de funciones ya disponibles. Mantener la misma precisión temporal al hablar del directorio y de herramientas previstas en el resto de la landing.
-- No se encontraron rutas de privacidad o términos, automatización de bajas ni envío de correos. El texto «Cancela cuando quieras» no demuestra que exista un mecanismo de baja.
+- No se encontraron rutas de privacidad o términos ni automatización de bajas. La confirmación de registro por correo está implementada localmente y pendiente de activación; no hay campaña de apertura activa. Se retiró «Cancela cuando quieras» del formulario; ahora se explica el uso de los datos para el acceso temprano y conocer los perfiles interesados. No hay un mecanismo de baja implementado.
 - No asumir una política de privacidad o garantías de protección clínica solo por la presencia del texto «Mantenemos la privacidad de tus datos».
 
 Estas observaciones provienen de la revisión del repositorio, no de una auditoría legal ni de investigación de mercado.
@@ -140,7 +154,8 @@ Estas observaciones provienen de la revisión del repositorio, no de una auditor
 - Tailwind CSS 4 con plugin de Vite, Typography y `tw-animate-css`.
 - `lucide-vue-next` para iconos.
 - Zod 4 para validación del formulario.
-- Firebase SDK 12: inicialización, Firestore y Analytics.
+- Firebase SDK 12: inicialización, Functions callable y Analytics en navegador.
+- Cloud Functions de la landing: Node 22, Firebase Admin 14 y Functions 7; Firestore solo desde servidor.
 - Firebase Hosting para servir `dist`.
 
 Los números indican las versiones mayores declaradas en `package.json`; `package-lock.json` fija la resolución instalada.
@@ -154,14 +169,20 @@ Los números indican las versiones mayores declaradas en `package.json`; `packag
 | `src/router.js` | Ruta `/`, redirección de desconocidas a `/`, scroll y page views |
 | `src/pages/Home.vue` | Compone portada, contenido local, secciones y formulario inline |
 | `src/components/HeroVideo.vue` | Portada con videos sincronizados con palabras, filtro y control de pausa |
-| `src/data/site.js` | Navegación, beneficios, beneficios profesionales, objetivos y FAQ |
+| `src/data/site.js` | Navegación, continuidad, datos profesionales previos y FAQ; retirado el arreglo exclusivo de las tarjetas de validación |
 | `src/components/Navbar.vue` | Navegación fija, estado de scroll y menú móvil |
 | `src/components/Footer.vue` | Cierre comercial, enlaces y avisos |
+| `src/components/DevelopmentStatusSection.vue` | Estado de desarrollo, CTA general y contactos de correo/WhatsApp; publicado el 5 de noviembre de 2026 |
+| `src/components/PsychologistsSection.vue` | Sección profesional aprobada, cuatro funcionalidades previstas y CTA al modal segmentado |
 | `src/components/WaitlistForm.vue` | Público, perfil, validación, envío y confirmación |
 | `src/components/WaitlistModal.vue` | Modal mediante Teleport y transición |
 | `src/services/firebase.js` | Configuración e inicialización de la app base, sin Firestore |
-| `src/services/leads.js` | Carga diferida tras validación, inicialización de Firestore completo, normalización y creación del lead |
-| `src/services/lead-validation.js` | Esquema Zod original, cargado al enviar |
+| `src/services/leads.js` | Carga diferida del cliente de Functions; invoca `submitLead` sin acceso directo a Firestore |
+| `src/services/lead-validation.js` | Esquema Zod cargado al enviar; normaliza el correo antes de validarlo |
+| `src/services/lead-errors.js` | Mensajes de duplicado por contrato explícito; errores técnicos diferenciados |
+| `functions/src/` | Callable `submitLead`, validación del servidor y registro atómico con índice privado |
+| `functions/src/emails/` | Plantillas nuevas por tipo, transporte Gmail y worker con control de intentos |
+| `docs/email/` | HTML, TXT, metadatos y vistas previas del registro anticipado; configuración y evidencia |
 | `src/services/analytics.js` | Analytics condicionado al host, con inicialización compartida y eventos que no bloquean la web |
 | `src/index.css` | Tokens, fuentes, utilidades, animaciones y reducción de movimiento |
 | `public/brand/` | Logos, isotipos e imágenes del hero |
@@ -172,7 +193,7 @@ El copy no está completamente centralizado: parte vive en `site.js` y parte en 
 
 ### Flujo de datos del lead
 
-`WaitlistForm.vue` (UI disponible desde el arranque) → importación de validación Zod al enviar → importación del servicio de escritura solo si es válido → `submitLead()` → documento nuevo en colección `leads` → evento `generate_lead` → estado visual de éxito.
+`WaitlistForm.vue` → validación Zod normalizada → cliente Functions diferido → callable `submitLead` → validación del servidor → transacción Firestore → respuesta `created` → `generate_lead`, éxito y `submitted`. Un duplicado devuelve `already-exists` con tipos registrados; conserva el formulario abierto y editable, sin conversión ni `submitted`. La implementación local todavía no está desplegada.
 
 | Campo persistido | Valor / tratamiento |
 | --- | --- |
@@ -186,17 +207,27 @@ El copy no está completamente centralizado: parte vive en `site.js` y parte en 
 
 Perfiles profesionales permitidos: «Psicólogo clínico independiente», «Psicólogo clínico dependiente», «Psicólogo con otra especialidad» y «No soy psicólogo pero me interesa el proyecto».
 
-Las reglas permiten únicamente crear leads con las claves y valores esperados; bloquean lectura, actualización, eliminación y acceso del cliente a otras colecciones. Exigen nombre de 2–100 caracteres, correo de 5–254, ruta de 1–200, perfil coherente con el tipo de usuario y timestamp del servidor.
+Las reglas locales deniegan **todas** las lecturas y escrituras del cliente, incluidos `leads` y `leadRegistrations`. La callable valida las claves, nombre de 2–100 caracteres, correo normalizado de 5–254, origen `modal`/`home-inline`, ruta de 1–200 sin query/hash, tipo y perfil profesional. `createdAt` se genera en servidor; el cliente no puede asignarlo. Los usos actuales pasan origen explícito; el default `waitlist` del componente es rechazado por el servidor.
 
-Zod y Firestore no son idénticos: el formulario no impone todos los máximos de las reglas y valida antes de la normalización del servicio. Al cambiar campos o valores, revisar formulario, servicio y reglas juntos. El origen por defecto `waitlist` del componente/servicio no está permitido por las reglas; los usos actuales pasan explícitamente `modal` o `home-inline`.
+Inline y modal normalizan con `trim` y minúsculas antes de validar; el servidor lo repite antes de buscar y escribir. Los errores tienen nombre accesible, descripción y foco; permiten corregir correo o cambiar tipo conservando nombre y perfil. Enviar paciente fuerza perfil vacío, y agregar psicólogo exige una opción permitida.
 
-La escritura usa `addDoc`; no se observa deduplicación de correos, CAPTCHA ni limitación de frecuencia en este repositorio. Las reglas de estructura no equivalen a protección completa contra registros automatizados.
+La transacción usa un documento privado `leadRegistrations/{sha256(emailNormalizado)}` como punto de exclusión compartido por instancias y dispositivos. Guarda versión, tipos y fecha, sin correo ni nombre. Cada tipo conserva su propio documento `leads`, incluidos perfil profesional, nombre, origen y fecha; no se sobrescribe el tipo anterior.
+
+Esa misma transacción crea un trabajo `leadEmails/{leadId}` para cada lead nuevo. `sendEarlyAccessEmail` se activa al crearlo, valida el destinatario desde el lead y envía una confirmación nueva para paciente o psicólogo: registro anticipado confirmado y aviso cuando la app esté lista. Los duplicados no crean trabajos y los registros históricos no reciben correos retroactivos. No se usaron plantillas de cuentas de la app.
+
+El remitente Gmail autorizado se configura fuera de Git; la contraseña de aplicación usa el secreto `EARLY_ACCESS_SMTP_PASSWORD`, todavía sin configurar en nube. `sent` significa aceptación SMTP, no recepción en bandeja. Los fallos seguros admiten hasta cinco intentos; resultados inciertos tras iniciar SMTP quedan `needs_review` y no se reenvían automáticamente. En emuladores solo se capturan mensajes con datos sintéticos, sin SMTP real. No se desplegó ni envió correo real. El aviso futuro de apertura requiere decisión del fundador y su propio envío; este flujo no determina cuándo está lista la app.
+
+Cuando aún no existe índice, la función lee solo `email`/`tipoUsuario` del histórico desde el servidor, normaliza para comparar y reconoce IDs aleatorios y variantes de mayúsculas/espacios. No modifica documentos antiguos ni requiere migración masiva. La lectura del histórico cuesta proporcionalmente a su tamaño hasta crear el índice mediante un registro válido; un fallo de lectura aborta sin registrar. Un índice inconsistente también se rechaza. No se añadieron CAPTCHA, App Check ni límite por visitante; CORS y un máximo de tres instancias no equivalen a protección completa contra automatización.
+
+**Unicidad implementada localmente (4 de noviembre de 2026):** un registro por correo/tipo, con paciente y psicólogo permitidos por separado y los tres textos de duplicado aprobados. El fundador autorizó usar Functions en este chat después del [encargo inicial](./docs/ENCARGO_DEDUPLICACION_ACCESO_TEMPRANO.md). Las pruebas de integración usan emuladores del proyecto aislado `demo-luremslanding`. No se consultaron leads reales, migró producción ni desplegó la función/reglas/hosting. Contrato, operación y transición: [Functions de acceso temprano](./docs/ACCESO_TEMPRANO_FUNCTIONS.md).
 
 ### Entorno y Analytics
 
 El SDK recibe variables `VITE_FIREBASE_API_KEY`, `VITE_FIREBASE_AUTH_DOMAIN`, `VITE_FIREBASE_PROJECT_ID`, `VITE_FIREBASE_STORAGE_BUCKET`, `VITE_FIREBASE_MESSAGING_SENDER_ID`, `VITE_FIREBASE_APP_ID` y `VITE_FIREBASE_MEASUREMENT_ID`. Los nombres y la preparación se documentan en `README.md`; no copiar valores de `.env.local`.
 
-Analytics solo se inicializa en producción, cuando el navegador lo soporta y el host es `lurems.lat`, `www.lurems.lat`, `luremslanding.web.app` o `luremslanding.firebaseapp.com`. En desarrollo retorna `null`. Sus errores se absorben para no bloquear la experiencia. Analytics ya no inicializa Firestore. Cada llamada espera una única promesa compartida de inicialización; Vue Router emite `page_view` y el SDK se configura con `send_page_view: false` para evitar su evento automático adicional. La validación y Firestore completo se descargan al enviar; el bloqueo de duplicados comienza antes de esas importaciones. Se conserva Firestore completo por su cola/reintento de escrituras en memoria al perder conexión; no se habilita persistencia en disco. La primera descarga de los módulos diferidos requiere conexión; si falla, se muestra el estado de error antes de poder encolar una escritura. Detalles y mediciones locales: [optimización de carga inicial](./docs/performance/INITIAL_LOADING_OPTIMIZATION.md).
+Analytics solo se inicializa en producción para los hosts permitidos (`lurems.lat`, `www.lurems.lat` y los predeterminados del sitio). En desarrollo retorna `null`; sus fallos no bloquean la web. Cada evento espera una promesa compartida; Vue Router emite `page_view` y el SDK usa `send_page_view: false`. Los eventos del formulario no incluyen nombres ni correos.
+
+Zod y el cliente Functions se descargan al enviar. El bloqueo de carga evita dobles envíos de la misma instancia; la transacción del servidor garantiza unicidad entre clientes. Ya no hay cola offline de Firestore en navegador. El servidor tiene timeout de 60 s y el cliente de 70 s; ante interrupción puede existir un resultado desconocido, por lo que no se muestra éxito. Reintentar no crea otro lead del mismo tipo: si el primero se confirmó, devuelve duplicado. No hay fallback a escritura directa. Con `VITE_USE_FIREBASE_EMULATORS=true` **solo en desarrollo**, la callable apunta a `127.0.0.1:5001`; las pruebas usan configuración sintética. Las [mediciones anteriores de carga](./docs/performance/INITIAL_LOADING_OPTIMIZATION.md) describen la versión previa con Firestore en cliente, no el flujo nuevo.
 
 ## 6. Diseño y experiencia
 
@@ -223,7 +254,7 @@ npm run build
 npm run preview
 ```
 
-`vite.config.js` define alias `@` a `src`, salida `dist` y host `0.0.0.0` para desarrollo y preview. No hay scripts de tests o lint declarados en `package.json`.
+`vite.config.js` define alias `@` a `src`, salida `dist` y host `0.0.0.0` para desarrollo y preview. Ahora hay scripts `test` (validación/mensajes) y `test:integration` (Functions/Firestore con proyecto demo); no hay script de lint. `functions/package-lock.json` fija las dependencias del servidor.
 
 Para cambios de interfaz, verificar build y comportamiento responsive, navegación por anchors, modal y estados del formulario según el alcance. Evitar enviar registros reales solo para comprobar apariencia. Para cambios en captura, revisar también las restricciones de Firestore.
 
@@ -254,10 +285,6 @@ La palabra conserva el gradiente verde a morado. El título usa dos líneas y re
 No convertir estas incógnitas en afirmaciones comerciales. Actualizar este documento cuando haya decisiones o evidencia en el proyecto.
 
 
-## Publicación acotada — 5 de noviembre de 2026
+## Publicación completa autorizada — 5 de noviembre de 2026
 
-Se sincroniza GitHub con la sección «Para psicólogos» ya publicada y se incorpora «Dónde estamos hoy» mediante `DevelopmentStatusSection.vue`. Copy aprobado, CTA al modal general (paciente por defecto, público editable) y contactos visibles de correo/WhatsApp. El bloque reemplaza las cuatro tarjetas de validación; se elimina su arreglo exclusivo. No cambia el hero ni las demás secciones.
-
-El artefacto parte de la versión Hosting `614b097a459f9717`, sin incorporar cambios locales pendientes de otros encargos: formularios, Functions, correos, reglas, copy o continuidad. Se conserva el guardado y Analytics publicados. `deployment-baseline-utilities.html` es una pista de fuentes para que Tailwind reproduzca dos utilidades de la base publicada; no se renderiza ni se copia al artefacto.
-
-Despliegue exclusivo de Hosting al proyecto/sitio `luremslanding`, dominio https://lurems.lat/. Versión `e90e8093f4316e48`, publicada el 5 de noviembre de 2026 a las 06:04:40 UTC. Procedencia y hashes: `docs/deployment-donde-estamos-hoy.json`.
+El fundador amplió expresamente el alcance a todos los cambios locales de esta landing, incluidas Functions y reglas. Build y ocho pruebas unitarias aprobados; veinte pruebas de integración en emuladores aprobadas al repetir la ejecución (el primer intento tuvo un fallo). SDK de producción, CLI, Hosting y reglas verificados en `luremslanding`; no se actúa sobre la app principal. Las reglas de cierre de acceso directo ya se publicaron. El envío Gmail sigue pendiente del secreto real `EARLY_ACCESS_SMTP_PASSWORD`, solicitado al fundador mediante el prompt seguro del CLI. No usar valores sintéticos en producción. La función de registro se publica de forma aislada con el mismo handler y dependencias, excluyendo únicamente el trigger de correo que exige ese secreto; se conserva la cola privada. El frontend se publica después de comprobar la callable. El historial anterior de verificaciones locales documenta su momento y no acredita recepción real de correos.

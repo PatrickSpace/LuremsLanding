@@ -1,18 +1,24 @@
-import { addDoc, collection, getFirestore, serverTimestamp } from "firebase/firestore";
+import { connectFunctionsEmulator, getFunctions, httpsCallable } from "firebase/functions";
 import { firebaseApp } from "./firebase.js";
 
-// Este módulo solo se solicita después de validar un envío. Conserva Firestore
-// completo y su cola/reintento en memoria cuando se pierde la conexión.
-const db = getFirestore(firebaseApp);
+const functions = getFunctions(firebaseApp, "us-central1");
+// Development opt-in; production builds always use the deployed callable.
+if (import.meta.env.DEV && import.meta.env.VITE_USE_FIREBASE_EMULATORS === "true") {
+  connectFunctionsEmulator(functions, "127.0.0.1", 5001);
+}
+const register = httpsCallable(functions, "submitLead", { timeout: 70000 });
 
 export async function submitLead(data) {
-  await addDoc(collection(db, "leads"), {
+  const response = await register({
     nombre: data.nombre.trim(),
     email: data.email.trim().toLowerCase(),
     tipoUsuario: data.tipoUsuario,
-    perfilPsicologo: data.perfilPsicologo?.trim() || "",
-    origenFormulario: data.origenFormulario || "waitlist",
+    perfilPsicologo: data.tipoUsuario === "Psicólogo" ? data.perfilPsicologo?.trim() || "" : "",
+    origenFormulario: data.origenFormulario,
     pagePath: window.location.pathname,
-    createdAt: serverTimestamp(),
   });
+  // Only an explicit, confirmed creation may trigger success / generate_lead.
+  if (response.data?.status !== "created") {
+    throw Object.assign(new Error("Unexpected registration response"), { code: "functions/internal" });
+  }
 }

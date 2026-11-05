@@ -14,8 +14,8 @@ import {
 } from "lucide-vue-next";
 import WaitlistForm from "../components/WaitlistForm.vue";
 import HeroVideo from "../components/HeroVideo.vue";
-import DevelopmentStatusSection from "../components/DevelopmentStatusSection.vue";
 import PsychologistsSection from "../components/PsychologistsSection.vue";
+import DevelopmentStatusSection from "../components/DevelopmentStatusSection.vue";
 import {
   benefits,
   faqs,
@@ -35,7 +35,7 @@ const heroPaths = [
     icon: UserRound,
     title: "Para pacientes",
     description:
-      "Encuentra al profesional adecuado para ti, organiza tus citas, registra tus emociones y conserva lo aprendido para dar continuidad a tu terapia.",
+      "Un espacio pensado para acompañar tu búsqueda y la continuidad de tu proceso, a tu ritmo.",
     href: "/#waitlist-section",
     tone: "patient",
   },
@@ -43,7 +43,7 @@ const heroPaths = [
     icon: Users,
     title: "Para psicólogos",
     description:
-      "Recibe pacientes acordes con tu especialidad, gestiona tu agenda, despreocúpate de la cobranza y accede a herramientas que reducen tareas administrativas.",
+      "Entre preparar sesiones, coordinar horarios y hacer seguimiento a los pagos, hay mucho trabajo alrededor de cada encuentro.",
     href: "/#para-psicologos",
     tone: "psychologist",
   },
@@ -52,58 +52,58 @@ const heroPaths = [
 const solutionCards = [
   {
     icon: Search,
-    eyebrow: "El momento",
-    title: "Sabes que necesitas ayuda, pero no por dónde empezar",
+    eyebrow: "Tu búsqueda",
+    title: "Habla con nuestra IA (Lurems) para encontrar tu psicolgo ideal",
     description:
-      "Especialidades, enfoques, precios y horarios aparecen dispersos justo cuando más necesitas claridad.",
+      "Tendrás una conversación empatica y podras expresarte con total libertad, sin prejuicios, sin juzgar, todo privado y confidencial.",
   },
   {
     icon: ClipboardList,
-    eyebrow: "El puente",
-    title: "Lurems convierte la búsqueda en una ruta guiada",
+    eyebrow: "Tu psicologo ideal",
+    title: "Te brindamos opciones de psicolgos de forma personalizada para tí",
     description:
-      "Preguntas simples ayudan a ordenar tu necesidad, tus preferencias y el tipo de acompañamiento que puede tener sentido.",
+      "Te ayudamos a conocer las mejores terapeutas para tí teniendo en cuenta tu situación y preferencias",
   },
   {
     icon: HeartHandshake,
-    eyebrow: "El resultado",
-    title: "Llegas al primer contacto con más contexto",
+    eyebrow: "Tus herramientas",
+    title: "Visualiza tu avance en la terapia y conserva lo trabajado",
     description:
-      "Conecta con profesionales adecuados y conserva información relevante para avanzar sin repetir todo desde cero.",
+      "Podrás ver tu avance en terapia y acceder a las herramientas brindadas por tu terapeuta asi como un diario emocional privado para mejorar los resultados en tu terapia.",
   },
 ];
 
 const flowSteps = [
   {
     icon: ClipboardList,
-    title: "Comparte tu situación",
+    title: "Encuentra a tu psicologo ideal",
     description:
-      "Cuéntanos qué estás viviendo, qué buscas y qué límites necesitas cuidar.",
+      "Nuestra IA Lurems te recomendará a los mejores psicólogos para tí, teniendo en cuenta tu situación y preferencias.",
   },
   {
     icon: Search,
-    title: "Entiende tu mejor ruta",
+    title: "Agenda tu primera cita",
     description:
-      "Organizamos tus respuestas para que la elección no dependa solo de intuición.",
+      "Tu elegiras el horario que mejor se adapte a tu disponibilidad y podrás agendar tu primera cita con tu psicólogo ideal.",
   },
   {
     icon: CalendarDays,
-    title: "Conecta con opciones compatibles",
+    title: "Planifica tus siguientes sesiones",
     description:
-      "Revisa profesionales verificados, disponibilidad y señales relevantes para decidir.",
+      "Tendrás acceso a nuestra plataforma de gestión de citas. Podrás planificar tus siguientes sesiones y recibir recordatorios para no perder ninguna cita.",
   },
   {
     icon: HeartHandshake,
-    title: "Sostén el proceso",
+    title: "Conservar lo trabajado",
     description:
-      "Conserva claridad antes y después de cada encuentro para no volver al punto cero.",
+      "Registra tus aprendizajes en conjunto con tu terapeuta a traves de recursos personalizados y un diario emocional privado para mejorar los resultados en tu terapia.",
   },
 ];
 
 const reassuranceItems = [
-  "Registro gratuito para recibir acceso temprano",
-  "Lurems no reemplaza atención psicológica ni servicios de emergencia",
-  "Usaremos tus datos para contactarte y mejorar la experiencia inicial",
+  "Apuntarte es gratuito y no te compromete a contratar ningún servicio.",
+  "Apuntarte no crea una cuenta, reserva una sesión ni garantiza un cupo de acceso.",
+  "Usaremos estos datos para contactarte sobre el acceso temprano y conocer los perfiles interesados.",
 ];
 
 
@@ -163,20 +163,18 @@ const reassuranceItems = [
           <div class="mb-6">
             <span
               class="inline-block text-primary font-semibold text-xs uppercase tracking-[0.2em] mb-3"
-              >Problema / solución</span
+              >Para quienes buscan apoyo psicológico</span
             >
             <h2
               class="text-3xl md:text-5xl font-bold text-foreground tracking-tight leading-tight"
             >
-              Cuando pedir ayuda ya cuesta, elegir no debería sentirse imposible
+              Elegir por dónde empezar también forma parte del camino.
             </h2>
           </div>
           <p
             class="mx-auto max-w-3xl text-lg text-muted-foreground leading-relaxed"
           >
-            Lurems acompaña el tramo más frágil del proceso: entender qué
-            necesitas, reconocer buenas señales y dar un primer paso con más
-            confianza.
+          Buscar un psicólogo puede traer más preguntas de las que esperabas. Nosotros te ayudamos a encontrar le mejor psicologo para ti.
           </p>
         </div>
 
@@ -215,18 +213,17 @@ const reassuranceItems = [
         <div class="text-center mb-16">
           <span
             class="inline-block text-primary font-semibold text-xs uppercase tracking-[0.2em] mb-3"
-            >Cómo funciona</span
+            >El recorrido que estamos diseñando</span
           >
           <h2
             class="text-4xl md:text-5xl font-bold text-foreground mt-2 mb-5 tracking-tight"
           >
-            Del ruido al primer paso concreto
+            ¿Como va a funcionar Lurems?
           </h2>
           <p
             class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
-            Un recorrido simple para transformar una búsqueda incierta en una
-            decisión más informada.
+            Esta es la experiencia que buscamos construir para cuando Lurems esté disponible.
           </p>
         </div>
 
@@ -272,43 +269,47 @@ const reassuranceItems = [
       </div>
     </section>
 
-    <section class="py-24 lg:py-28 bg-muted/30 section-glow">
+    <section
+      id="continuidad"
+      aria-labelledby="continuity-title"
+      class="continuity-section scroll-mt-24 bg-muted/30 section-glow py-12 lg:py-16"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16 lg:mb-20">
-          <span
-            class="inline-block text-primary font-semibold text-xs uppercase tracking-[0.2em] mb-3"
-            >Por qué Lurems</span
-          >
-          <h2
-            class="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-2 mb-5 tracking-tight"
-          >
-            Más claridad para elegir y continuar tu terapia
-          </h2>
-          <p
-            class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-          >
-            Lurems está pensado para que la persona llegue mejor preparada y el
-            profesional reciba más contexto desde el primer contacto.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          <div
-            v-for="benefit in benefits"
-            :key="benefit.title"
-            class="group relative bg-card rounded-[8px] p-7 border border-card-border shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-1"
-          >
-            <div
-              class="w-12 h-12 rounded-[8px] bg-primary/8 border border-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/15 group-hover:border-primary/20 transition-all duration-500"
-            >
-              <component :is="benefit.icon" :size="22" class="text-primary" />
-            </div>
-            <h3 class="font-semibold text-foreground text-lg mb-2">
-              {{ benefit.title }}
-            </h3>
-            <p class="text-muted-foreground text-sm leading-relaxed">
-              {{ benefit.description }}
+        <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10 lg:items-center">
+          <div>
+            <p class="continuity-eyebrow mb-3 text-xs font-semibold uppercase tracking-[0.16em]">
+              La continuidad del proceso
             </p>
+            <h2 id="continuity-title" class="text-[28px] md:text-[36px] leading-[1.25] md:leading-[1.2] font-bold text-foreground tracking-tight mb-4">
+              Cada proceso tiene su propio ritmo.
+            </h2>
+            <p class="continuity-description text-base leading-[1.65] max-w-lg">
+              Puede haber pausas, cambios y nuevas preguntas. Queremos que puedas conservar lo trabajado y retomarlo cuando lo necesites.
+            </p>
+            <a href="#waitlist-section" class="continuity-cta mt-6 inline-flex min-h-16 w-full sm:w-auto sm:min-w-80 items-center justify-center gap-3 rounded-[20px] px-8 py-5 text-sm leading-[1.4] font-semibold transition-colors">
+              Solicitar acceso temprano
+              <ArrowRight :size="20" :stroke-width="1.5" aria-hidden="true" class="shrink-0" />
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <article
+              v-for="benefit in benefits"
+              :key="benefit.title"
+              class="flex items-start gap-3 rounded-lg p-5 border border-card-border bg-card"
+            >
+              <div class="w-10 h-10 rounded-[8px] bg-primary/8 border border-primary/10 flex items-center justify-center shrink-0">
+                <component :is="benefit.icon" :size="24" :stroke-width="1.5" class="continuity-icon" aria-hidden="true" />
+              </div>
+              <div class="min-w-0">
+                <h3 class="font-semibold text-foreground text-base leading-[1.4] mb-2">
+                  {{ benefit.title }}
+                </h3>
+                <p class="continuity-description text-sm leading-[1.6]">
+                  {{ benefit.description }}
+                </p>
+              </div>
+            </article>
           </div>
         </div>
       </div>
@@ -323,12 +324,12 @@ const reassuranceItems = [
         <div class="text-center mb-14">
           <span
             class="inline-block text-primary font-semibold text-xs uppercase tracking-[0.2em] mb-3"
-            >FAQ</span
+            >Antes de sumarte</span
           >
           <h2
             class="text-4xl md:text-5xl font-bold text-foreground mt-2 mb-5 tracking-tight"
           >
-            Dudas antes de dar el paso
+            Lo que puedes esperar de Lurems.
           </h2>
         </div>
 
@@ -403,14 +404,12 @@ const reassuranceItems = [
             <h2
               class="text-4xl md:text-5xl font-bold text-white mb-5 tracking-tight leading-tight"
             >
-              Sé de los primeros en probar Lurems
+              Recibe un aviso cuando puedas conocer Lurems.
             </h2>
             <p
               class="text-lg md:text-xl text-white/72 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed"
             >
-              Déjanos tus datos y te avisaremos cuando abramos cupos para
-              pacientes y psicólogos. Acceso temprano, sin compromiso y con
-              comunicación clara.
+              Déjanos tu nombre y correo, y cuéntanos si te interesa como paciente o como psicólogo. Te contactaremos cuando abramos el acceso.
             </p>
             <div class="space-y-3 max-w-xl mx-auto lg:mx-0">
               <div
@@ -431,10 +430,10 @@ const reassuranceItems = [
               <p
                 class="text-sm font-semibold uppercase tracking-[0.16em] text-white/60"
               >
-                Únete a la lista
+                Acceso temprano
               </p>
               <h3 class="mt-2 text-2xl font-bold text-white">
-                Reserva tu lugar en la lista
+                Únete a la lista de acceso temprano
               </h3>
             </div>
             <WaitlistForm variant="dark" origin="home-inline" />
@@ -444,3 +443,13 @@ const reassuranceItems = [
     </section>
   </div>
 </template>
+
+<style scoped>
+/* Official teal 700 and neutral 600 variants, limited to this section. */
+.continuity-section { --continuity-accent: #2A6C63; --continuity-muted: #426460; }
+.continuity-eyebrow, .continuity-icon { color: var(--continuity-accent); }
+.continuity-description { color: var(--continuity-muted); }
+.continuity-cta { color: white; background: var(--continuity-accent); }
+.continuity-cta:hover { background: var(--foreground); }
+.continuity-cta:focus-visible { outline: 2px solid var(--foreground); outline-offset: 4px; }
+</style>

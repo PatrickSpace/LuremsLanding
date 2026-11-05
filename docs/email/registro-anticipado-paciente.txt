@@ -1,0 +1,17 @@
+Hola, {{NOMBRE}}.
+
+Ya estás en la lista de Lurems.
+
+Tu registro anticipado como paciente quedó confirmado. Gracias por dar este primer paso con Lurems.
+
+Te avisaremos cuando la app esté lista.
+Recibirás un correo con los siguientes pasos para acceder a Lurems. Por ahora, no necesitas hacer nada más.
+
+Estamos preparando un espacio que te ayude a encontrar más claridad en tu camino terapéutico. Nos alegra que seas parte de esta primera etapa.
+
+Conoce el proyecto: https://lurems.lat/
+
+Equipo Lurems
+Claridad en tu camino terapéutico
+
+Recibes este mensaje porque te inscribiste en la lista de acceso temprano de Lurems como paciente. Si no solicitaste este registro, responde a este correo para avisarnos.

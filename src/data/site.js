@@ -38,66 +38,70 @@ export const steps = [
 export const benefits = [
   {
     icon: Brain,
-    title: "Orientación clara",
+    title: "Registra lo importante",
     description:
-      "Te ayudamos a comprender lo que estás buscando antes de elegir un psicólogo.",
+      "Guarda ideas y preguntas que surjan entre sesiones.",
   },
   {
     icon: Shield,
-    title: "Profesionales verificados",
+    title: "Consulta tus recursos",
     description:
-      "La propuesta contempla validar los perfiles profesionales antes de publicarlos.",
+      "Revisa los materiales compartidos por tu psicólogo.",
   },
   {
     icon: Clock,
-    title: "Proceso organizado",
+    title: "Avanza a tu ritmo",
     description:
-      "Agenda, sesiones y próximos pasos en una experiencia simple y fácil de seguir.",
+      "Tu proceso puede incluir pausas y cambios.",
   },
   {
     icon: Star,
-    title: "Continuidad",
+    title: "Lleva tu diario emocional",
     description:
-      "Mantén claridad antes y después de cada sesión para no sentirte a la deriva.",
+      "Registra cómo te sientes y qué sucede en tu día a día.",
   },
 ];
 
 export const psychologistBenefits = [
   {
     icon: Users,
-    text: "Conecta con nuevos pacientes alineados a tu perfil clínico",
+    text: "Hacer visible tu práctica",
   },
-  { icon: CalendarCheck, text: "Gestiona tu agenda desde un solo lugar" },
-  { icon: Shield, text: "Construye presencia en una plataforma verificada" },
+  { icon: CalendarCheck, text: "Reunir las tareas del día a día" },
+  { icon: Shield, text: "Llegar a cada sesión con el contexto a mano" },
   {
     icon: TrendingUp,
-    text: "Accede a herramientas potenciadas con IA para analizar tus casos",
+    text: "Estas herramientas forman parte de la propuesta en desarrollo y todavía no están disponibles.",
   },
 ];
 
 export const faqs = [
   {
-    question: "¿Ya puedo usar Lurems?",
-    answer: "Todavía estamos desarrollando la plataforma. Hoy puedes unirte a la lista de acceso temprano para recibir un aviso cuando abramos cupos. La agenda, las cobranzas y las herramientas de seguimiento aún no están disponibles.",
+    "question": "¿Cómo me ayudará Lurems a encontrar un psicólogo?",
+    "answer": "Lurems está pensado para conocer lo que buscas y tus preferencias, y recomendarte opciones de profesionales. Así podrás comparar con más información antes de elegir."
   },
   {
-    question: "¿Lurems reemplaza a un psicólogo?",
-    answer:
-      "No. Lurems ofrece orientación y organización para tu proceso, pero no realiza diagnósticos ni sustituye la atención profesional.",
+    "question": "¿Yo elijo con qué psicólogo atenderme?",
+    "answer": "Sí. Las recomendaciones servirán como orientación; tú decidirás con qué profesional quieres iniciar tu proceso."
   },
   {
-    question: "¿Los psicólogos están verificados?",
-    answer:
-      "La plataforma está en desarrollo y aún no ofrece un directorio disponible. Antes de publicar perfiles, contemplamos verificar la formación y la habilitación profesional correspondiente a cada país.",
+    "question": "¿La inteligencia artificial reemplaza al psicólogo?",
+    "answer": "No. Su función será apoyar la orientación y la organización de información. La atención, el criterio clínico y las decisiones terapéuticas corresponden al profesional."
   },
   {
-    question: "¿Cuánto cuesta el servicio?",
-    answer:
-      "Unirte a la lista de acceso temprano es gratuito. La plataforma aún está en desarrollo; comunicaremos las condiciones y los precios antes de habilitar los servicios.",
+    "question": "¿Cuánto costarán las sesiones?",
+    "answer": "Cada terapeuta tendrá su propia tarifa, por lo que el precio de las sesiones variará según el profesional que elijas."
   },
   {
-    question: "¿Cómo usan mi información?",
-    answer:
-      "El formulario solicita tu nombre, correo y tipo de usuario; si eliges psicólogo, también tu perfil profesional. Usaremos estos datos para contactarte sobre el acceso temprano y conocer los perfiles interesados.",
+    "question": "¿Apuntarme es gratis?",
+    "answer": "Sí. Registrarte en la lista de acceso temprano es gratuito y no te compromete a contratar ningún servicio. Los precios de la plataforma se comunicarán antes de habilitarla."
   },
+  {
+    "question": "¿Qué información tengo que compartir al registrarme?",
+    "answer": "Solo tu nombre, correo y si te interesa como paciente o psicólogo. Si eres psicólogo, también te pedimos tu perfil profesional. En este registro no solicitamos información clínica."
+  },
+  {
+    "question": "¿Qué ocurre después de apuntarme?",
+    "answer": "Te incorporamos a la lista para contactarte cuando abramos el acceso. El registro no crea una cuenta en la plataforma ni reserva una sesión."
+  }
 ];

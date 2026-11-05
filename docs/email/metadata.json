@@ -1,0 +1,10 @@
+{
+  "paciente": {
+    "subject": "Ya estás en la lista de acceso temprano de Lurems",
+    "preheader": "Tu registro como paciente está confirmado. Te avisaremos cuando Lurems esté lista."
+  },
+  "psicologo": {
+    "subject": "Ya estás en la lista profesional de acceso temprano de Lurems",
+    "preheader": "Recibimos tu interés en Lurems para profesionales. Te avisaremos cuando la app esté lista."
+  }
+}

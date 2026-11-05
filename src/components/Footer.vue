@@ -11,7 +11,7 @@ const productLinks = [
 
 const companyLinks = [
   { href: "/#waitlist-section", label: "Acceso temprano" },
-  { href: "/#para-psicologos", label: "Unirme como psicólogo" },
+  { href: "/#para-psicologos", label: "Novedades para psicólogos" },
 ];
 </script>
 
@@ -24,15 +24,15 @@ const companyLinks = [
           <div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
           <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
             <div class="text-center md:text-left">
-              <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">No tienes que recorrer este camino sin orientación</h3>
-              <p class="text-white/60 max-w-md">Empieza con una experiencia diseñada para ayudarte a comprender tus necesidades y dar el siguiente paso.</p>
+              <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">Claridad en tu camino terapéutico.</h3>
+              <p class="text-white/60 max-w-md">Estamos creando Lurems para acompañar la búsqueda de atención y la organización del proceso, junto a pacientes y psicólogos.</p>
             </div>
             <div class="flex flex-col sm:flex-row gap-3">
               <button class="px-7 py-3.5 rounded-full bg-white text-primary font-semibold hover:bg-white/90 transition-all shadow-lg shadow-black/20" @click="emit('open-waitlist', 'Paciente')">
-                Quiero acceso temprano
+                Quiero recibir el aviso
               </button>
               <button class="px-7 py-3.5 rounded-full bg-white/10 text-white font-semibold border border-white/20 hover:bg-white/20 transition-all" @click="emit('open-waitlist', 'Psicólogo')">
-                Quiero unirme como psicólogo
+                Quiero recibir novedades como psicólogo
               </button>
             </div>
           </div>
@@ -42,7 +42,7 @@ const companyLinks = [
           <div class="lg:col-span-4">
             <img src="/brand/lurems-logo-negativo.png" alt="Lurems" class="h-20 w-auto object-contain mb-5" />
             <p class="text-sm text-white/50 leading-relaxed max-w-xs mb-6">
-              Claridad en tu camino terapéutico. Estamos creando una plataforma para orientar, conectar y acompañar a pacientes y psicólogos.
+              La plataforma está en desarrollo. Hoy puedes apuntarte a la lista de acceso temprano.
             </p>
             <div class="flex gap-2.5">
               <a href="https://linkedin.com/company/lurems" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-10 h-10 rounded-full bg-white/5 hover:bg-primary/30 flex items-center justify-center transition-all duration-300 border border-white/10 hover:border-primary/30">in</a>
@@ -79,7 +79,7 @@ const companyLinks = [
 
         <div class="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p class="text-sm text-white/30">&copy; {{ new Date().getFullYear() }} Lurems. Todos los derechos reservados.</p>
-          <p class="text-sm text-white/30">Lurems no sustituye atención de emergencia ni diagnóstico clínico.</p>
+          <p class="text-sm text-white/30">Lurems no sustituye la atención profesional ni los servicios de emergencia.</p>
         </div>
       </div>
     </div>

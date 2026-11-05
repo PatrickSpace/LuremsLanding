@@ -12,3 +12,7 @@ pnpm-debug.log*
 .playwright-cli/
 output/
 firebase-debug*.log
+firestore-debug.log
+functions/.env.luremslanding
+functions/.env.demo-luremslanding
+functions/.secret.local

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Lurems · Dónde estamos hoy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: #F5FAFA;
+      --surface: #FFFFFF;
+      --text: #1A3A38;
+      --muted: #426460;
+      --border: #C8EDE8;
+      --brand-subtle: #EFF9F7;
+      --brand-action: #2A6C63;
+      --brand-hover: #1F504A;
+      --brand-active: #1A3A38;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--text); background: var(--background); font: 400 16px/1.65 'Poppins', system-ui, sans-serif; }
+    .review { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .review-inner { max-width: 1440px; margin: auto; padding: 16px 80px; display: flex; justify-content: space-between; align-items: baseline; gap: 24px; }
+    .review strong { font-size: 14px; font-weight: 600; }
+    .review p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    main { max-width: 1440px; margin: auto; padding: 80px; }
+    .status { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 48px; align-items: center; padding: 40px; border: 1px solid var(--border); border-radius: 12px; background: var(--brand-subtle); }
+    .eyebrow { margin: 0 0 12px; color: var(--brand-action); font-size: 12px; line-height: 1.4; font-weight: 600; }
+    h1 { margin: 0 0 16px; font-size: 28px; font-weight: 700; line-height: 1.25; }
+    .description { max-width: 640px; margin: 0; font-size: 16px; line-height: 1.65; }
+    .note { margin: 12px 0 0; font-size: 14px; line-height: 1.6; color: var(--muted); }
+    .cta { display: inline-flex; justify-content: center; align-items: center; gap: 12px; min-height: 56px; padding: 16px 24px; border: 0; border-radius: 20px; color: var(--surface); background: var(--brand-action); font: 600 14px/1 'Poppins', system-ui, sans-serif; cursor: pointer; }
+    .cta:hover { background: var(--brand-hover); }
+    .cta:active { background: var(--brand-active); }
+    .cta:focus-visible { outline: 2px solid var(--brand-active); outline-offset: 4px; }
+    .cta svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto; }
+    .contact { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 32px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 14px; line-height: 1.6; }
+    .contact p { margin: 0; font-weight: 500; }
+    .contact a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--brand-action); text-decoration: underline; text-underline-offset: 4px; overflow-wrap: anywhere; }
+    .contact svg { width: 20px; height: 20px; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .contact a span { min-width: 0; }
+    .contact a:hover { color: var(--brand-hover); text-decoration-thickness: 2px; }
+    .contact a:active { color: var(--brand-active); }
+    .contact a:focus-visible { outline: 2px solid var(--brand-active); outline-offset: 4px; border-radius: 4px; }
+    @media (max-width: 1439px) {
+      main { padding: 64px; }
+      .review-inner { padding-inline: 64px; }
+      .status { gap: 32px; }
+    }
+    @media (max-width: 1279px) {
+      main { padding-inline: 48px; }
+      .review-inner { padding-inline: 48px; }
+      .status { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 1023px) {
+      main, .review-inner { padding-inline: 32px; }
+    }
+    @media (max-width: 767px) {
+      .review-inner { flex-direction: column; gap: 4px; padding: 16px; }
+      main { padding: 40px 16px; }
+      .status { padding: 24px; gap: 24px; }
+      .cta { width: 100%; padding-inline: 16px; }
+      .contact { flex-direction: column; align-items: flex-start; gap: 4px; }
+    }
+    @media print {
+      .review { display: none; }
+      main { padding: 24px; }
+      .status { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="review">
+    <div class="review-inner">
+      <strong>Lurems · Propuesta de «Dónde estamos hoy»</strong>
+      <p>Vista de revisión. El botón es de muestra y no envía datos.</p>
+    </div>
+  </header>
+  <main>
+    <section class="status" aria-labelledby="status-title">
+      <div>
+        <p class="eyebrow">Dónde estamos hoy</p>
+        <h1 id="status-title">Estamos desarrollando Lurems.</h1>
+        <p class="description">La plataforma todavía no está disponible. Apúntate gratis a la lista de acceso temprano y te avisaremos cuando abramos el acceso.</p>
+        <p class="note">Aún no tenemos una fecha de lanzamiento.</p>
+      </div>
+      <button type="button" class="cta">
+        Quiero recibir el aviso
+        <!-- ArrowRight de Lucide (licencia ISC), biblioteca del proyecto. -->
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </button>
+      <div class="contact" aria-label="Contacto">
+        <p>¿Tienes alguna pregunta?</p>
+        <!-- Mail y MessageCircle de Lucide (licencia ISC), biblioteca del proyecto. -->
+        <a href="mailto:jplosta01@gmail.com">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          <span>jplosta01@gmail.com</span>
+        </a>
+        <a href="https://wa.me/51994875357" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg>
+          <span>WhatsApp · +51 994 875 357</span>
+        </a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

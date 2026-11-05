@@ -1,7 +1,8 @@
 <script setup>
-import { computed, reactive, ref, watch } from "vue";
+import { computed, nextTick, reactive, ref, useId, watch } from "vue";
 import { ArrowRight, CheckCircle, Loader2, User } from "lucide-vue-next";
 import { trackEvent } from "../services/analytics.js";
+import { getLeadErrorMessage } from "../services/lead-errors.js";
 
 const props = defineProps({
   variant: {
@@ -31,6 +32,9 @@ const submitted = ref(false);
 const loading = ref(false);
 const error = ref("");
 const fieldErrors = reactive({});
+const formId = useId();
+const formElement = ref(null);
+const errorElement = ref(null);
 
 const psychologistProfileOptions = [
   "Psicólogo clínico independiente",
@@ -46,7 +50,7 @@ const typeOptions = [
 
 const isDark = props.variant === "dark";
 const isPsychologist = computed(() => form.tipoUsuario === "Psicólogo");
-const submitLabel = computed(() => (form.tipoUsuario === "Psicólogo" ? "Unirme como psicólogo" : "Quiero acceso temprano"));
+const submitLabel = computed(() => "Quiero recibir el aviso");
 const successIconClass = computed(() => {
   if (isDark) return "text-white";
   return isPsychologist.value ? "text-secondary" : "text-primary";
@@ -82,11 +86,19 @@ watch(
   () => props.defaultType,
   (value) => {
     form.tipoUsuario = value;
-    if (value !== "Psicólogo") {
-      form.perfilPsicologo = "";
-    }
   },
 );
+
+watch(() => form.email, () => {
+  error.value = "";
+  delete fieldErrors.email;
+});
+watch(() => form.tipoUsuario, () => {
+  error.value = "";
+  delete fieldErrors.perfilPsicologo;
+});
+watch(() => form.nombre, () => delete fieldErrors.nombre);
+watch(() => form.perfilPsicologo, () => delete fieldErrors.perfilPsicologo);
 
 function clearErrors() {
   error.value = "";
@@ -95,9 +107,6 @@ function clearErrors() {
 
 function selectUserType(type) {
   form.tipoUsuario = type;
-  if (type !== "Psicólogo") {
-    form.perfilPsicologo = "";
-  }
 
   trackEvent("select_user_type", {
     tipo_usuario: type,
@@ -130,7 +139,7 @@ function typeButtonClass(type) {
 async function onSubmit() {
   if (loading.value || submitted.value) return;
   clearErrors();
-  // El bloqueo incluye las importaciones: dos submit durante la descarga no escriben dos leads.
+  // Evita el doble envío en esta instancia, no duplicados entre clientes.
   loading.value = true;
   const data = { ...form };
   try {
@@ -140,6 +149,9 @@ async function onSubmit() {
       parsed.error.issues.forEach((issue) => {
         fieldErrors[issue.path[0]] = issue.message;
       });
+      loading.value = false;
+      await nextTick();
+      formElement.value?.querySelector('[aria-invalid="true"]')?.focus();
       trackEvent("lead_form_error", {
         error_type: "validation",
         error_fields: parsed.error.issues.map((issue) => issue.path[0]).join(","),
@@ -159,8 +171,10 @@ async function onSubmit() {
     });
     submitted.value = true;
     emit("submitted");
-  } catch {
-    error.value = "Hubo un error al registrarte. Intenta de nuevo.";
+  } catch (cause) {
+    error.value = getLeadErrorMessage(cause);
+    await nextTick();
+    errorElement.value?.focus();
   } finally {
     loading.value = false;
   }
@@ -172,18 +186,20 @@ async function onSubmit() {
     <div class="w-16 h-16 rounded-2xl flex items-center justify-center" :class="successIconWrapperClass">
       <CheckCircle :size="32" :class="successIconClass" />
     </div>
-    <p class="text-2xl font-bold">¡Registrado!</p>
+    <p class="text-2xl font-bold">Ya estás en la lista.</p>
     <p class="max-w-sm" :class="isDark ? 'text-white/70' : 'text-muted-foreground'">
-      Te notificaremos cuando Lurems esté disponible. Gracias por dar el primer paso.
+      Te avisaremos por correo cuando abramos el acceso a Lurems. Gracias por tu interés. Este registro no crea una cuenta ni reserva una sesión.
     </p>
   </div>
 
-  <form v-else class="space-y-4" @submit.prevent="onSubmit">
+  <form v-else ref="formElement" class="space-y-4" novalidate :aria-busy="loading" @submit.prevent="onSubmit">
     <div class="grid grid-cols-2 gap-3">
       <button
         v-for="option in typeOptions"
         :key="option.value"
         type="button"
+        :aria-pressed="form.tipoUsuario === option.value"
+        :disabled="loading"
         class="flex items-center justify-center gap-2 py-3 px-5 rounded-full text-sm font-semibold transition-all"
         :class="typeButtonClass(option.value)"
         @click="selectUserType(option.value)"
@@ -210,41 +226,60 @@ async function onSubmit() {
     </div>
 
     <label v-if="form.tipoUsuario === 'Psicólogo'" class="block space-y-1.5">
+      <span :id="`${formId}-profile-label`" class="sr-only">Tu perfil profesional</span>
       <select
         v-model="form.perfilPsicologo"
+        :disabled="loading"
+        :aria-labelledby="`${formId}-profile-label`"
+        :aria-invalid="!!fieldErrors.perfilPsicologo"
+        :aria-describedby="fieldErrors.perfilPsicologo ? `${formId}-profile-error` : undefined"
         class="w-full h-12 px-4 rounded-full transition-all appearance-none"
-        :class="inputClass"
+        :class="[inputClass, fieldErrors.perfilPsicologo && 'ring-1 ring-destructive']"
       >
-        <option value="" disabled>Selecciona tu perfil</option>
+        <option value="" disabled>Tu perfil profesional</option>
         <option v-for="profile in psychologistProfileOptions" :key="profile" :value="profile">{{ profile }}</option>
       </select>
-      <span v-if="fieldErrors.perfilPsicologo" class="block text-xs" :class="isDark ? 'text-white/80' : 'text-destructive'">{{ fieldErrors.perfilPsicologo }}</span>
+      <span v-if="fieldErrors.perfilPsicologo" :id="`${formId}-profile-error`" role="alert" class="block text-xs leading-[1.5] text-foreground" :class="isDark ? 'bg-card rounded-lg px-2 py-1' : ''">{{ fieldErrors.perfilPsicologo }}</span>
     </label>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
       <label class="space-y-1.5">
+        <span :id="`${formId}-name-label`" class="sr-only">Tu nombre</span>
         <input
           v-model="form.nombre"
+          autocomplete="given-name"
+          :disabled="loading"
+          :aria-labelledby="`${formId}-name-label`"
+          :aria-invalid="!!fieldErrors.nombre"
+          :aria-describedby="fieldErrors.nombre ? `${formId}-name-error` : undefined"
           class="w-full h-12 px-4 rounded-full transition-all"
-          :class="inputClass"
-          placeholder="Tu nombre"
+          :class="[inputClass, fieldErrors.nombre && 'ring-1 ring-destructive']"
+          placeholder="¿Cómo te llamas?"
         />
-        <span v-if="fieldErrors.nombre" class="block text-xs" :class="isDark ? 'text-white/80' : 'text-destructive'">{{ fieldErrors.nombre }}</span>
+        <span v-if="fieldErrors.nombre" :id="`${formId}-name-error`" role="alert" class="block text-xs leading-[1.5] text-foreground" :class="isDark ? 'bg-card rounded-lg px-2 py-1' : ''">{{ fieldErrors.nombre }}</span>
       </label>
 
       <label class="space-y-1.5">
+        <span :id="`${formId}-email-label`" class="sr-only">Correo electrónico</span>
         <input
           v-model="form.email"
           type="email"
+          autocomplete="email"
+          autocapitalize="none"
+          spellcheck="false"
+          :disabled="loading"
+          :aria-labelledby="`${formId}-email-label`"
+          :aria-invalid="!!fieldErrors.email"
+          :aria-describedby="fieldErrors.email ? `${formId}-email-error` : undefined"
           class="w-full h-12 px-4 rounded-full transition-all"
-          :class="inputClass"
-          placeholder="tu@email.com"
+          :class="[inputClass, fieldErrors.email && 'ring-1 ring-destructive']"
+          placeholder="Correo electrónico"
         />
-        <span v-if="fieldErrors.email" class="block text-xs" :class="isDark ? 'text-white/80' : 'text-destructive'">{{ fieldErrors.email }}</span>
+        <span v-if="fieldErrors.email" :id="`${formId}-email-error`" role="alert" class="block text-xs leading-[1.5] text-foreground" :class="isDark ? 'bg-card rounded-lg px-2 py-1' : ''">{{ fieldErrors.email }}</span>
       </label>
     </div>
 
-    <p v-if="error" class="text-sm text-center rounded-xl py-2.5 px-4 border" :class="isDark ? 'text-white/90 bg-white/15 border-white/20' : 'text-destructive bg-destructive/8 border-destructive/15'">
+    <p v-if="error" ref="errorElement" role="alert" tabindex="-1" class="text-sm leading-[1.6] text-center text-foreground rounded-lg py-3 px-4 border" :class="isDark ? 'bg-card border-destructive/30' : 'bg-destructive/8 border-destructive/15'">
       {{ error }}
     </p>
 
@@ -255,9 +290,9 @@ async function onSubmit() {
       :class="submitButtonClass"
     >
       <Loader2 v-if="loading" :size="18" class="animate-spin" />
-      <span>{{ loading ? "Registrando..." : submitLabel }}</span>
+      <span>{{ loading ? "Guardando tus datos…" : submitLabel }}</span>
       <ArrowRight v-if="!loading" :size="18" />
     </button>
-    <p class="text-xs text-center" :class="isDark ? 'text-white/50' : 'text-muted-foreground/70'">Sin spam. Cancela cuando quieras.</p>
+    <p class="text-xs text-center" :class="isDark ? 'text-white/50' : 'text-muted-foreground/70'">Usaremos estos datos para contactarte sobre el acceso temprano y conocer los perfiles interesados.</p>
   </form>
 </template>

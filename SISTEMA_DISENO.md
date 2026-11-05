@@ -217,10 +217,63 @@ Esta lista operacionaliza el pedido del usuario para los agentes; incluye compro
 - [ ] Corregir las desviaciones introducidas. Documentar excepciones autorizadas, discrepancias de la fuente o limitaciones pendientes sin afirmar una conformidad que no se verificó.
 - [ ] Indicar en la entrega qué se revisó respecto al Brand System, el resultado y cualquier excepción relevante. Para trabajo sin impacto visual, indicarlo expresamente y verificar que el diff no cambió la UI.
 
-## 12. Mantenimiento
+### 11.1. Cierre local — preparación de acceso temprano (4 de noviembre de 2026)
 
-Al adoptar un cambio oficial del sistema, actualizar este documento, su fecha de consulta y los mapeos afectados. Mantener el enlace desde `AGENTS.md` y la referencia desde `CONTEXTO_PROYECTO.md`. No transformar decisiones puntuales de la landing en reglas oficiales sin evidencia en el Brand System o instrucción explícita del usuario.
+Antecedente de la etapa previa: normalización, conservación del perfil y errores accesibles del formulario compartido. En esa etapa la deduplicación estaba pendiente; quedó implementada y comprobada localmente tras autorizar Functions (cierre 11.2). Detalle histórico: [verificación de preparación](./docs/VERIFICACION_PREPARACION_ACCESO_TEMPRANO.md).
 
+- [x] Diff y componentes revisados; comparación con la pestaña **12 — Components** del Brand System oficial y tokens locales.
+- [x] Mensajes nuevos con Poppins, texto `foreground`, superficie clara y acento `destructive`; tipografía de ayuda 12 px/1,5 y alerta 14 px/1,6, espaciado 4/8/12/16 px y radio de 12 px. Se corrigió el contraste del error sobre el degradado mediante superficie sólida.
+- [x] Inline y modal comprobados en Chromium a 375/390 × 812 y 1280/1440 × 900: normal, hover, seleccionado, foco, deshabilitado/carga, validación, errores técnicos y éxito sintético. Sin desbordamiento horizontal ni recorte del formulario en esos viewports.
+- [x] Teclado, nombres accesibles, `aria-invalid`, errores asociados y foco revisados; movimiento reducido activado. No se cambiaron animaciones, logos ni recursos de marca.
+- [x] Build y pruebas de validación aprobados; revisión visual de capturas y diff completada. Datos y servicios sintéticos, sin enviar leads reales.
+- [x] Limitaciones documentadas: no hubo comprobación con lector de pantalla ni auditoría independiente. No se migraron diferencias preexistentes de botones, pills, sombras o colores por rol fuera del alcance. No hay excepciones nuevas aprobadas por el usuario ni certificación de conformidad global.
+
+### 11.2. Cierre local — duplicados mediante Functions (4 de noviembre de 2026)
+
+- [x] Diff y componente de formulario revisados. Los mensajes de duplicado reutilizan la alerta contrastada con **12 — Components**, con los tokens locales de Poppins, texto oscuro, superficies claras y error; radio 12 px, 14 px/1,6 y padding 12/16 px. No se añadieron estilos, logos, recursos ni layouts nuevos en esta fase.
+- [x] Matriz completa aprobada en inline/modal a 375/390 × 812 y 1280/1440 × 900: 64 casos con Functions y Firestore locales, más dos clientes independientes concurrentes. Revisados los tres mensajes, foco, conservación de datos, cambio de tipo y correo; sin cierre, éxito ni conversión en duplicados.
+- [x] Estados normal, hover, seleccionado, foco, validación, carga/deshabilitado, permisos, conexión y éxito cubiertos también con ocho recorridos de Functions simulada. Navegación por teclado y movimiento reducido revisados; sin recorte del formulario ni desbordamiento horizontal en los tamaños comprobados.
+- [x] Revisión visual de capturas de escritorio/móvil, contraste de la alerta y tokens completada; sin desviaciones nuevas ni migraciones globales. Se mantienen las diferencias previas de acciones/pills fuera del alcance.
+- [x] Build aprobado, cinco pruebas unitarias y nueve de integración aprobadas. Toda la evidencia utiliza datos sintéticos y proyecto demo, sin publicación ni migración.
+- [x] Límites: autocomprobación de desarrollo, sin lector de pantalla ni dispositivo físico, sin certificación global del sitio. No hay nuevas excepciones explícitas de diseño. Evidencia y pendientes operativos: [verificación de Functions](./docs/VERIFICACION_ACCESO_TEMPRANO_FUNCTIONS.md).
+
+### 11.4. Cierre local — correos de registro anticipado (4 de noviembre de 2026)
+
+- [x] Plantillas nuevas de paciente/psicólogo, sin reutilizar mensajes de cuentas de la app. Comparación con **03 — Variables**, **12 — Components**, tokens locales y recursos oficiales; logo intacto y con zona de seguridad.
+- [x] Verde paciente y morado profesional con variantes oscuras para texto/CTA, fondo claro y texto `#1A3A38`; Poppins con fallback de email Arial/Helvetica. Tipografía 28/18/16/14/12 px, interlineados de la guía, espaciado de la escala y radios 12/20 px.
+- [x] Dieciséis casos de navegador aprobados: dos variantes a 375/390/1280/1440 px, con y sin imágenes/fuentes externas. Revisión visual de capturas, foco por teclado, hover del enlace, nombres accesibles, contraste y ausencia de desbordamiento. No hay animaciones; movimiento reducido activado.
+- [x] Renderer y HTML/TXT generados coherentes; nombre escapado y mensajes de lista de acceso temprano, sin aprobación profesional, cuenta creada o cupo garantizado. Build y ocho pruebas unitarias aprobados; veinte pruebas de Functions aprobadas con captura local y datos sintéticos.
+- [x] Esta tarea no alteró la UI de la landing ni los estilos concurrentes de storytelling. Sin nuevas imágenes ni cambios de marca. Gmail real, Outlook, modo oscuro de clientes, lector de pantalla y recepción siguen pendientes. No se publicó ni envió correo real.
+- [x] Configuración Gmail y estados de envío documentados; la activación requiere secreto real y publicación autorizada. Sin excepciones nuevas de diseño; la vista previa usa Poppins externa y el correo mantiene fallback por compatibilidad. Detalle y archivos: [correos de acceso temprano](./docs/email/README.md).
+
+### 11.5. Cierre local — actualización de textos conservando los gráficos (4 de noviembre de 2026)
+
+- [x] Por instrucción expresa del fundador, solo se actualiza copy dentro de los bloques existentes. Comparación automática de los templates antes/después: mismos elementos, clases y atributos gráficos; únicamente textos y placeholders distintos. Hero, tokens CSS, logos, iconos, colores, tamaños, tarjetas, grillas y efectos conservados.
+- [x] Referencia oficial consultada de nuevo en **12 — Components**, junto con los fundamentos ya revisados. Sin tokens ni componentes visuales nuevos. Se preservan las diferencias preexistentes de color por rol, contraste, escala y jerarquía por el alcance explícito de solo textos; no se afirma conformidad global ni se introduce una migración visual.
+- [x] Chromium local a 375/390 × 812 y 1280/1440 × 900: revisión visual y funcional de textos largos, tarjetas, cinco FAQ, anchors, público/perfil, validación, carga, error y éxito con servicios sintéticos. Sin desbordamiento horizontal ni recorte del formulario/modal en los tamaños probados. Placeholders acortados a las etiquetas del prototipo para evitar truncamiento en móvil.
+- [x] Ocho recorridos del script previo de preparación aprobados con Functions/Analytics simulados: teclado/foco, retención de perfil/datos, errores de permisos/conexión y bloqueo de doble envío conservados. Build y ocho pruebas unitarias aprobados. Sin leads reales, envío de correos ni publicación.
+- [x] Se mantiene el comportamiento previo: orden móvil del bloque de acceso temprano y cierre automático del modal a 1,4 s. La nueva instrucción de solo textos limita expresamente la implementación; no se aplican los cambios de estructura/comportamiento del intento descartado. Sin comprobación de la landing publicada, otros navegadores, lector de pantalla ni QA independiente.
+
+### 11.6. Cierre local — continuidad compacta y CTA (4 de noviembre de 2026)
+
+- [x] Cambio autorizado únicamente en la sección señalada por el fundador: menos altura y espacios, cuatro tarjetas con los mismos textos/iconos y un CTA grande «Solicitar acceso temprano». Revisada la diferencia contra copia local previa; preservados los cambios ajenos de copy en el resto de Home y los demás archivos del producto.
+- [x] Contrastadas en la web oficial Variables, Typography, Border Radius y Components, junto con las escalas locales de color, espaciado e iconografía. Poppins 28/36 px en el título; cuerpo 16/1,65 y 14/1,6; tarjetas 12 px, iconos Lucide de 24 px con trazo 1,5; CTA de 64 px y radio 20 px. Contenedores existentes reutilizados, sin migración global de grilla o tokens.
+- [x] Teal 700 `#2A6C63` para acción de marca/iconos y neutral 600 `#426460` para cuerpo, definidos como variables locales de sección; hover con `foreground`. Texto blanco del CTA con contraste aproximado 6,13:1 y foco oscuro visible. No se tocaron logos ni sus recursos.
+- [x] Chromium local en viewports 375/390 × 812 y 768/1024/1280/1440 × 900, con movimiento reducido: cuatro tarjetas, CTA de 64 px, navegación por teclado y foco, hover, enlace al formulario y ausencia de desbordamiento comprobados. Capturas de escritorio/móvil revisadas. Estados de carga/error/éxito no afectados: se conserva el formulario existente y no se envían leads.
+- [x] Build y diff comprobados. Solo validación local, sin publicación ni comprobación de la landing desplegada. Sin lector de pantalla, dispositivo físico ni revisión independiente. El nuevo encargo permite cambiar la composición de esta sección; los demás bloques conservan su presentación anterior.
+
+### 11.7. Cierre local — copy aprobado de las cuatro tarjetas (5 de noviembre de 2026)
+
+- [x] Sustituidos únicamente los títulos y descripciones de continuidad por los cuatro textos aprobados, incluido el diario emocional. Comparación contra el bloque previo: iconos, estructura, clases, tokens, tipografía y CTA conservados; sin cambios visuales de diseño ni nuevas excepciones al Brand System revisado en 11.6.
+- [x] Textos y ausencia de desbordamiento comprobados en Chromium local a 375/390/1280/1440 px; capturas de móvil y escritorio revisadas para legibilidad y ajuste. Build y diff aprobados. Sin envío de leads ni publicación; sin verificación de la web desplegada ni auditoría independiente.
+
+### 11.8. Cierre — sección profesional aprobada y publicada (5 de noviembre de 2026)
+
+- [x] Nuevo componente `PsychologistsSection.vue`, integrado únicamente en `#para-psicologos`, con copy literal del prototipo aprobado. Cuatro tarjetas, un solo párrafo de resumen, nota de acceso temprano y nota de desarrollo; sin encabezado editorial ni lista anterior. Jerarquía h2/h3/h4 bajo el h1 del hero.
+- [x] Comparación con Variables, Color System, Typography, Border Radius y Components de la web oficial. Poppins, morado profesional, acción `#6358B8`/blanco (5,80:1), hover `#4D44A0` (7,92:1), activo/foco `#383188` (10,70:1), neutral 600 para cuerpo, radios 8/12/20 px y sombra S oficial. Lucide de 24 px y trazo 1,5; sin cambios de logo, hero ni recursos.
+- [x] 22 recorridos locales (workspace y build aislado) y 11 sobre `https://lurems.lat/`: 374/375/390, 767/768, 1023/1024, 1279/1280 y 1439/1440 px. Copy, orden responsive, cuatro tarjetas, ausencia de desbordamiento, normal/hover/activo/foco del CTA, clic/Enter y modal con psicólogo preseleccionado aprobados. Capturas móviles y de escritorio revisadas, con movimiento reducido; sin leads reales.
+- [x] Build del workspace y artefacto aislado aprobados; ocho pruebas unitarias existentes aprobadas. Despliegue solo Hosting, desde base publicada reproducida: 37 archivos de base idénticos y dos reservados de Hosting. Fuentes de producto cambiadas en el artefacto: Home y el nuevo componente, sin los cambios locales pendientes del resto de la landing.
+- [x] Producción verificada: versión `614b097a459f9717`; los 37 archivos del artefacto coinciden con HTTPS. Fuera de la sección, textos, enlaces e imágenes coinciden con la base previa en 390/1440 px. Sin Functions/reglas, sin escrituras ni envío de correos. Sin otras excepciones de diseño; límites: Chromium, sin dispositivo físico, lector de pantalla ni QA independiente. Detalle: [verificación y despliegue](./docs/VERIFICACION_PARA_PSICOLOGOS.md).
 
 ### 11.9. Cierre local — «Dónde estamos hoy» compacto (5 de noviembre de 2026)
 
@@ -230,7 +283,14 @@ Al adoptar un cambio oficial del sistema, actualizar este documento, su fecha de
 - [x] CTA normal/hover/activo/foco, clic y Enter comprobados; enlaces con foco visible, destinos y atributos de WhatsApp verificados sin activarlos. Modal real con selección general predeterminada (`Paciente`), cambio a psicólogo y eventos de apertura comprobados mediante Analytics simulado. Formulario, validación y guardado conservados; sin leads ni mensajes enviados.
 - [x] `npm run build`, ocho pruebas existentes y revisión del diff aprobados. Implementación exclusivamente local: no hubo despliegue ni comprobación de producción. Límites: Chromium, sin dispositivo físico, lector de pantalla ni auditoría independiente; sin nuevas excepciones de diseño.
 
+Publicación posterior autorizada: versión Hosting `e90e8093f4316e48`, con diez recorridos sobre el dominio publicado y capturas de 390/1440 px revisadas; CTA, foco, contactos, selección de público y ausencia de desbordamiento aprobados. Se excluyó el resto del trabajo local pendiente y no se desplegaron Functions ni reglas. Sin leads ni mensajes enviados.
 
-La publicación posterior fue autorizada por el fundador: Hosting `e90e8093f4316e48`. Se conserva el diseño contrastado localmente; los cambios pendientes ajenos se excluyen del artefacto.
+### 11.10. Cierre local — siete FAQ aprobadas (5 de noviembre de 2026)
 
-Comprobación de producción: diez recorridos Chromium sobre `https://lurems.lat/` a 375/390, 767/768, 1023/1024, 1279/1280 y 1439/1440 px. Copy, distribución, enlaces, foco, estados del CTA, clic/Enter y modal con público editable aprobados. Capturas de 390/1440 px revisadas. Sin leads ni mensajes enviados; recepción de Analytics y persistencia real fuera de esta comprobación.
+- [x] Sustituidos únicamente los datos de preguntas/respuestas por siete textos literales aprobados. Comparación de hashes de todos los archivos de `src` contra el estado previo: solo cambia el arreglo `faqs` de `site.js`; el resto de ese archivo permanece idéntico. Conservados template, identificador, estilos, tokens, Poppins, iconos y funcionamiento del acordeón. Sin cambios del sistema visual ni nuevas excepciones; se mantienen las diferencias preexistentes fuera del alcance de solo contenido.
+- [x] Chromium local a 375/390/1280/1440 px: siete preguntas y respuestas exactas en el orden aprobado; apertura/cierre individual, cierre de la anterior al abrir otra, Enter/Espacio y navegación con Tab comprobados. Respuestas completas sin recorte ni desbordamiento horizontal; capturas de móvil y escritorio revisadas con movimiento reducido.
+- [x] Build, ocho pruebas existentes y revisión del delta aprobados. Formulario y otras secciones intactos, sin leads ni mensajes enviados. No se publicó ni desplegó; sin comprobación de producción, otros navegadores, dispositivo físico, lector de pantalla ni auditoría independiente.
+
+## 12. Mantenimiento
+
+Al adoptar un cambio oficial del sistema, actualizar este documento, su fecha de consulta y los mapeos afectados. Mantener el enlace desde `AGENTS.md` y la referencia desde `CONTEXTO_PROYECTO.md`. No transformar decisiones puntuales de la landing en reglas oficiales sin evidencia en el Brand System o instrucción explícita del usuario.
