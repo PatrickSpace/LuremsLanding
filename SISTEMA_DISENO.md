@@ -220,3 +220,17 @@ Esta lista operacionaliza el pedido del usuario para los agentes; incluye compro
 ## 12. Mantenimiento
 
 Al adoptar un cambio oficial del sistema, actualizar este documento, su fecha de consulta y los mapeos afectados. Mantener el enlace desde `AGENTS.md` y la referencia desde `CONTEXTO_PROYECTO.md`. No transformar decisiones puntuales de la landing en reglas oficiales sin evidencia en el Brand System o instrucción explícita del usuario.
+
+
+### 11.9. Cierre local — «Dónde estamos hoy» compacto (5 de noviembre de 2026)
+
+- [x] Sustituido únicamente el bloque anterior por `DevelopmentStatusSection.vue`, con copy literal aprobado, CTA funcional y contactos debajo del separador. Eliminados sus cuatro datos de tarjetas e import exclusivo; comparación contra copia previa de esta tarea para conservar los cambios locales ajenos y las demás secciones.
+- [x] Contrastados Variables, Color System y Components del Brand System oficial con tokens locales y prototipo. Poppins heredada, teal de marca: superficie `#EFF9F7`, borde `#C8EDE8`, acción `#2A6C63`, hover `#1F504A`, texto oscuro y neutral `#426460`. CTA con texto blanco (6,13:1), radio 20 px y altura mínima 56 px; panel con radio local 12 px. Lucide con trazo 1,5 e iconos decorativos ocultos a tecnologías de asistencia. Sin cambios de logo ni migración global.
+- [x] Diez recorridos en Chromium local a 375/390, 767/768, 1023/1024, 1279/1280 y 1439/1440 px: copy, columnas, contactos debajo, CTA móvil de ancho completo y ausencia de desbordamiento aprobados. Capturas de 390 y 1440 px revisadas visualmente; movimiento reducido activado.
+- [x] CTA normal/hover/activo/foco, clic y Enter comprobados; enlaces con foco visible, destinos y atributos de WhatsApp verificados sin activarlos. Modal real con selección general predeterminada (`Paciente`), cambio a psicólogo y eventos de apertura comprobados mediante Analytics simulado. Formulario, validación y guardado conservados; sin leads ni mensajes enviados.
+- [x] `npm run build`, ocho pruebas existentes y revisión del diff aprobados. Implementación exclusivamente local: no hubo despliegue ni comprobación de producción. Límites: Chromium, sin dispositivo físico, lector de pantalla ni auditoría independiente; sin nuevas excepciones de diseño.
+
+
+La publicación posterior fue autorizada por el fundador: Hosting `e90e8093f4316e48`. Se conserva el diseño contrastado localmente; los cambios pendientes ajenos se excluyen del artefacto.
+
+Comprobación de producción: diez recorridos Chromium sobre `https://lurems.lat/` a 375/390, 767/768, 1023/1024, 1279/1280 y 1439/1440 px. Copy, distribución, enlaces, foco, estados del CTA, clic/Enter y modal con público editable aprobados. Capturas de 390/1440 px revisadas. Sin leads ni mensajes enviados; recepción de Analytics y persistencia real fuera de esta comprobación.

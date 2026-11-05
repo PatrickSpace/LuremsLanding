@@ -252,3 +252,12 @@ La palabra conserva el gradiente verde a morado. El título usa dos líneas y re
 - Canales de adquisición activos, presupuesto, resultados y procesos de contacto de leads.
 
 No convertir estas incógnitas en afirmaciones comerciales. Actualizar este documento cuando haya decisiones o evidencia en el proyecto.
+
+
+## Publicación acotada — 5 de noviembre de 2026
+
+Se sincroniza GitHub con la sección «Para psicólogos» ya publicada y se incorpora «Dónde estamos hoy» mediante `DevelopmentStatusSection.vue`. Copy aprobado, CTA al modal general (paciente por defecto, público editable) y contactos visibles de correo/WhatsApp. El bloque reemplaza las cuatro tarjetas de validación; se elimina su arreglo exclusivo. No cambia el hero ni las demás secciones.
+
+El artefacto parte de la versión Hosting `614b097a459f9717`, sin incorporar cambios locales pendientes de otros encargos: formularios, Functions, correos, reglas, copy o continuidad. Se conserva el guardado y Analytics publicados. `deployment-baseline-utilities.html` es una pista de fuentes para que Tailwind reproduzca dos utilidades de la base publicada; no se renderiza ni se copia al artefacto.
+
+Despliegue exclusivo de Hosting al proyecto/sitio `luremslanding`, dominio https://lurems.lat/. Versión `e90e8093f4316e48`, publicada el 5 de noviembre de 2026 a las 06:04:40 UTC. Procedencia y hashes: `docs/deployment-donde-estamos-hoy.json`.

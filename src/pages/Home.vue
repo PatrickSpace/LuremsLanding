@@ -2,29 +2,23 @@
 import { ref } from "vue";
 import {
   ArrowRight,
-  BrainCircuit,
   CalendarDays,
-  CalendarCheck,
   ChevronDown,
-  ClipboardCheck,
   ClipboardList,
-  CreditCard,
   Heart,
   HeartHandshake,
-  LibraryBig,
   Search,
   Shield,
-  UserRoundPlus,
   UserRound,
   Users,
 } from "lucide-vue-next";
 import WaitlistForm from "../components/WaitlistForm.vue";
 import HeroVideo from "../components/HeroVideo.vue";
+import DevelopmentStatusSection from "../components/DevelopmentStatusSection.vue";
+import PsychologistsSection from "../components/PsychologistsSection.vue";
 import {
   benefits,
   faqs,
-  psychologistBenefits,
-  validationGoals,
 } from "../data/site.js";
 
 const emit = defineEmits(["open-waitlist"]);
@@ -112,44 +106,7 @@ const reassuranceItems = [
   "Usaremos tus datos para contactarte y mejorar la experiencia inicial",
 ];
 
-const platformFeatureCards = [
-  {
-    icon: UserRoundPlus,
-    title: "Nuevos pacientes",
-    description:
-      "Amplía tu alcance más allá del boca a boca y conecta con pacientes cuyas necesidades se alineen con tu práctica.",
-  },
-  {
-    icon: CalendarCheck,
-    title: "Agenda y próximos pasos",
-    description:
-      "Centraliza citas, recordatorios y acciones para organizar tus sesiones de terapia.",
-  },
-  {
-    icon: LibraryBig,
-    title: "Herramientas psicológicas",
-    description:
-      "Convierte las herramientas que le brindas a tus pacientes en un recurso al que pueden acceder cuando lo necesiten.",
-  },
-  {
-    icon: CreditCard,
-    title: "Cobranzas automáticas",
-    description:
-      "Simplifica la cobranza y consulta resúmenes de ingresos y reportes financieros.",
-  },
-  {
-    icon: BrainCircuit,
-    title: "Historia clínica inteligente",
-    description:
-      "Accede a resúmenes, detecta patrones conductuales y organiza la información de tus pacientes para dar continuidad a tu trabajo.",
-  },
-  {
-    icon: ClipboardCheck,
-    title: "Contexto previo a la sesión",
-    description:
-      "Recibe un resumen de la información relevante para preparar cada sesión.",
-  },
-];
+
 </script>
 
 <template>
@@ -357,144 +314,9 @@ const platformFeatureCards = [
       </div>
     </section>
 
-    <section
-      id="para-psicologos"
-      class="scroll-mt-24 py-24 lg:py-28 bg-background"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <span
-              class="inline-block text-secondary font-semibold text-xs uppercase tracking-[0.2em] mb-3"
-              >Para psicólogos</span
-            >
-            <h2
-              class="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-foreground mt-2 mb-7 leading-tight tracking-tight"
-            >
-              La herramienta clave para los psicólogos independientes
-            </h2>
-            <p
-              class="text-lg text-muted-foreground mb-10 leading-relaxed max-w-lg"
-            >
-              Estamos desarrollando Lurems para ayudar a los psicólogos a captar pacientes, gestionar su
-              agenda y organizar el seguimiento, reduciendo tareas operativas
-              con IA para que puedan centrarse en lo importante: sus pacientes.
-            </p>
-            <ul class="space-y-5 mb-10">
-              <li
-                v-for="item in psychologistBenefits"
-                :key="item.text"
-                class="flex items-start gap-4"
-              >
-                <div
-                  class="w-8 h-8 rounded-lg bg-secondary/8 border border-secondary/15 flex items-center justify-center flex-shrink-0 mt-0.5"
-                >
-                  <component
-                    :is="item.icon"
-                    :size="14"
-                    class="text-secondary"
-                  />
-                </div>
-                <span class="text-foreground text-[0.95rem] leading-snug">{{
-                  item.text
-                }}</span>
-              </li>
-            </ul>
-            <button
-              class="group inline-flex items-center gap-2.5 bg-secondary hover:bg-secondary/90 text-white font-semibold px-7 py-3.5 rounded-full transition-all shadow-lg shadow-secondary/20 hover:shadow-secondary/30 hover:-translate-y-0.5 text-sm"
-              @click="emit('open-waitlist', 'Psicólogo')"
-            >
-              Quiero sumarme como psicólogo
-              <ArrowRight
-                :size="16"
-                class="group-hover:translate-x-0.5 transition-transform"
-              />
-            </button>
-          </div>
+    <PsychologistsSection @open-waitlist="emit('open-waitlist', $event)" />
 
-          <div class="relative">
-            <div
-              class="rounded-[8px] bg-gradient-to-br from-secondary/10 via-primary/5 to-background border border-card-border p-5 sm:p-7 shadow-2xl shadow-black/5"
-            >
-              <div class="mb-6">
-                <p
-                  class="text-xs font-semibold uppercase tracking-[0.16em] text-secondary"
-                >
-                  Funcionalidades previstas
-                </p>
-                <h3 class="mt-2 text-2xl font-bold text-foreground">
-                  Una app para orientar, conectar y sostener el proceso
-                </h3>
-                <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  Estas herramientas forman parte de la propuesta en desarrollo.
-                  Te avisaremos cuando puedas probarlas.
-                </p>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <article
-                  v-for="feature in platformFeatureCards"
-                  :key="feature.title"
-                  class="rounded-[8px] border border-card-border/70 bg-card p-4 shadow-sm"
-                >
-                  <div
-                    class="mb-4 flex h-11 w-11 items-center justify-center rounded-[8px] border border-secondary/15 bg-secondary/10 text-secondary"
-                  >
-                    <component :is="feature.icon" :size="21" />
-                  </div>
-                  <h4
-                    class="text-sm font-semibold leading-snug text-foreground"
-                  >
-                    {{ feature.title }}
-                  </h4>
-                  <p class="mt-2 text-xs leading-relaxed text-muted-foreground">
-                    {{ feature.description }}
-                  </p>
-                </article>
-              </div>
-            </div>
-            <div
-              class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-secondary/5 rounded-full blur-3xl"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-24 lg:py-28 bg-muted/20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <span
-            class="inline-block text-primary font-semibold text-xs uppercase tracking-[0.2em] mb-3"
-            >Validación</span
-          >
-          <h2
-            class="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-2 mb-5 tracking-tight"
-          >
-            Lo que estamos validando
-          </h2>
-          <p
-            class="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-          >
-            Queremos aprender qué necesitan pacientes y psicólogos antes de
-            lanzar. Estos son los objetivos que guían el desarrollo de Lurems.
-          </p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div
-            v-for="goal in validationGoals"
-            :key="goal.title"
-            class="bg-card rounded-[8px] p-7 border border-card-border shadow-sm"
-          >
-            <span class="inline-flex items-center rounded-full bg-primary/8 px-3 py-1 text-xs font-semibold text-primary mb-5">
-              {{ goal.audience }}
-            </span>
-            <h3 class="text-lg font-semibold text-foreground mb-3">{{ goal.title }}</h3>
-            <p class="text-muted-foreground leading-relaxed text-[0.95rem]">{{ goal.description }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <DevelopmentStatusSection @open-waitlist="emit('open-waitlist')" />
 
     <section id="preguntas" class="scroll-mt-24 py-24 lg:py-28 bg-background">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">

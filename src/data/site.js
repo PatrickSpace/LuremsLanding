@@ -75,29 +75,6 @@ export const psychologistBenefits = [
   },
 ];
 
-export const validationGoals = [
-  {
-    audience: "Para pacientes",
-    title: "Una búsqueda más clara",
-    description: "Entender qué información ayuda a elegir un profesional de acuerdo con las necesidades, preferencias y posibilidades de cada persona.",
-  },
-  {
-    audience: "Para pacientes",
-    title: "Continuidad entre sesiones",
-    description: "Explorar cómo los registros emocionales y los recursos terapéuticos pueden ayudar a conservar lo trabajado en terapia.",
-  },
-  {
-    audience: "Para psicólogos",
-    title: "Menos carga administrativa",
-    description: "Identificar qué tareas de agenda, recordatorios y cobranza conviene simplificar para dedicar más tiempo a la atención.",
-  },
-  {
-    audience: "Para psicólogos",
-    title: "Más contexto para cada encuentro",
-    description: "Comprender cómo organizar la información relevante de cada paciente para preparar las sesiones y dar seguimiento al proceso.",
-  },
-];
-
 export const faqs = [
   {
     question: "¿Ya puedo usar Lurems?",
